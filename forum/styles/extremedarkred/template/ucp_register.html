@@ -1,0 +1,125 @@
+<!-- INCLUDE overall_header.html -->
+
+<script type="text/javascript">
+// <![CDATA[
+	/**
+	* Change language
+	*/
+	function change_language(lang_iso)
+	{
+		document.forms['register'].change_lang.value = lang_iso;
+		document.forms['register'].submit.click();
+	}
+
+	function disable_and_handle()
+	{
+		if (old_func)
+		{
+			old_func();
+		}
+
+		disable(true);
+	}
+
+	<!-- IF S_TIME -->
+		window.onload = disable_and_handle;
+		setInterval("disable(false)", {S_TIME});
+	<!-- ENDIF -->
+// ]]>
+</script>
+
+<form name="register" method="post" action="{S_UCP_ACTION}">
+
+<!-- IF ERROR -->
+	{$BEGIN_TCORNERS}<span style="color:#F00">{L_INFORMATION}</span>{$END_TCORNERS}
+	<div class="tablebg">
+		<div class="row1 gensmall">{ERROR}</div>
+	</div>
+	{$BCORNERS}
+	<br />
+<!-- ENDIF -->
+
+{$BEGIN_TCORNERS}{L_REGISTRATION}{$END_TCORNERS}
+<table class="tablebg" width="100%" cellspacing="1">
+<!-- IF L_REG_COND -->
+	<tr> 
+		<td class="row2" colspan="2"><span class="gensmall">{L_REG_COND}</span></td>
+	</tr>
+<!-- ENDIF -->
+<!-- IF .profile_fields -->
+	<tr> 
+		<td class="row2" colspan="2"><span class="gensmall">{L_ITEMS_REQUIRED}</span></td>
+	</tr>
+<!-- ENDIF -->
+
+<tr>
+	<td class="row1" width="38%" align="{S_CONTENT_FLOW_END}"><strong class="genmed"><label for="username">{L_USERNAME}:</label> </strong><br /><span class="gensmall">{L_USERNAME_EXPLAIN}</span></td>
+	<td class="row2"><input class="post" type="text" id="username" name="username" size="25" maxlength="40" value="{USERNAME}" /></td>
+</tr>
+<tr>
+	<td class="row1" align="{S_CONTENT_FLOW_END}"><strong class="genmed"><label for="email">{L_EMAIL_ADDRESS}:</label> </strong></td>
+	<td class="row2"><input class="post" type="text" id="email" name="email" size="25" maxlength="255" value="{EMAIL}" /></td>
+</tr>
+<tr>
+	<td class="row1" align="{S_CONTENT_FLOW_END}"><strong class="genmed"><label for="email_confirm">{L_CONFIRM_EMAIL}:</label> </strong></td>
+	<td class="row2"><input class="post" type="text" id="email_confirm" name="email_confirm" size="25" maxlength="255" value="{EMAIL_CONFIRM}" /></td>
+</tr>
+<tr>
+	<td class="row1" align="{S_CONTENT_FLOW_END}"><strong class="genmed"><label for="new_password">{L_PASSWORD}:</label> </strong><br /><span class="gensmall">{L_PASSWORD_EXPLAIN}</span></td>
+	<td class="row2"><input class="post" type="password" id="new_password" name="new_password" size="25" maxlength="100" value="{PASSWORD}" /></td>
+</tr>
+<tr>
+	<td class="row1" align="{S_CONTENT_FLOW_END}"><strong class="genmed"><label for="password_confirm">{L_CONFIRM_PASSWORD}:</label> </strong></td>
+	<td class="row2"><input class="post" type="password" id="password_confirm" name="password_confirm" size="25" maxlength="100" value="{PASSWORD_CONFIRM}" /></td>
+</tr>
+<tr>
+	<td class="row1" align="{S_CONTENT_FLOW_END}"><strong class="genmed"><label for="lang">{L_LANGUAGE}:</label> </strong></td>
+	<td class="row2"><select id="lang" name="lang" onchange="change_language(this.value); return false;">{S_LANG_OPTIONS}</select></td>
+</tr>
+<tr>
+	<td class="row1" align="{S_CONTENT_FLOW_END}"><strong class="genmed"><label for="tz">{L_TIMEZONE}:</label> </strong></td>
+	<td class="row2"><select id="tz" name="tz">{S_TZ_OPTIONS}</select></td>
+</tr>
+<!-- BEGIN profile_fields -->
+	<tr>
+		<td class="row1" width="35%">
+			<strong class="genmed">{profile_fields.LANG_NAME}: </strong>
+			<!-- IF profile_fields.S_REQUIRED --><strong>*</strong><!-- ENDIF -->
+			<!-- IF profile_fields.LANG_EXPLAIN --><br /><span class="gensmall">{profile_fields.LANG_EXPLAIN}</span><!-- ENDIF -->
+		</td>
+		<td class="row2">{profile_fields.FIELD}<!-- IF profile_fields.ERROR --><br /><span class="gensmall" style="color:#F00">{profile_fields.ERROR}</span><!-- ENDIF --></td>
+	</tr>
+<!-- END profile_fields -->
+</table>
+{$BCORNERS}
+<br />
+
+<!-- IF S_CONFIRM_CODE -->
+	{$BEGIN_TCORNERS}{L_CONFIRMATION}{$END_TCORNERS}
+	<table class="tablebg" width="100%" cellspacing="1">
+	<tr>
+		<td class="row3 gensmall" colspan="2">{L_CONFIRM_EXPLAIN}</td>
+	</tr>
+	<tr>
+		<td class="row1" colspan="2" align="center">{CONFIRM_IMG}</td>
+	</tr>
+	<tr>
+		<td class="row1" width="38%" align="{S_CONTENT_FLOW_END}"><strong class="genmed"><label for="confirm_code">{L_CONFIRM_CODE}:</label> </strong><br /><span class="gensmall">{L_CONFIRM_CODE_EXPLAIN}</span></td>
+		<td class="row2"><input class="post" type="text" id="confirm_code" name="confirm_code" size="8" maxlength="8" /></td>
+	</tr>
+	</table>
+	{$BCORNERS}
+	<br />
+<!-- ENDIF -->
+
+{$BEGIN_TCORNERS}{L_SUBMIT}{$END_TCORNERS}
+<div class="tablebg">
+	<!-- IF S_COPPA --><div class="row3 gensmall"><strong style="color:#F00">{L_COPPA_COMPLIANCE}:</strong> {L_COPPA_EXPLAIN}</div><!-- ENDIF -->
+	<div class="row1" align="center">{S_HIDDEN_FIELDS}<input class="button" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;<input class="button" type="reset" value="{L_RESET}" name="reset" /></div>
+</div>
+{$BCORNERS}
+
+{S_FORM_TOKEN}
+</form>
+
+<!-- INCLUDE overall_footer.html -->

@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="{S_CONTENT_DIRECTION}" lang="{S_USER_LANG}" xml:lang="{S_USER_LANG}">
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset={S_CONTENT_ENCODING}" />
+<meta http-equiv="content-language" content="{S_USER_LANG}" />
+<meta http-equiv="content-style-type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="resource-type" content="document" />
+<meta name="distribution" content="global" />
+<meta name="copyright" content="2002-2006 phpBB Group" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+{META}
+<title>{SITENAME} &bull; <!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_UCP} &bull; <!-- ENDIF -->{PAGE_TITLE}</title>
+
+<link rel="stylesheet" href="{T_STYLESHEET_LINK}" type="text/css" />
+
+<script type="text/javascript">
+// <![CDATA[
+<!-- IF S_USER_PM_POPUP -->
+	if ({S_NEW_PM})
+	{
+		popup('{UA_POPUP_PM}', 400, 225, '_phpbbprivmsg');
+	}
+<!-- ENDIF -->
+
+function popup(url, width, height, name)
+{
+	if (!name)
+	{
+		name = '_popup';
+	}
+
+	window.open(url.replace(/&amp;/g, '&'), name, 'height=' + height + ',resizable=yes,scrollbars=yes,width=' + width);
+	return false;
+}
+
+function jumpto()
+{
+	var page = prompt('{LA_JUMP_PAGE}:', '{ON_PAGE}');
+	var perpage = '{PER_PAGE}';
+	var base_url = '{A_BASE_URL}';
+
+	if (page !== null && !isNaN(page) && page > 0)
+	{
+		document.location.href = base_url.replace(/&amp;/g, '&') + '&start=' + ((page - 1) * perpage);
+	}
+}
+
+/**
+* Find a member
+*/
+function find_username(url)
+{
+	popup(url, 760, 570, '_usersearch');
+	return false;
+}
+
+/**
+* Mark/unmark checklist
+* id = ID of parent container, name = name prefix, state = state [true/false]
+*/
+function marklist(id, name, state)
+{
+	var parent = document.getElementById(id);
+	if (!parent)
+	{
+		eval('parent = document.' + id);
+	}
+
+	if (!parent)
+	{
+		return;
+	}
+
+	var rb = parent.getElementsByTagName('input');
+	
+	for (var r = 0; r < rb.length; r++)
+	{
+		if (rb[r].name.substr(0, name.length) == name)
+		{
+			rb[r].checked = state;
+		}
+	}
+}
+
+<!-- IF ._file -->
+
+	/**
+	* Play quicktime file by determining it's width/height
+	* from the displayed rectangle area
+	*
+	* Only defined if there is a file block present.
+	*/
+	function play_qt_file(obj)
+	{
+		var rectangle = obj.GetRectangle();
+
+		if (rectangle)
+		{
+			rectangle = rectangle.split(',')
+			var x1 = parseInt(rectangle[0]);
+			var x2 = parseInt(rectangle[2]);
+			var y1 = parseInt(rectangle[1]);
+			var y2 = parseInt(rectangle[3]);
+
+			var width = (x1 < 0) ? (x1 * -1) + x2 : x2 - x1;
+			var height = (y1 < 0) ? (y1 * -1) + y2 : y2 - y1;
+		}
+		else
+		{
+			var width = 200;
+			var height = 0;
+		}
+
+		obj.width = width;
+		obj.height = height + 16;
+
+		obj.SetControllerVisible(true);
+
+		obj.Play();
+	}
+<!-- ENDIF -->
+
+// ]]>
+</script>
+</head>
+<body class="{S_CONTENT_DIRECTION}">
+
+<a name="top"></a>
+
+<div id="wrapheader">
+
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+          <td width="363" height="32" align="left" background="{T_THEME_PATH}/images/topleft.gif">&nbsp;&nbsp;<span class="genmedw">
+         <!-- IF not S_IS_BOT -->
+					<!-- IF S_USER_LOGGED_IN -->
+					<!-- IF S_DISPLAY_PM --><a class="genmedw" href="{U_PRIVATEMSGS}">{PRIVATE_MESSAGE_INFO}<!-- IF PRIVATE_MESSAGE_INFO_UNREAD -->, {PRIVATE_MESSAGE_INFO_UNREAD}<!-- ENDIF --></a><!-- ENDIF -->
+					<!-- ENDIF -->
+					<!-- ENDIF --></span></td>
+    <td height="32" background="{T_THEME_PATH}/images/topmid.gif">&nbsp;</td>               
+    <td width="402" height="32" align="right" background="{T_THEME_PATH}/images/topright.gif"><span class="genmedw">
+<!-- IF not S_IS_BOT --><a class="genmedw" href="{U_LOGIN_LOGOUT}">{L_LOGIN_LOGOUT}</a>&nbsp;<!-- ENDIF -->&nbsp;&nbsp;&nbsp;</span>    </td>
+  </tr>
+  </table>
+  <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+  <td width="8" height="79" background="{T_THEME_PATH}/images/midleft.gif">&nbsp;</td>
+    <td height="79" background="{T_THEME_PATH}/images/midmid.gif">&nbsp;&nbsp;<span class="headw">{SITENAME}</span><br />&nbsp;&nbsp;<span class="genmedw">{SITE_DESCRIPTION}</span></td>
+      <td width="567" height="79" align="right" background="{T_THEME_PATH}/images/midright.gif">
+<!-- IF S_DISPLAY_SEARCH and not S_IN_SEARCH -->
+<div id="search-box">
+<form action="{U_SEARCH}" method="post" id="search">
+            <fieldset class="nb">
+               <input name="keywords" type="text" class="inputbox search" id="keywords" title="{L_SEARCH_KEYWORDS}" onblur="if(this.value=='')this.value='{LA_SEARCH_MINI}';" onclick="if(this.value=='{LA_SEARCH_MINI}')this.value='';" value="<!-- IF SEARCH_WORDS-->{SEARCH_WORDS}<!-- ELSE -->{L_SEARCH_MINI}<!-- ENDIF -->" maxlength="50" />
+               <input class="nb" name="submit" type="image" src="{T_THEME_PATH}/images/search.gif" align="absmiddle" /><br />
+{S_SEARCH_HIDDEN_FIELDS}
+            </fieldset>
+</form>
+</div>
+      <!-- ENDIF -->
+      </td>
+  </tr>
+  </table>
+  <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+    <tr>
+    <td width="13" background="{T_THEME_PATH}/images/bottomleft.gif">&nbsp;</td>
+      <td class="genmedw" height="21" align="left" background="{T_THEME_PATH}/images/bottommid.gif">
+				<!-- IF U_RESTORE_PERMISSIONS --> <a class="genmedw" href="{U_RESTORE_PERMISSIONS}">{L_RESTORE_PERMISSIONS}</a><!-- ENDIF -->
+				<!-- IF S_BOARD_DISABLED and S_USER_LOGGED_IN --> <span style="color: red;">{L_BOARD_DISABLED}</span><!-- ENDIF -->
+				<!-- IF not S_IS_BOT -->
+					<!-- IF S_USER_LOGGED_IN -->
+					<!-- ELSE --> <a class="genmedw" href="{U_REGISTER}"><b>{L_REGISTER}</b></a>
+					<!-- ENDIF -->
+				<!-- ENDIF -->
+			</td>
+<td class="genmedw" align="{S_CONTENT_FLOW_END}" background="{T_THEME_PATH}/images/bottommid.gif"><span class="genmedw">
+				<a class="genmedw" href="{U_FAQ}"><b>{L_FAQ}</b></a>
+				<!-- IF S_DISPLAY_SEARCH -->&nbsp;&#8226; &nbsp;<a class="genmedw" href="{U_SEARCH}"><b>{L_SEARCH}</b></a><!-- ENDIF -->
+				<!-- IF not S_IS_BOT -->
+					<!-- IF S_DISPLAY_MEMBERLIST -->&nbsp;&nbsp;&#8226; &nbsp;<a class="genmedw" href="{U_MEMBERLIST}"><b>{L_MEMBERLIST}</b></a><!-- ENDIF -->
+					<!-- IF S_USER_LOGGED_IN -->&nbsp;&nbsp;&#8226; &nbsp;<a class="genmedw" href="{U_PROFILE}"><b>{L_PROFILE}</b></a><!-- ENDIF -->
+				<!-- ENDIF -->&nbsp;</span>
+			</td>
+<td width="13" background="{T_THEME_PATH}/images/bottomright.gif">&nbsp;</td>            
+    </tr>
+  </table>
+  <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+    <td width="7" height="6" align="right"><img src="{T_THEME_PATH}/images/bl.gif" width="7" height="6" /></td>
+    <td width="100%" height="6" background="{T_THEME_PATH}/images/bm.gif"></td>
+    <td width="7" height="6"><img src="{T_THEME_PATH}/images/br.gif" width="7" height="6" /></td>
+  </tr>
+</table>
+
+	<div id="datebar">
+		<table width="100%" cellspacing="0">
+		<tr>
+			<td class="gensmall"><!-- IF S_USER_LOGGED_IN -->{LAST_VISIT_DATE}<!-- ENDIF --></td>
+			<td class="gensmall" align="{S_CONTENT_FLOW_END}">{CURRENT_TIME}<br /></td>
+		</tr>
+		</table>
+	</div>
+    
+</div>
+
+<div id="wrapcentre">
+
+	<!-- IF S_DISPLAY_SEARCH -->
+	<p class="searchbar">
+		<span style="float: {S_CONTENT_FLOW_BEGIN};"><a href="{U_SEARCH_UNANSWERED}">{L_SEARCH_UNANSWERED}</a> | <a href="{U_SEARCH_ACTIVE_TOPICS}">{L_SEARCH_ACTIVE_TOPICS}</a></span>
+		<!-- IF S_USER_LOGGED_IN -->
+		<span style="float: {S_CONTENT_FLOW_END};"><a href="{U_SEARCH_NEW}">{L_SEARCH_NEW}</a> | <a href="{U_SEARCH_SELF}">{L_SEARCH_SELF}</a></span>
+		<!-- ENDIF -->
+	</p>
+	<!-- ENDIF -->
+
+	<br style="clear: both;" />
+
+	<!-- INCLUDE breadcrumbs.html -->
+
+	<br />

@@ -1,0 +1,13 @@
+>> copy the 'wow-icon.png' file here-attached in the template's 'imageset' directory
+
+>> open overall_header.html
+
+>> ~line 4, (in the <header>)
+
+INSERT :
+
+<link rel="shortcut icon" href="{T_IMAGESET_PATH}/wow-icon.png" type="image/x-icon" />
+
+
+
+

@@ -1,0 +1,21 @@
+<!-- INCLUDE mcp_header.html -->
+
+<form method="post" name="mcp" action="{U_POST_ACTION}">
+
+	{$BEGIN_TCORNERS}{L_SELECT_USER}{$END_TCORNERS}
+	<table class="tablebg" width="100%" cellspacing="1" border="0">
+	<tr>
+		<td class="row1" width="40%" align="{S_CONTENT_FLOW_END}"><label for="username"><strong class="genmed">{L_FIND_USERNAME}:</strong></label><br /><span class="gensmall">[ <a href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false;">{L_FIND_USERNAME}</a> ]</span></td>
+		<td class="row2"><input type="text post" id="username" name="username" size="20" /></td>
+	</tr>
+	<tr>
+		<td class="cat" colspan="2" align="center"><input type="submit" class="button" name="submituser" value="{L_SUBMIT} button" /></td>
+	</tr>
+	</table>
+	{$BCORNERS}
+	
+	{S_FORM_TOKEN}
+
+</form>
+
+<!-- INCLUDE mcp_footer.html -->

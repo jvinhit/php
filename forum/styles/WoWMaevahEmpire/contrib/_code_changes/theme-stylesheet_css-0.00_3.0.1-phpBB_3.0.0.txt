@@ -1,0 +1,439 @@
+>>> /* Layout
+
+
+>> .body { }
+
+SET :
+	font-family: Arial, Helvetica, Verdana, "Lucida Grande", sans-serif;
+	background-color: #000000;
+	color: #FFFFFF;
+ADD :
+	background-image: url('./images/wowmaevahempirebackgrounda01.gif');
+
+
+
+>> .forumrules { }
+SET :
+	background-color: #000000;
+	border-width: 2px;
+	border-color: #101010;
+	font-family: Arial, Helvetica, Verdana, sans-serif, "Lucida Grande";
+ADD :
+	background-image: url('./images/wowmaevahempirebackgrounda03.gif');
+
+
+>> ADD :
+.forumrules h3, .forumrules a b {
+	font-weight: normal;
+}
+
+
+>> #logodesc { }
+SET :
+	background: none;
+REMOVE :
+	border-bottom: 1px solid #4787A7;
+
+
+>> ADD :
+#pagecontent .gensmall {
+	color:#707070;
+}
+
+
+>>> /* Text
+
+
+>> h1 { }
+SET :
+	color: #FFFFFF;
+
+
+>> h4 { }
+SET :
+	margin: 0.3em 0px 0px 0px;
+	font-size: 1.3em;
+ADD :
+	color: #FFCC33;
+
+
+>> .postdetails { }
+SET :
+	color: #AAAAAA;
+
+
+>> .postbody { }
+SET :
+	font-family: Arial, Helvetica, Verdana, "Trebuchet MS", "Lucida Grande", sans-serif;
+
+
+>> .copyright { }
+SET :
+	color: #999999;
+	font-weight: normal;
+	font-family: Verdana, Arial, Helvetica, sans-serif, "Lucida Grande";
+ADD :
+	letter-spacing: -1px;
+
+
+>> .titles { }
+SET :
+	font-family:  "Trebuchet MS" , Arial ,  Helvetica , "Lucida Grande", sans-serif , Verdana;
+	font-size: 1.4em;
+ADD :
+	font-variant: small-caps;
+	line-height : 150%;
+
+
+>> ADD :
+a.copyright:link, a.copyright:visited, a.copyright:active {
+	color: #999999;
+}
+
+
+>> ADD :
+a.copyright:hover {
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+
+>> ADD :
+div.searchbar {
+	margin: 0;
+	float: right;
+	color: #FFFFFF;
+	font-weight: bold;
+	white-space: normal;
+	font-size: 1em;
+}
+
+
+>> ADD :
+.breadcrumbs {
+	margin: 0;
+	float: left;
+	color: black;
+	font-weight: bold;
+	white-space: normal;
+	font-size: 1em;
+}
+
+
+>> .nav { }
+
+SET :
+	color: #707070;
+
+
+>> p.moderators { }
+
+SET :
+	color: #707070;
+
+
+
+>> .postauthor { }
+
+ADD :
+	font-weight : bold;
+	font-size : 120%;
+
+
+>> .posthilit { }
+
+SET :
+	background-color: #007700;
+ADD :
+	color: white;
+	padding: 0 2px 0 2px;
+	font-weight: bold;
+
+
+>> .pagination { }
+
+SET :
+	color: #707070;
+
+
+>>> /* Tables
+
+
+>> th { }
+
+SET :
+	background-color: #000000;
+
+REMOVE :
+	padding: 7px 5px;
+ADD :
+	padding-left: 6px;
+	padding-right: 6px;
+	color: #FFCC33;
+	height:25px;
+
+>> ADD :
+
+tr th {
+	padding-top: 4px;
+}
+
+>> th a:visited { }
+
+SET :
+	color: #FFCC33 !important;
+
+
+>> td { }
+
+SET :
+	padding: 6px 3px 3px 6px;
+
+>> ADD :
+
+#colorpalette td {
+	padding: 1px;
+}
+
+
+>> .cat {}
+SET :
+	background-color: #000000;
+	background-image: url('./images/cellpic3.gif');
+
+
+>> .catdiv { }
+SET:
+	background: black url('./images/cellpic3.gif') repeat-x scroll top left;
+
+
+>> .rtl .catdiv { }
+SET:
+	background: black url('./images/cellpic3.gif') repeat-x scroll top left;
+
+
+
+>> .tablebg { }
+SET :
+	background-color: transparent;
+ADD :
+	border: 1px solid #202020;
+
+
+>> .row1 { }
+SET :
+	background-color: #000000;
+	background-image: url('./images/wowmaevahempirebackgrounda01.gif');
+
+>> ADD :
+.row1b {
+	padding: 7px 4px 6px 4px;
+	background-image: url('./images/wowmaevahempirebackgrounda01.gif');
+}
+
+
+>> .row2 { }
+SET :
+	background-color: #000000;
+	background-image: url('./images/wowmaevahempirebackgrounda02.gif');
+
+>> .row3 { }
+SET :
+	background-color: #000000;
+	background-image: url('./images/wowmaevahempirebackgrounda02.gif');
+
+>> ADD :
+
+td.row1, td.row2, td.row3, tr.row1 td, tr.row2 td, td.row1b, tr.row1b td {
+	border: 1px solid #202020;
+}
+
+
+>> hr { }
+SET :
+	background-color: #202020;
+
+
+>> .spacer { }
+SET :
+	background-color: #000000;
+ADD :
+	background-image: url('./images/wowmaevahempirebackgrounda01.gif');
+	padding:3px 0 0 0;
+
+
+
+>>> /* Links
+
+
+>> a:link { }
+
+SET : 
+	color: #006699;
+
+
+>> a:active,
+a:visited { }
+
+SET : 
+	color: #006699;
+
+
+>> a:hover { }
+
+SET : 
+	color: #006699;
+
+
+>> a.topictitle:visited { }
+SET :
+	color: #006699;
+
+>> ADD:
+a.link02:link, a.link02:active, a.link02:visited, a.link02:hover {
+	text-decoration: none;
+}
+
+
+
+>>> /* Form Elements
+
+>> ADD:
+.cat form {
+	margin: 6px 0px 4px 0px;
+}
+
+>> select { }
+SET :
+	color: #FFFFFF;
+	background-color: #000000;
+
+
+>> input { }
+SET :
+	color: #FFFFFF;
+	border: 1px solid #555555;
+	background-color: #000000;
+
+
+>> textarea { }
+SET :
+	background-color: #000000;
+	color: #FFFFFF;
+	border: 1px solid #555555;
+
+
+>> .post { }
+SET :
+	background-color: #000000;
+
+
+>> .btnbbcode { }
+SET :
+	color: #FFFFFF;
+	background-color: #000000;
+	border: 1px solid #555555;
+
+
+>> .btnlite { }
+SET :
+	background-color: #000000;
+
+
+>> .btnmain { }
+SET :
+	background-color: #000000;
+
+
+>> .btnfile { }
+SET :
+	background-color: #000000;
+
+
+>> .helpline { }
+SET :
+	background-color: #000000;
+
+
+>> ADD :
+.cat input.btnmain, .cat input.btnlite, #pagecontent .cat input.btnmain, #pagecontent .cat input.btnlite {
+	margin: 5px 0 0 0;
+}
+
+
+>> ADD :
+#pagecontent .cat .btnmain, #pagecontent .cat .btnlite, #pagecontent .cat form input.btnlite  {
+	margin: 0;
+}
+
+
+>>> /* BBCode
+
+
+>> .quotetitle, .attachtitle { }
+SET :
+	border-color: #555555;
+	background-color: #000000;
+ADD :
+	background-image: url('./images/wowmaevahempirebackgrounda03.gif');
+
+
+>> .quotecontent, .attachcontent { }
+SET :
+	padding: 0 5px 5px 5px;
+	border-color: #555555;
+	line-height: 1.2em;
+	font-family: Verdana, Arial, Helvetica, "Lucida Grande", "Trebuchet MS", sans-serif;
+	background-color: #000000;
+	color: #999999;
+ADD :
+	background-image: url('./images/wowmaevahempirebackgrounda03.gif');
+
+
+>> .codetitle { }
+SET :
+	border-color: #353535;
+	color: #999999;
+	background-color: #000000;
+ADD :
+	background-image: url('./images/wowmaevahempirebackgrounda03.gif');
+
+
+>> .codecontent { }
+SET :
+	padding: 0 5px 5px 5px;
+	background-color: #000000;
+	border-color: #353535;
+
+
+>>> /* Private messages
+
+
+>> REPLACE THE FOUR FOLLOWING :
+
+.pm_marked_colour, .pm_marked_colour  img {
+	background-color: #FFCC33;
+}
+
+.pm_replied_colour, .pm_replied_colour img {
+	background-color: #A9B8C2;
+}
+
+.pm_friend_colour, .pm_friend_colour img {
+	background-color: #007700;
+}
+
+.pm_foe_colour, .pm_foe_colour img {
+	background-color: #DD0000;
+}
+
+
+>>> /* Misc
+
+
+>> .username-coloured {
+SET :
+	font-weight: normal;
+ADD :
+	font-size: 1.1em;
+}

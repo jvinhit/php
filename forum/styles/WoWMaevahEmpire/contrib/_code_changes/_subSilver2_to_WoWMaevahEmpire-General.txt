@@ -1,0 +1,55 @@
+>>>open style.cfg, imageset\imagesets.cfg, template\templates.cfg, theme\theme.cfg, 
+
+>> replace "&copy; 2005 phpBB Group" with "Ma&euml;vah/Moonclaw - http://www.wowcr.net/"
+>> replace "subsilver2" with "WoWMaevahEmpire"
+>> set the right version number
+
+>>> in imageset\imageset.cfg
+
+>> use the # Images configuration of the here-attached 'imageset_cfg-x.xx_x.x.xx-full.txt' file
+
+>>> open theme\stylesheet.css
+
+>> replace
+
+/*  phpBB 3.0 Style Sheet
+    --------------------------------------------------------------
+	Style name:		subsilver2
+	Based on style:	subSilver (the default phpBB 2 style)
+	Original author:	subBlue ( http://www.subBlue.com/ )
+	Modified by:		psoTFX and the phpBB team ( http://www.phpbb.com )
+	
+	This is an alternative style for phpBB3 for those wishing to stay with
+	the familiar subSilver style of phpBB version 2.x
+	
+	Copyright 2006 phpBB Group ( http://www.phpbb.com/ )
+    --------------------------------------------------------------
+*/
+
+>> by
+
+
+/*  phpBB 3.0 Style Sheet
+    --------------------------------------------------------------
+	Style name:			WoWMaevahEmpire
+	Based on style:		subSilver2
+	Original author:	Ma&euml;vah (ex-Moonclaw) ( http://www.wowcr.net/ )
+	
+	subSilver2 is an alternative style for phpBB3 for those wishing to stay with
+	the familiar subSilver style of phpBB version 2.x
+    --------------------------------------------------------------
+*/
+
+
+
+>>> in 'WoWMaevahEmpire/' and every sub-directory (except maybe '_documentation' and '_optional_mods'
+
+>> copy the 'index.htm' file here attached. In the code, pay attention to <img> scr attribute ! (the path to 'created_by.jpg')
+
+
+>>>open style.cfg, imageset\en\imagesets.cfg (or other languagues)
+
+REPLACE LINS 4 to 6 BY :
+# @package WoWMaevahEmpire 3
+# @Ma&euml;vah/ex-Moonclaw ( http://www.wowcr.net/ )
+# @(phpBB3) license http://opensource.org/licenses/gpl-license.php GNU Public License 

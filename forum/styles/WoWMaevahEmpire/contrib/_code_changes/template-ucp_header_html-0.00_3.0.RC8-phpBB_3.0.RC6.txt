@@ -1,0 +1,10 @@
+>> ~line 70, in "<li class="row2" style="padding: 1px 0;">&#187; <a href="{folder.U_FOLDER}">{folder.FOLDER_NAME}<!-- IF folder.S_UNREAD_MESSAGES --> ({folder.UNREAD_MESSAGES})<!-- ENDIF --></a></li>"
+
+REMOVE :
+ class="row2" style="padding: 1px 0;"
+
+
+>> ~line 89, in "<td class="row2" nowrap="nowrap" onmouseover="this.className='row1'" onmouseout="this.className='row2'" onclick="location.href=this.firstChild.href;"><a class="nav" href="{l_block1.U_TITLE}">{l_block1.L_TITLE}</a>"
+
+REMOVE :
+ onmouseover="this.className='row1'" onmouseout="this.className='row2'"

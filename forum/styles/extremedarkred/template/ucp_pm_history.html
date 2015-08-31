@@ -1,0 +1,53 @@
+
+{$BEGIN_TCORNERS}{L_MESSAGE_HISTORY} - {TITLE}{$END_TCORNERS}
+<div style="overflow:auto;width:100%;height:300px">
+	<table class="tablebg" width="100%" cellspacing="1">
+	<tr>
+		<th width="22%">{L_AUTHOR}</th>
+		<th>{L_MESSAGE}</th>
+	</tr>
+	<!-- BEGIN history_row -->
+		<!-- IF history_row.S_ROW_COUNT is even -->
+			<!-- DEFINE $CURRENT_ROW = 'row1' -->
+		<!-- ELSE -->
+			<!-- DEFINE $CURRENT_ROW = 'row2' -->
+		<!-- ENDIF -->
+	
+		<tr>
+			<td class="{$CURRENT_ROW}" rowspan="2" align="{S_CONTENT_FLOW_BEGIN}" valign="top">
+				<a name="{history_row.MSG_ID}"></a>
+				<div width="150" align="center">{history_row.MESSAGE_AUTHOR_FULL}</td>
+			</td>
+			<td class="{$CURRENT_ROW}" width="100%"<!-- IF history_row.S_CURRENT_MSG --> style="background:#000;padding:2px;border:1px dashed #F00"<!-- ENDIF -->>
+				<div class="gensmall begin"><strong>{L_PM_SUBJECT}:</strong>&nbsp;{history_row.SUBJECT}&nbsp;&nbsp;{history_row.MINI_POST_IMG} <strong>{L_SENT_AT}:</strong> {history_row.SENT_DATE}</div>
+				<div class="gensmall end"><strong>{L_FOLDER}:</strong>&nbsp;{history_row.FOLDER}</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="{$CURRENT_ROW}" valign="top">
+				<div id="message_{history_row.MSG_ID}" class="postbody">{history_row.MESSAGE}</div></td>
+			</td>
+		</tr>
+		<tr>
+			<td class="{$CURRENT_ROW} gensmall"><a href="{history_row.U_VIEW_MESSAGE}">{L_VIEW_PM}</a></td>
+			<td class="{$CURRENT_ROW}">
+				<div class="gensmall begin">
+					<!-- IF history_row.U_PROFILE --><a href="{history_row.U_PROFILE}">{PROFILE_IMG}</a><!-- ENDIF -->
+					<!-- IF history_row.U_EMAIL --><a href="{history_row.U_EMAIL}">{EMAIL_IMG}</a><!-- ENDIF -->
+				</div>
+				<div class="gensmall end">
+					<!-- IF history_row.U_QUOTE --><a href="{history_row.U_QUOTE}">{QUOTE_IMG}</a><!-- ENDIF -->
+					<!-- IF history_row.U_POST_REPLY_PM --><a href="{history_row.U_POST_REPLY_PM}">{REPLY_IMG}</a><!-- ENDIF -->
+				</div>
+				<div class="clear"></div>
+			</td>
+		</tr>
+		<tr>
+			<td class="spacer" colspan="2"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+		</tr>
+	<!-- END history_row -->
+</table>
+</div>
+{$BCORNERS}
+
+<br />

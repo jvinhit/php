@@ -1,0 +1,50 @@
+>> ~line 3, in "<td class="cat" colspan="5" align="{S_CONTENT_FLOW_END}"><!-- IF not S_IS_BOT --><a class="nav" href="{U_MARK_FORUMS}">{L_MARK_FORUMS_READ}</a><!-- ENDIF -->&nbsp;</td>"
+
+REMOVE :
+class="cat"
+
+
+>> ~line 3
+
+-cut-
+<tr>
+	<td colspan="5" align="{S_CONTENT_FLOW_END}"><!-- IF not S_IS_BOT and U_MARK_FORUMS --><a class="nav" href="{U_MARK_FORUMS}">{L_MARK_FORUMS_READ}</a><!-- ENDIF -->&nbsp;</td>
+</tr>
+
+> line 1
+add "<table>"
+- paste
+<tr>
+	<td colspan="5" align="{S_CONTENT_FLOW_END}"><!-- IF not S_IS_BOT and U_MARK_FORUMS --><a class="nav" href="{U_MARK_FORUMS}">{L_MARK_FORUMS_READ}</a><!-- ENDIF -->&nbsp;</td>
+</tr>
+add "</table>
+
+
+>> ~line 21, in "<td class="row1" width="50" align="center">{forumrow.FORUM_FOLDER_IMG}</td>"
+
+SET :
+class="row1b"
+
+
+
+>> ~line 26, in "<a class="forumlink" href="{forumrow.U_VIEWFORUM}" target="_blank">{forumrow.FORUM_NAME}</a>"
+REPLACE :
+<a class="forumlink" href="{forumrow.U_VIEWFORUM}">
+BY :
+<a class="forumlink" href="{forumrow.U_VIEWFORUM}" target="_blank">
+
+
+
+>> ~line 45, in "<td class="row1" width="50" align="center">{forumrow.FORUM_FOLDER_IMG}</td>"
+
+SET :
+class="row1b"
+
+
+
+>> ~line 52, in "<p class="forumdesc"><strong>{forumrow.L_MODERATOR_STR}:</strong> {forumrow.MODERATORS}</p>"
+
+REMOVE :
+<strong>
+REMOVE :
+</strong>

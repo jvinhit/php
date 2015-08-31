@@ -1,0 +1,80 @@
+<!-- INCLUDE overall_header.html -->
+
+<!-- IF U_MCP -->
+	<div id="pageheader">
+		<p class="linkmcp">[ <a href="{U_MCP}">{L_MCP}</a> ]</p>
+	</div>
+
+	<br clear="all" /><br />
+<!-- ENDIF -->
+
+<!-- INCLUDE forumlist_body.html -->
+
+<span class="gensmall"><!-- IF not S_IS_BOT and U_MARK_FORUMS --><a class="nav" href="{U_MARK_FORUMS}">{L_MARK_FORUMS_READ}</a> | <!-- ENDIF --><!-- IF not S_IS_BOT --><a href="{U_DELETE_COOKIES}">{L_DELETE_COOKIES}</a><!-- ENDIF --></span><br />
+
+<br clear="all" />
+
+<div id="infocontain"><div id="infowrap"><div id="info">
+<table width="100%" cellspacing="1">
+<tr>
+	<td colspan="2"><h5>{L_STATISTICS}<!-- IF S_DISPLAY_ONLINE_LIST --> &amp; <!-- IF U_VIEWONLINE --><a href="{U_VIEWONLINE}">{L_WHO_IS_ONLINE}</a><!-- ELSE -->{L_WHO_IS_ONLINE}<!-- ENDIF --><!-- ENDIF --></h5><br /></td>
+</tr>
+<tr>
+	<td><img src="{T_THEME_PATH}/images/whosonline.gif" alt="{L_STATISTICS}" /></td>
+	<td width="100%" valign="middle">
+	<p class="genmed">{TOTAL_POSTS} | {TOTAL_TOPICS} | {TOTAL_USERS} | {NEWEST_USER}</p><br />
+	<!-- IF S_DISPLAY_ONLINE_LIST -->
+	<p class="genmed">{TOTAL_USERS_ONLINE} <br />({L_ONLINE_EXPLAIN})<br />{RECORD_USERS}<br /><br />{LOGGED_IN_USER_LIST}</p>
+	<!-- IF LEGEND --><b class="gensmall">{L_LEGEND} :: {LEGEND}</b><!-- ENDIF -->
+	<!-- ENDIF -->
+	</td>
+</tr>
+<!-- IF S_DISPLAY_BIRTHDAY_LIST -->
+<!-- IF BIRTHDAY_LIST -->
+<tr>
+	<td colspan="2"><h5>{L_BIRTHDAYS}</h5><br /></td>
+</tr>
+<tr>
+	<td align="center" valign="middle"><img src="{T_THEME_PATH}/images/birthday.gif" alt="" /></td>
+	<td width="100%"><p class="genmed">{L_CONGRATULATIONS}: <b>{BIRTHDAY_LIST}</b></p></td>
+</tr>
+<!-- ENDIF -->
+<!-- ENDIF -->
+</table>
+
+</div></div></div>
+
+<!-- IF not S_USER_LOGGED_IN -->
+	<br clear="all" />
+
+	<form method="post" action="{S_LOGIN_ACTION}">
+	
+	<table class="tablebg" width="100%" cellspacing="1">
+	<tr>
+		<td class="cat"><h4><a href="{U_LOGIN_LOGOUT}">{L_LOGIN_LOGOUT}</a></h4></td>
+	</tr>
+	<tr>
+		<td class="row1" align="center"><span class="genmed">{L_USERNAME}:</span> <input class="post" type="text" name="username" size="10" />&nbsp; <span class="genmed">{L_PASSWORD}:</span> <input class="post" type="password" name="password" size="10" />&nbsp; <!-- IF S_AUTOLOGIN_ENABLED --> <span class="gensmall">{L_LOG_ME_IN}</span> <input type="checkbox" class="radio2" name="autologin" /><!-- ENDIF -->&nbsp; <input type="submit" class="btnmain" name="login" value="{L_LOGIN}" /></td>
+	</tr>
+	</table>
+	{S_FORM_TOKEN}
+	</form>
+<!-- ENDIF -->
+
+<br clear="all" />
+<table class="tablebg legend" width="326px" cellspacing="1" cellpadding="0" style="margin-top: 5px;"><tr><td class="row1">
+<table>
+<tr>
+	<td width="20" align="center">{FORUM_NEW_IMG}</td>
+	<td><span class="gensmall">{L_NEW_POSTS}</span></td>
+	<td>&nbsp;&nbsp;</td>
+	<td width="20" align="center">{FORUM_IMG}</td>
+	<td><span class="gensmall">{L_NO_NEW_POSTS}</span></td>
+	<td>&nbsp;&nbsp;</td>
+	<td width="20" align="center">{FORUM_LOCKED_IMG}</td>
+	<td><span class="gensmall">{L_FORUM_LOCKED}</span></td>
+</tr>
+</table>
+</td></tr></table>
+
+<!-- INCLUDE overall_footer.html -->

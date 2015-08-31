@@ -1,0 +1,50 @@
+<!-- IF PAGINATION -->
+<table id="bx" border="0">
+<tr>
+<b>
+
+<a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{L_GOTO_PAGE}</a> 
+
+
+<!-- IF PREVIOUS_PAGE -->
+<td>
+<table id="bx" bgcolor="#262626" border="1">
+<tr>
+<td>
+&nbsp;<a href="{PREVIOUS_PAGE}">{L_PREVIOUS}</a> <<&nbsp;
+</td>
+</tr>
+</table>
+<!-- ENDIF -->
+</td>
+<td>
+
+<table id="bx" bgcolor="#262626" border="1">
+<tr>
+<td>
+
+{PAGINATION}
+</td>
+</tr>
+</table>
+
+
+
+</td>
+
+
+<!-- IF NEXT_PAGE --> 
+<td>
+<table id="bx" bgcolor="#262626" border="1">
+<tr>
+<td>
+&nbsp;>> <a href="{NEXT_PAGE}">{L_NEXT}</a>&nbsp;
+</td>
+</tr>
+</table>
+<!-- ENDIF -->
+
+</b>
+</tr>
+</table>
+<!-- ENDIF -->

@@ -1,0 +1,23 @@
+<div class="tablebg">
+	<div class="cat breadcrumbs">
+		<img src="{T_THEME_PATH}/images/navfolder.gif" alt="" /> <a href="{U_INDEX}"><!-- IF $BOARDNAME_IN_BREADCRUMBS -->{SITENAME} - <!-- ENDIF -->{L_INDEX}</a><!-- BEGIN navlinks --> &raquo; <a href="{navlinks.U_VIEW_FORUM}">{navlinks.FORUM_NAME}</a><!-- END navlinks -->
+	</div>
+	<div class="row1 gensmall">
+		<div class="begin">
+			<!-- IF S_DISPLAY_SEARCH -->
+			<a href="{U_SEARCH_UNANSWERED}">{L_SEARCH_UNANSWERED}</a><br />
+			<a href="{U_SEARCH_ACTIVE_TOPICS}">{L_SEARCH_ACTIVE_TOPICS}</a>
+			<!-- IF S_USER_LOGGED_IN -->
+			<br />
+			<a href="{U_SEARCH_NEW}">{L_SEARCH_NEW}</a><br />
+			<a href="{U_SEARCH_SELF}">{L_SEARCH_SELF}</a>
+			<!-- ENDIF --><!-- ENDIF -->
+		</div>
+		<div class="end" align="{S_CONTENT_FLOW_END}">
+			<!-- IF S_USER_LOGGED_IN -->{LAST_VISIT_DATE}<br /><!-- ENDIF -->
+			{CURRENT_TIME}<br />
+			{S_TIMEZONE}
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>

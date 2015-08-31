@@ -1,0 +1,67 @@
+<!-- INCLUDE overall_header.html -->
+
+<div class="begin">
+	<!-- IF TOPIC_TITLE or FORUM_NAME -->
+		<h2><!-- IF TOPIC_TITLE --><a href="{U_VIEW_TOPIC}">{TOPIC_TITLE}</a><!-- ELSE --><a href="{U_VIEW_FORUM}">{FORUM_NAME}</a><!-- ENDIF --></h2>
+	<!-- ENDIF -->
+</div>
+<div class="end">
+	<!-- IF U_MCP -->
+		[
+			<a href="{U_MCP}">{L_MCP}</a>
+			<!-- IF U_MCP_FORUM --> | <a href="{U_MCP_FORUM}">{L_MODERATE_FORUM}</a><!-- ENDIF -->
+			<!-- IF U_MCP_TOPIC --> | <a href="{U_MCP_TOPIC}">{L_MODERATE_TOPIC}</a><!-- ENDIF -->
+			<!-- IF U_MCP_POST --> | <a href="{U_MCP_POST}">{L_MODERATE_POST}</a><!-- ENDIF -->
+		]
+	<!-- ENDIF -->
+</div>
+<div class="clear"><br /></div>
+
+<table width="100%" cellspacing="0" border="0">
+<tr>
+	<td width="20%" valign="top">
+
+		<table class="tablebg" width="100%" cellspacing="1">
+		<tr>
+			<th>{L_OPTIONS}</th>
+		</tr>
+		<!-- BEGIN l_block1 -->
+			<tr>
+			<!-- IF l_block1.S_SELECTED -->
+				<td class="row1"><strong class="nav">{l_block1.L_TITLE}</strong>
+					<ul class="nav" style="margin:0;padding:0;list-style-type:none;line-height:175%">
+					<!-- BEGIN l_block2 -->
+						<li>&#187; <!-- IF l_block1.l_block2.S_SELECTED --><strong>{l_block1.l_block2.L_TITLE}</strong><!-- ELSE --><a href="{l_block1.l_block2.U_TITLE}">{l_block1.l_block2.L_TITLE}</a><!-- ENDIF --></li>
+					<!-- END l_block2 -->
+					</ul>
+				<!-- ELSE -->
+					<td class="row2" nowrap="nowrap" onmouseover="this.className = 'row1';" onmouseout="this.className = 'row2';" onclick="document.location.href = this.firstChild.href;"><a class="nav" href="{l_block1.U_TITLE}">{l_block1.L_TITLE}</a>
+				<!-- ENDIF -->
+					</td>
+				</tr>
+			<!-- END l_block1 -->
+		</table>
+
+	</td>
+	<td width="80%" valign="top" style="padding-left:4px">
+
+		<!-- IF MESSAGE -->
+			{$BEGIN_TCORNERS}{L_MESSAGE}{$END_TCORNERS}
+			<div class="tablebg">
+				<div class="row1 genmed" align="center" style="padding:10px 4px">{MESSAGE}<br /><br /><!-- BEGIN return_links -->{return_links.MESSAGE_LINK}<br /><br /><!-- END return_links --></div>
+			</div>
+			{$BCORNERS}
+			
+			<br />
+		<!-- ENDIF -->
+
+		<!-- IF CONFIRM_MESSAGE -->
+			<form name="confirm" method="post" action="{S_CONFIRM_ACTION}">
+				{$BEGIN_TCORNERS}{L_PLEASE_CONFIRM}{$END_TCORNERS}
+				<div class="tablebg">
+					<div class="row1 genmed" align="center" style="padding:10px 4px">{CONFIRM_MESSAGE}<br /><br />{S_HIDDEN_FIELDS}<input class="button" type="submit" name="confirm" value="{L_YES}" />&nbsp;&nbsp;<input class="button" type="submit" name="cancel" value="{L_NO}" /></div>
+				</div>
+			</form>
+			
+			<br />
+		<!-- ENDIF -->

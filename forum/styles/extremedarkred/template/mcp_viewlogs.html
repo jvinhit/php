@@ -1,0 +1,49 @@
+<!-- INCLUDE mcp_header.html -->
+
+<form method="post" name="mcp" action="{S_MCP_ACTION}">
+	<table class="tablebg" width="100%" cellspacing="1" cellpadding="2" border="0">
+	<tr>
+		<th colspan="<!-- IF S_TOPIC_ID -->4<!-- ELSE -->5<!-- ENDIF -->" nowrap="nowrap">{L_DISPLAY_OPTIONS}</th>
+	</tr>
+	<tr>
+		<td colspan="<!-- IF S_TOPIC_ID -->4<!-- ELSE -->5<!-- ENDIF -->" class="cat" align="center"><span class="gensmall">{L_DISPLAY_LOG}:</span> {S_SELECT_SORT_DAYS}&nbsp;<span class="gensmall">{L_SORT_BY}</span> {S_SELECT_SORT_KEY} {S_SELECT_SORT_DIR}&nbsp;<input class="btnlite" type="submit" name="sort" value="{L_GO}" /></span></td>
+	</tr>
+	<tr>
+		<th width="15%" nowrap="nowrap">{L_USERNAME}</th>
+		<th width="12%" nowrap="nowrap">{L_IP}</th>
+		<th width="18%" nowrap="nowrap">{L_TIME}</th>
+		<th width="45%" nowrap="nowrap">{L_ACTION}</th>
+		<!-- IF not S_TOPIC_ID -->
+			<th width="8%" nowrap="nowrap"></th>
+		<!-- ENDIF -->
+	</tr>
+	<!-- IF S_TOPIC_ID -->
+		<tr>
+			<td class="row3 gensmall" colspan="5">{L_LOGS_CURRENT_TOPIC} <a href="{U_VIEW_TOPIC}"><strong>{TOPIC_NAME}</strong></a></td>
+		</tr>
+	<!-- ENDIF -->
+	<!-- BEGIN log -->
+		<tr>
+			<td class="row1 genmed" nowrap="nowrap">{log.USERNAME}</td>
+			<td class="row1 genmed" align="center" nowrap="nowrap">{log.IP}</td>
+			<td class="row1 gensmall" align="center" nowrap="nowrap">{log.TIME}</td>
+			<td class="row1 genmed">{log.ACTION}</td>
+			<!-- IF not S_TOPIC_ID -->
+				<td class="row1 gensmall" align="center" nowrap="nowrap"><!-- IF log.U_VIEW_TOPIC --><a href="{log.U_VIEW_TOPIC}">{L_VIEW_TOPIC}</a><!-- IF log.U_VIEWLOGS --> | <!-- ENDIF --><!-- ENDIF --><!-- IF log.U_VIEWLOGS --><a href="{log.U_VIEWLOGS}">{L_VIEW_TOPIC_LOGS}</a><!-- ENDIF --></td>
+			<!-- ENDIF -->
+		</tr>
+	<!-- BEGINELSE -->
+		<tr>
+			<td class="row1 genmed" colspan="<!-- IF S_TOPIC_ID -->4<!-- ELSE -->5<!-- ENDIF -->" align="center">{L_NO_ENTRIES}</td>
+		</tr>
+	<!-- END log -->
+	</table>
+
+	{S_FORM_TOKEN}
+</form>
+
+<div class="begin nav">{PAGE_NUMBER}</div>
+<div class="end"><!-- INCLUDE pagination.html --></div>
+<div class="clear"></div>
+
+<!-- INCLUDE mcp_footer.html -->

@@ -1,0 +1,771 @@
+/*  phpBB 3.0 Style Sheet
+    --------------------------------------------------------------
+	Style name:		VistaX
+	Based on style:	subSilver (the default phpBB 2 style)
+	Original author:	subBlue ( http://www.subBlue.com/ )
+	Modified by:		psoTFX and the phpBB team ( http://www.phpbb.com )
+	
+	This is an alternative style for phpBB3 for those wishing to stay with
+	the familiar subSilver style of phpBB version 2.x
+	
+	Copyright 2006 phpBB Group ( http://www.phpbb.com/ )
+    --------------------------------------------------------------
+*/
+
+/* Layout
+ ------------ */
+* {
+	/* Reset browsers default margin, padding and font sizes */
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 100%;	
+}
+
+form { margin: 0px; padding: 0px; }
+
+body {
+	/* Text-Sizing with ems: http://www.clagnut.com/blog/348/ */
+	font-family: "Lucida Grande", Verdana, Helvetica, Arial, sans-serif;
+	color: #000000;
+	background-color: #cee6f3;
+    background-image: url('./images/bg.gif');
+	background-repeat: repeat-x;
+	font-size: 62.5%; /* This sets the default font size to be equivalent to 10px */
+	margin: 15px auto;
+	min-width: 900px; 
+}
+
+#wrapheader {
+	min-height: 120px;
+	height: auto !important;
+	height: 120px;
+	width: 95%;
+	margin: 0 auto;
+
+/*	padding: 0 25px 15px 25px;*/
+	padding: 0;
+}
+
+#wrapcentre {
+	width: 95%;
+	margin: 0 auto;
+}
+
+#wrapsimple {
+	margin: 15px 25px 0 25px;
+}
+
+#wrapfooter {
+	text-align: center;
+	width: 90%;
+	margin: 0 auto;
+	clear: both;
+}
+
+#wrapnav {
+	width: 100%;
+	margin: 0;
+	background-color: #ECECEC;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #A9B8C2;
+}
+
+#logodesc {
+	margin-bottom: 5px;
+	padding: 5px 25px;
+	background: #D9DFE4;
+	border-bottom: 1px solid #4787A7;
+}
+
+#menubar {
+	margin: 0 25px;
+}
+
+#datebar {
+	margin: 5px 0px 0px 0px;
+}
+
+#forumbar {
+	margin: 0px 0px 3px 0px;
+}
+
+#findbar {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.forumrules {
+	background-color: #eff7fb;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #a9b8c2;
+	padding: 4px;
+	font-weight: normal;
+	font-size: 1.1em;
+	font-family: "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+}
+
+.forumrules h3 {
+	color: #aa0000;
+}
+
+#pageheader { margin: 0px 0px 3px 0px;
+}
+
+#pagecontent { }
+#pagefooter { }
+
+#poll { }
+#postrow { }
+#postdata { }
+
+/* Search box
+--------------------------------------------- */
+#search-box {
+   color: #FFFFFF;
+   margin-right: 20px;
+   float: right;
+   text-align: right;
+   white-space: nowrap; /* For Opera */
+}
+
+#search-box #keywords {
+   width: 130px;
+   background-color: #FFF;
+}
+
+#search-box input {
+   border-color: #5d666c;
+}
+
+/* .button1 style defined later, just a few tweaks for the search button version */
+#search-box input.button1 {
+   padding: 1px 5px;
+}
+
+#search-box li {
+   text-align: right;
+}
+
+#search-box img {
+   vertical-align: middle;
+   margin-right: 3px;
+}
+
+input.search {
+   background-image: url('./images/bginput.gif');
+   background-repeat: repeat-x;
+   padding-left: 2px;
+}
+
+/*  Text
+ --------------------- */
+h1 {
+	color: white;
+	font-family: "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+	font-weight: bold;
+	font-size: 2.0em;
+	text-decoration: none;
+}
+
+h2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 1.5em;
+	text-decoration: none;
+	line-height: 120%;
+}
+
+h3 {
+	font-size: 1.3em;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 120%;
+}
+
+h4 {
+	color: white;
+	margin: 0;
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+p {
+	font-size: 1.1em;
+}
+
+p.moderators {
+	margin: 0;
+	float: left;
+	color: black;
+	font-weight: bold;
+}
+
+.rtl p.moderators {
+	float: right;
+}
+
+p.linkmcp {
+	margin: 0;
+	font-size: 1em;
+	float: right;
+	white-space: nowrap;
+}
+
+.rtl p.linkmcp {
+	float: left;
+}
+
+p.breadcrumbs {
+	margin: 0;
+	float: left;
+	color: black;
+	font-weight: bold;
+	white-space: normal;
+	font-size: 1em;
+}
+
+.rtl p.breadcrumbs {
+	float: right;
+}
+
+p.datetime {
+	margin: 0;
+	float: right;
+	white-space: nowrap;
+	font-size: 1em;
+}
+
+.rtl p.datetime {
+	float: left;
+}
+
+p.searchbar {
+	padding: 2px 0;
+	white-space: nowrap;
+} 
+
+p.searchbarreg {
+	margin: 0;
+	float: right;
+	white-space: nowrap;
+}
+
+.rtl p.searchbarreg {
+	float: left;
+}
+
+p.forumdesc {
+	padding-bottom: 4px;
+}
+
+p.topicauthor {
+	margin: 1px 0;
+}
+
+p.topicdetails {
+	margin: 1px 0;
+}
+
+.postreported, .postreported a:visited, .postreported a:hover, .postreported a:link, .postreported a:active {
+	margin: 1px 0;
+	color: red;
+	font-weight:bold;
+}
+
+.postapprove, .postapprove a:visited, .postapprove a:hover, .postapprove a:link, .postapprove a:active {
+	color: green;
+	font-weight:bold;
+}
+
+.postapprove img, .postreported img {
+	vertical-align: bottom;
+}
+
+.postauthor {
+	color: #000000;
+}
+
+.postdetails {
+	color: #000000;
+}
+
+.postbody {
+	font-size: 1.3em;
+	line-height: 1.4em;
+	font-family: "Lucida Grande", "Trebuchet MS", Helvetica, Arial, sans-serif;
+}
+
+.postbody li, ol, ul {
+	margin: 0 0 0 1.5em;
+}
+
+.rtl .postbody li, .rtl ol, .rtl ul {
+	margin: 0 1.5em 0 0;
+}
+
+.posthilit {
+	background-color: yellow;
+}
+
+.nav {
+	margin: 0;
+	color: black;
+	font-weight: bold;
+}
+
+.pagination {
+	padding: 4px;
+	color: black;
+	font-size: 1em;
+	font-weight: bold;
+}
+
+.cattitle {
+
+}
+
+.gen {
+	margin: 1px 1px;
+	font-size: 1.2em;
+}
+
+.genmed {
+	margin: 1px 1px;
+	font-size: 1.1em;
+}
+
+.headw {
+	color: #FFFFFF;
+	font-family: "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+	font-weight: bold;
+	text-decoration: none;
+	margin: 1px 1px;
+	font-size: 2.3em;
+}
+
+.genmedw {
+	color: #FFFFFF;
+	margin: 1px 1px;
+	font-size: 1em;
+}
+
+a.genmedw,a.genmedw:hover,a.genmedw:visited,a.genmedw:link,a.genmedw:active {
+	color: #FFFFFF;
+	margin: 1px 1px;
+	font-size: 1em;
+}
+
+.gensmall {
+	margin: 1px 1px;
+	font-size: 1em;
+}
+
+.copyright {
+	color: #444;
+	font-weight: normal;
+	font-family: "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+}
+
+.titles {
+	font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	font-size: 1.3em;
+	text-decoration: none;
+}
+
+.error {
+	color: red;
+}
+
+
+/* Tables
+ ------------ */
+th {
+	color: #FFFFFF;
+	font-size: 1.1em;
+	font-weight: bold;
+	background-color: #006699;
+	background-image: url('./images/cellpic1.gif');
+	white-space: nowrap;
+	padding: 7px 5px;
+}
+
+td {
+	padding: 0px;
+}
+td.profile {
+	padding: 4px;
+}
+
+.tablebg {
+	background-color: #A9B8C2;
+}
+
+.catdiv {
+	height: 28px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: white url('./images/cellpic2.jpg') repeat-y scroll top left;
+}
+.rtl .catdiv {
+	background: white url('./images/cellpic2_rtl.jpg') repeat-y scroll top right;
+}
+
+.cat {
+	color: #FFFFFF;
+	height: 28px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background-color: #C7D0D7;
+	background-image: url('./images/cellpic1.gif');
+	text-indent: 4px;
+}
+
+.catb {
+	color: #FFFFFF;
+	height: 28px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background-color: #C7D0D7;
+	background-image: url('./images/cellpic3.gif');
+	text-indent: 4px;
+}
+
+.row1 {
+	background-color: #EFF7FB;
+	padding: 4px;
+}
+
+.row2 {
+	background-color: #DFEEF5;
+	padding: 4px;
+}
+
+.row3 {
+	background-color: #D3EAF5;
+	padding: 4px;
+}
+
+.pollbg { background: #EFF7FB url('./images/pollbg.gif') repeat-x;
+	padding: 4px;
+}
+
+.spacer {
+	background-color: #D1D7DC;
+}
+
+hr {
+	height: 1px;
+	border-width: 0;
+	background-color: #D1D7DC;
+	color: #D1D7DC;
+}
+
+.legend {
+	text-align:center;
+	margin: 0 auto;
+}
+
+/* Links
+ ------------ */
+a:link {
+	color: #00324C;
+	text-decoration: none;
+}
+
+a:active,
+a:visited {
+	color: #00324C;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #00324C;
+	text-decoration: underline;
+}
+
+a.forumlink {
+	color: #00324C;
+	font-weight: bold;
+	font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+	font-size: 1.2em;
+}
+
+a.topictitle {
+	margin: 1px 0;
+	font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+a.topictitle:visited {
+	color: #00324C;
+	text-decoration: none;
+}
+
+th a,
+th a:visited {
+	color: #FFFFFF !important;
+	text-decoration: none;
+}
+
+th a:hover {
+	text-decoration: underline;
+}
+
+
+/* Form Elements
+ ------------ */
+form {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+input {
+	color: #333333;
+	font-family: "Lucida Grande", Verdana, Helvetica, sans-serif;
+	font-size: 1.1em;
+	font-weight: normal;
+	padding: 1px;
+	border: 1px solid #A9B8C2;
+	background-color: #FAFAFA;
+}
+
+textarea {
+	background-color: #FAFAFA;
+	color: #333333;
+	font-family: "Lucida Grande", Verdana, Helvetica, Arial, sans-serif;
+	font-size: 1.3em; 
+	line-height: 1.4em;
+	font-weight: normal;
+	border: 1px solid #A9B8C2;
+	padding: 2px;
+}
+
+select {
+	color: #333333;
+	background-color: #FFFFFF;
+	font-family: "Lucida Grande", Verdana, Helvetica, sans-serif;
+	font-size: 1.1em;
+	font-weight: normal;
+	border: 1px solid #666666;
+	padding: 1px;
+}
+
+option {
+	padding: 0 1em 0 0;
+}
+
+option.disabled-option {
+	color: graytext;
+}
+
+.rtl option {
+	padding: 0 0 0 1em;
+}
+
+input.radio {
+	border: none;
+	background-color: transparent;
+}
+
+.post {
+	background-color: white;
+	background-image: url('./images/bginput.gif');
+	background-repeat: repeat-x;
+	border-style: solid;
+	border-width: 1px;
+}
+
+.btnbbcode {
+	color: #000000;
+	font-weight: normal;
+	font-size: 1.1em;
+	font-family: "Lucida Grande", Verdana, Helvetica, sans-serif;
+	background-color: #FFFFFF;
+	border: 1px solid #666666;
+}
+
+.btnmain {
+	color: #000000;
+	font-weight: bold;
+	background-color: #FFFFFF;
+	border: 1px solid #666666;
+	cursor: pointer;
+	padding: 1px 5px;
+	font-size: 1.1em;
+}
+
+.btnlite {
+	color: #000000;
+	font-weight: normal;
+	background-color: #FFFFFF;
+	border: 1px solid #666666;
+	cursor: pointer;
+	padding: 1px 5px;
+	font-size: 1.1em;
+}
+
+.btnfile {
+	font-weight: normal;
+	background-color: #FFFFFF;
+	border: 1px solid #666666;
+	padding: 1px 5px;
+	font-size: 1.1em;
+}
+
+.helpline {
+	background-color: #DFEEF5;
+	border-style: none;
+}
+
+
+/* BBCode
+ ------------ */
+.quotetitle, .attachtitle {
+	margin: 10px 5px 0 5px;
+	padding: 4px;
+	border-width: 1px 1px 0 1px;
+	border-style: solid;
+	border-color: #d8f0fa;
+	color: #333333;
+	background-color: #eff9fe;
+	font-size: 0.85em;
+	font-weight: bold;
+}
+
+.quotetitle .quotetitle {
+	font-size: 1em;
+}
+
+.quotecontent, .attachcontent {
+	margin: 0 5px 10px 5px;
+	padding: 5px;
+	border-color: #d8f0fa;
+	border-width: 0 1px 1px 1px;
+	border-style: solid;
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.4em;
+	font-family: "Lucida Grande", "Trebuchet MS", Helvetica, Arial, sans-serif;
+	background-color: #eff9fe;
+	color: #00324c;
+}
+
+.attachcontent {
+	font-size: 0.85em;
+}
+
+.codetitle {
+	margin: 10px 5px 0 5px;
+	padding: 2px 4px;
+	border-width: 1px 1px 0 1px;
+	border-style: solid;
+	border-color: #d8f0fa;
+	color: #333333;
+	background-color: #eff9fe;
+	font-family: "Lucida Grande", Verdana, Helvetica, Arial, sans-serif;
+	font-size: 0.8em;
+}
+
+.codecontent {
+	direction: ltr;
+	margin: 0 5px 10px 5px;
+	padding: 5px;
+	border-color: #d8f0fa;
+	border-width: 0 1px 1px 1px;
+	border-style: solid;
+	font-weight: normal;
+	color: #00324c;
+	font-size: 0.85em;
+	font-family: Monaco, 'Courier New', monospace;
+	background-color: #eff9fe;
+}
+
+.syntaxbg {
+	color: #FFFFFF;
+}
+
+.syntaxcomment {
+	color: #FF8000;
+}
+
+.syntaxdefault {
+	color: #0000BB;
+}
+
+.syntaxhtml {
+	color: #000000;
+}
+
+.syntaxkeyword {
+	color: #007700;
+}
+
+.syntaxstring {
+	color: #DD0000;
+}
+
+
+/* Private messages
+ ------------------ */
+.pm_marked_colour {
+	background-color: #000000;
+}
+
+.pm_replied_colour {
+	background-color: #A9B8C2;
+}
+
+.pm_friend_colour {
+	background-color: #007700;
+}
+
+.pm_foe_colour {
+	background-color: #DD0000;
+}
+
+
+/* Misc
+ ------------ */
+img {
+	border: none;
+}
+
+.nb {
+	border: none;
+	background: none;
+}
+
+.sep {
+	color: black;
+	background-color: #FFA34F;
+}
+
+table.colortable td {
+	padding: 0;
+}
+
+pre {
+	font-size: 1.1em;
+	font-family: Monaco, 'Courier New', monospace;
+}
+
+.nowrap {
+	white-space: nowrap;
+}
+
+.username-coloured {
+	font-weight: bold;
+}

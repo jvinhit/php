@@ -1,0 +1,23 @@
+<table style="border: 1px solid #0B198C; border-top:none;" cellspacing="0" width="100%">
+<tr>
+<td class="row5" height="15px" width="100%">
+<!-- IF not S_USER_LOGGED_IN -->	
+	<!-- IF not S_IS_BOT -->   <a href="{U_REGISTER}"><strong>{L_REGISTER}</strong></a><a align="" href="{U_LOGIN_LOGOUT}"><strong>{L_LOGIN_LOGOUT}</strong></a><!-- ENDIF -->
+<!-- IF S_DISPLAY_SEARCH --><a href="{U_SEARCH}"><strong>{L_SEARCH}</strong></a><!-- ENDIF -->
+     <a href="{U_FAQ}"><strong>{L_FAQ}</strong></a>
+
+  <!-- ENDIF -->
+<!-- IF S_USER_LOGGED_IN -->
+   
+	 <a href="{U_PROFILE}"><strong>{L_PROFILE}</strong></a>
+     <a href="{U_SEARCH}"><strong>{L_SEARCH}</strong></a>
+     <a href="{U_FAQ}"><strong>{L_FAQ}</strong></a>
+     <!-- IF S_DISPLAY_SEARCH -->
+     <a href="{U_SEARCH_NEW}"><strong>{L_SEARCH_NEW}</strong></a>  
+	 <a href="{U_SEARCH_SELF}"><strong>{L_SEARCH_SELF}</strong></a>
+		  <!-- ENDIF -->
+  <!-- IF not S_IS_BOT -->
+  <div style="float: {S_CONTENT_FLOW_END};"><a align="" href="{U_LOGIN_LOGOUT}"><strong>{L_LOGIN_LOGOUT}</strong></a></div>
+  <!-- ENDIF -->   
+<!-- ENDIF -->
+				</td></tr></table>

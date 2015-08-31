@@ -1,0 +1,46 @@
+<!-- INCLUDE overall_header.html -->
+
+<p class="right<!-- IF S_USER_LOGGED_IN --> rightside<!-- ENDIF -->"><!-- IF S_USER_LOGGED_IN -->{LAST_VISIT_DATE}<!-- ELSE -->{CURRENT_TIME}<!-- ENDIF --></p>
+<!-- IF U_MCP --><p>{CURRENT_TIME} <br />[&nbsp;<a href="{U_MCP}">{L_MCP}</a>&nbsp;]</p><!-- ELSEIF S_USER_LOGGED_IN --><p>{CURRENT_TIME}</p><!-- ENDIF -->
+
+<div id="rightcontent">			
+<div id="menu3"><div class="navbar2">
+			<div class="inner"><span class="corners-top"><span></span></span>
+
+		<ul class="menuclass" STYLE="list-style-type: none;">
+			<li><h4>Menu</h4></li>
+			<li><a href="viewtopic.php?f=2&t=3">Terms of Use</a></li>
+			<li><a href="ucp.php?mode=privacy">Privacy policy</a></li>
+			<li><a href="memberlist.php?mode=leaders">The Team</a></li>
+			<li><a href="#">Affiliates</a></li>
+			<li><a href="{U_INDEX}">Forums</a></li>
+			<li><a href="#">Donate to Us</a></li>
+			<li><a href="#">Pricing</a></li>
+			<li><a href="memberlist.php">Members</a></li>
+			<li><a href="#">Portfolio</a></li>
+			<li>&nbsp;</li>
+		</ul><span class="corners-bottom"><span></span></span></div>
+		</div><br>
+
+
+</div>		</div>
+
+
+
+
+  <div id="leftcontent"><div class="navbar">
+			<div class="inner"><span class="corners-top"><span></span></span>
+<h3>Welcome to {SITENAME}</h3>
+You can edit this text by editting the main_body.html file
+Also the menu on the right is editable there.
+<br><Br>
+Semi_deus
+<span class="corners-bottom"><span></span></span></div>
+		</div>
+  </div>
+
+
+
+
+
+<!-- INCLUDE overall_footer.html -->

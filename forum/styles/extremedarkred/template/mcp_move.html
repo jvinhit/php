@@ -1,0 +1,39 @@
+<!-- INCLUDE overall_header.html -->
+
+<form name="confirm" action="{S_CONFIRM_ACTION}" method="post">
+
+	{$BEGIN_TCORNERS}{MESSAGE_TITLE}{$END_TCORNERS}
+	<div class="tablebg">
+		<div class="row1" align="center">
+		
+			<!-- IF ADDITIONAL_MSG -->
+				<p class="genmed" style="color:#F00">{ADDITIONAL_MSG}</p>
+			<!-- ENDIF -->
+			
+			<!-- IF S_FORUM_SELECT -->
+				<span class="genmed"><br />{L_SELECT_DESTINATION_FORUM}&nbsp;&nbsp;</span>
+					<select name="to_forum_id">{S_FORUM_SELECT}</select><br />
+					
+				<!-- IF S_CAN_LEAVE_SHADOW -->
+					<label><input type="checkbox" class="radio" name="move_leave_shadow" checked="checked" /> <span class="genmed">{L_LEAVE_SHADOW}</span></label><br />
+				<!-- ENDIF -->
+				
+				<p>{S_HIDDEN_FIELDS}<span class="genmed">{MESSAGE_TEXT}<br /><br /></p>
+				<p><input type="submit" class="button" name="confirm" value="{YES_VALUE}" class="button" />&nbsp;&nbsp;<input type="submit" class="button" name="cancel" value="{L_NO} button" /></p>
+
+			<!-- ELSE -->
+				<p class="genmed">{L_NO_DESTINATION_FORUM}<br /><br /></p>
+				{S_HIDDEN_FIELDS}
+				<input type="submit" class="button" name="cancel" value="{L_CANCEL}" class="button" />
+			<!-- ENDIF -->
+			
+		</div>
+	</div>
+	
+	{S_FORM_TOKEN}
+
+</form>
+
+<br />
+
+<!-- INCLUDE overall_footer.html -->

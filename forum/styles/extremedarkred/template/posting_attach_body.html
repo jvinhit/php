@@ -1,0 +1,59 @@
+<script type="text/javascript">
+	// <![CDATA[
+	
+	/**
+	* Show upload progress bar
+	*/
+	function popup_progress_bar()
+	{
+		close_waitscreen = 0;
+		// no scrollbars
+		popup('{UA_PROGRESS_BAR}', 400, 200, '_upload');
+	}
+
+	<!-- IF S_CLOSE_PROGRESS_WINDOW -->close_waitscreen = 1;<!-- ENDIF -->
+
+	// ]]>
+</script>
+		
+{$BEGIN_TCORNERS}{L_ADD_ATTACHMENT}{$END_TCORNERS}
+<table width="100%" cellspacing="1" class="tablebg">
+<tr>
+	<td class="row3 gensmall" colspan="2" align="center">{L_ADD_ATTACHMENT_EXPLAIN}</td>
+</tr>
+<tr> 
+	<td class="row1 genmed" width="22%" align="{S_CONTENT_FLOW_END}"><label for="fileupload"><strong>{L_FILENAME}:</strong></label></td>
+	<td class="row2" width="78%"><input type="file" id="fileupload" name="fileupload" size="40" maxlength="{FILESIZE}" value=" btnfile" /></td>
+</tr> 
+<tr> 
+	<td class="row1 genmed" valign="top" align="{S_CONTENT_FLOW_END}"><label for="filecomment"><strong>{L_FILE_COMMENT}:</strong></label></td>
+	<td class="row2">
+		<div class="begin"><textarea class="post" id="filecomment" name="filecomment" rows="3" cols="35">{FILE_COMMENT}</textarea></div>
+		<div class="begin" style="padding-left:4px"><input class="button" type="submit" name="add_file" value="{L_ADD_FILE}" onclick="popup_progress_bar();" /></div>
+		<div class="clear"></div>
+	</td>
+</tr>
+</table>
+{$BCORNERS}
+<br />
+<!-- IF S_HAS_ATTACHMENTS -->
+	{$BEGIN_TCORNERS}{L_POSTED_ATTACHMENTS}{$END_TCORNERS}
+	<table width="100%" cellspacing="1" class="tablebg">
+	<!-- BEGIN attach_row -->
+		<tr>
+			<td class="row1 genmed" align="{S_CONTENT_FLOW_END}"><strong>{L_FILENAME}:</strong></td>
+			<td class="row2 genmed"><a href="{attach_row.U_VIEW_ATTACHMENT}" target="_blank">{attach_row.FILENAME}</a></td>
+		</tr>
+		<tr> 
+			<td class="row1 genmed" align="{S_CONTENT_FLOW_END}" valign="top"><strong>{L_FILE_COMMENT}:</strong></td>
+			<td class="row2">
+				{attach_row.S_HIDDEN}
+				<div class="begin"><textarea class="post" name="comment_list[{attach_row.ASSOC_INDEX}]" rows="3" cols="35" wrap="virtual">{attach_row.FILE_COMMENT}</textarea></div>
+				<div class="begin" style="padding-left:4px"><input class="button" type="submit" name="delete_file[{attach_row.ASSOC_INDEX}]" value="{L_DELETE_FILE}" />
+			</td>
+		</tr>
+	<!-- END attach_row -->
+	</table>
+	{$BCORNERS}
+	<br />
+<!-- ENDIF -->

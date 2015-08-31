@@ -1,0 +1,42 @@
+<!-- INCLUDE overall_header.html -->
+
+<form method="post" id="report" action="{S_REPORT_ACTION}">
+	{$BEGIN_TCORNERS}{L_REPORT_POST}{$END_TCORNERS}
+	<table class="tablebg" width="100%" cellspacing="1">
+	<thead>
+	<tr>
+		<td class="row3" colspan="2"><span class="gensmall">{L_REPORT_POST_EXPLAIN}</span></td>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td class="row1 gen" width="22%" align="right"><strong><label for="reason">{L_REASON}:</label></strong></td>
+		<td class="row2" width="78%"><select id="reason" name="reason_id">
+			<!-- BEGIN reason --><option value="{reason.ID}"<!-- IF reason.S_SELECTED --> selected="selected"<!-- ENDIF -->>{reason.TITLE}: {reason.DESCRIPTION}</option><!-- END reason -->
+		</select></td>
+	</tr>
+	<!-- IF S_CAN_NOTIFY -->
+		<tr>
+			<td class="row1" align="{S_CONTENT_FLOW_END}"><span class="gen"><strong><label for="notify">{L_REPORT_NOTIFY}:</label></strong></span><br /><span class="gensmall">{L_REPORT_NOTIFY_EXPLAIN}</span></td>
+			<td class="row2"><span class="gen"><input type="radio" name="notify" id="notify" value="1"<!-- IF S_NOTIFY --> checked="checked"<!-- ENDIF --> />&nbsp; {L_YES} &nbsp;<input type="radio" class="radio" name="notify" value="0"<!-- IF not S_NOTIFY --> checked="checked"<!-- ENDIF --> />&nbsp; {L_NO}</span></td>
+		</tr>
+	<!-- ENDIF -->
+	<tr>
+		<td class="row1" valign="top" align="right"><strong class="gen"><label for="report_text">{L_MORE_INFO}:</label></strong><br /><span class="gensmall">{L_CAN_LEAVE_BLANK}</span></td>
+		<td class="row2"><textarea class="post" id="report_text" name="report_text" rows="10" cols="50">{REPORT_TEXT}</textarea></td>
+	</tr>
+	</tbody>
+	<tfoot>
+	<tr>
+		<td class="cat" colspan="2" align="center"><input type="submit" class="button" name="submit button" value="{L_SUBMIT}" />&nbsp;<input type="submit" class="button" name="cancel" class="button" value="{L_CANCEL}" /></td>
+	</tr>
+	</tfoot>
+	</table>
+	{$BCORNERS}
+	
+	{S_FORM_TOKEN}
+</form>
+
+<div class="end"><!-- INCLUDE jumpbox.html --></div>
+
+<!-- INCLUDE overall_footer.html -->

@@ -1,0 +1,19 @@
+<!-- INCLUDE simple_header.html -->
+
+<script type="text/javascript">
+// <![CDATA[
+var form_name = 'postform';
+var text_name = 'message';
+// ]]>
+</script>
+<script type="text/javascript" src="{T_TEMPLATE_PATH}/editor.js"></script>
+
+<div class="tablebg">
+	<div class="cat">{L_SMILIES}</div>
+	<div class="row1" align="center">
+		<p><!-- BEGIN smiley -->&nbsp;<a href="#" onclick="insert_text('{smiley.A_SMILEY_CODE}', true, true); return false;"><img src="{smiley.SMILEY_IMG}" width="{smiley.SMILEY_WIDTH}" height="{smiley.SMILEY_HEIGHT}" alt="{smiley.SMILEY_CODE}" title="{smiley.SMILEY_DESC}" /></a>&nbsp;<!-- END smiley --></p>
+		<p><br /><input type="button" class="button" onclick="window.close(); return false;" value="{L_CLOSE_WINDOW}" /></p>
+	</div>
+</div>
+
+<!-- INCLUDE simple_footer.html -->

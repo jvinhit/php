@@ -1,0 +1,63 @@
+<!-- INCLUDE mcp_header.html -->
+
+<form method="post" name="mcp" action="{U_POST_ACTION}">
+
+	{$BEGIN_TCORNERS}{L_TITLE}{$END_TCORNERS}
+	<table width="100%" cellspacing="1" border="0" class="tablebg">
+	<thead>
+	<tr>
+		<th>{L_USERNAME}</th>
+		<th>{L_IP}</th>
+		<th>{L_TIME}</th>
+		<th>{L_ACTION}</th>
+		<!-- IF S_CLEAR_ALLOWED --><th>{L_MARK}</th><!-- ENDIF -->
+	</tr>
+	</thead>
+	<!-- IF S_LOGS -->
+		<tfoot>
+		<tr>
+			<td class="cat" align="center" colspan="<!-- IF S_CLEAR_ALLOWED -->5<!-- ELSE -->4<!-- ENDIF -->"><span class="gensmall">{L_DISPLAY_LOG}:</span> {S_SELECT_SORT_DAYS}&nbsp;<span class="gensmall">{L_SORT_BY}</span> {S_SELECT_SORT_KEY} {S_SELECT_SORT_DIR}&nbsp;<input class="button" type="submit" value="{L_GO}" name="sort" /></td>
+		</tr>
+		</tfoot>
+		<tbody>
+		<!-- BEGIN log -->
+			<!-- IF log.S_ROW_COUNT is even -->
+				<!-- DEFINE $CURRENT_ROW = 'row1' -->
+			<!-- ELSE -->
+				<!-- DEFINE $CURRENT_ROW = 'row2' -->
+			<!-- ENDIF -->
+		
+			<tr>
+				<td class="{$CURRENT_ROW} genmed">{log.USERNAME}</td>
+				<td class="{$CURRENT_ROW} genmed" align="center">{log.IP}</td>
+				<td class="{$CURRENT_ROW} genmed" align="center">{log.DATE}</td>
+				<td class="{$CURRENT_ROW} genmed">{log.ACTION}<br />{log.DATA}</td>
+				<!-- IF S_CLEAR_ALLOWED --><td width="5%" align="center"><input type="checkbox" class="radio" name="mark[]" value="{log.ID}" /></td><!-- ENDIF -->
+			</tr>
+		
+			<!-- UNDEFINE $CURRENT_ROW -->
+		<!-- END log -->
+	<!-- ELSE -->
+		<tbody>
+		<tr>
+			<td class="row1 genmed" colspan="<!-- IF S_CLEAR_ALLOWED -->5<!-- ELSE -->4<!-- ENDIF -->" align="center">{L_NO_ENTRIES}</td>
+		</tr>
+	<!-- ENDIF -->
+	</tbody>
+	</table>
+
+	<!-- IF S_CLEAR_ALLOWED -->
+		<br />
+		{$BEGIN_TCORNERS}{L_SUBMIT}{$END_TCORNERS}
+		<div class="tablebg">
+			<div class="row1" align="center"><input class="button" type="submit" name="action[del_all]" value="{L_DELETE_ALL}" />&nbsp; <input class="button" type="submit" name="action[del_marked]" value="{L_DELETE_MARKED}" /></div>
+		</div>
+		{$BCORNERS}
+	<!-- ENDIF -->
+
+    {S_FORM_TOKEN}
+</form>
+
+<br /><br />
+
+<!-- INCLUDE mcp_footer.html -->

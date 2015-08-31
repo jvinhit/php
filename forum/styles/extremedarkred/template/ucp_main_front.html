@@ -1,0 +1,73 @@
+<!-- INCLUDE ucp_header.html -->
+
+{$BEGIN_TCORNERS}{L_UCP}{$END_TCORNERS}
+<table class="tablebg" width="100%" cellspacing="1">
+<tr>
+	<td class="row1" colspan="3" align="center"><p class="genmed">{L_UCP_WELCOME}</p></td>
+</tr>
+<tr>
+	<th colspan="3">{L_IMPORTANT_NEWS}</th>
+</tr>
+<!-- BEGIN topicrow -->
+
+	<!-- IF topicrow.S_ROW_COUNT is even -->
+		<!-- DEFINE $CURRENT_ROW = 'row1' -->
+	<!-- ELSE -->
+		<!-- DEFINE $CURRENT_ROW = 'row2 -->
+	<!-- ENDIF -->
+	
+	<tr>
+		<td class="{$CURRENT_ROW}" width="25" align="center">{topicrow.TOPIC_FOLDER_IMG}</td>
+		<td class="{$CURRENT_ROW}" width="100%">
+			<p class="topictitle"><!-- IF topicrow.S_UNREAD --><a href="{topicrow.U_NEWEST_POST}">{NEWEST_POST_IMG}</a> <!-- ENDIF -->{topicrow.ATTACH_ICON_IMG} <a href="{topicrow.U_VIEW_TOPIC}">{topicrow.TOPIC_TITLE}</a></p><p class="gensmall">{topicrow.GOTO_PAGE}</p>
+		</td>
+		<td class="{$CURRENT_ROW}" width="120" align="center" nowrap="nowrap">
+			<p class="topicdetails">{topicrow.LAST_POST_TIME}</p>
+			<p class="topicdetails">{topicrow.LAST_POST_AUTHOR_FULL}
+				<a href="{topicrow.U_LAST_POST}">{LAST_POST_IMG}</a>
+			</p>
+		</td>
+	</tr>
+	<!-- UNDEFINE $CURRENT_ROW -->
+<!-- BEGINELSE -->
+	<tr>
+		<td class="row1 genmed" align="center" colspan="3">{L_NO_IMPORTANT_NEWS}</td>
+	</tr>
+<!-- END topicrow -->
+<tr>
+	<th colspan="3">{L_YOUR_DETAILS}</th>
+</tr>
+<tr>
+	<td class="row1" colspan="3">
+		<table width="100%" cellspacing="1" cellpadding="4">
+		<tr> 
+			<td class="genmed" align="{S_CONTENT_FLOW_END}" valign="top" nowrap="nowrap"><strong>{L_JOINED}:</strong></td>
+			<td width="100%" style="padding-left:10px"><strong class="gen">{JOINED}</strong></td>
+		</tr>
+		<tr> 
+			<td class="genmed" align="{S_CONTENT_FLOW_END}" valign="top" nowrap="nowrap"><strong>{L_TOTAL_POSTS}:</strong></td>
+			<td style="padding-left:10px"><!-- IF POSTS_PCT neq 0 --><strong class="genmed">{POSTS}</strong><br /><span class="genmed">[{POSTS_PCT} / {POSTS_DAY}]<br /><a href="{U_SEARCH_USER}">{L_SEARCH_USER_POSTS}</a></span><!-- ELSE --><strong class="gen">{POSTS}<strong><!-- ENDIF --></td>
+		</tr>
+		<!-- IF S_SHOW_ACTIVITY -->
+			<tr>
+				<td class="genmed" align="{S_CONTENT_FLOW_END}" valign="top" nowrap="nowrap"><strong>{L_ACTIVE_IN_FORUM}:</strong></td>
+				<td style="padding-left:10px"><!-- IF ACTIVE_FORUM_PCT neq 0 --><strong><a class="gen" href="{U_ACTIVE_FORUM}">{ACTIVE_FORUM}</a></strong><br /><span class="genmed">[ {ACTIVE_FORUM_POSTS} / {ACTIVE_FORUM_PCT} ]</span><!-- ELSE --><span class="gen">-</span><!-- ENDIF --></td>
+			</tr>
+			<tr>
+				<td class="genmed" align="{S_CONTENT_FLOW_END}" valign="top" nowrap="nowrap"><strong>{L_ACTIVE_IN_TOPIC}:</strong></td>
+				<td style="padding-left:10px"><!-- IF ACTIVE_TOPIC_PCT neq 0 --><strong><a class="gen" href="{U_ACTIVE_TOPIC}">{ACTIVE_TOPIC}</a></strong><br /><span class="genmed">[ {ACTIVE_TOPIC_POSTS} / {ACTIVE_TOPIC_PCT} ]</span><!-- ELSE --><span class="gen">-</span><!-- ENDIF --></td>
+			</tr>
+		<!-- ENDIF -->
+		<!-- IF WARNINGS -->
+			<tr>
+				<td class="genmed" align="{S_CONTENT_FLOW_END}" valign="middle" nowrap="nowrap"><strong>{L_YOUR_WARNINGS}:</strong></td>
+				<td style="padding-left:10px" class="genmed">{WARNING_IMG} [ <strong>{WARNINGS}</strong> ]</td>
+			</tr>
+		<!-- ENDIF -->
+		</table>
+	</td>
+</tr>
+</table>
+{$BCORNERS}
+
+<!-- INCLUDE ucp_footer.html -->

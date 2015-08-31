@@ -1,0 +1,209 @@
+* WoWMoonclaw01 - World of Warcraft phpBB theme created by Moonclaw/Mäevah (http://www.wowcr.net/) - Versions history
+* -------------------------------------------------------------------------------------------------------------------
+*
+(Sorry, this file was written using two different languages, but it's not that important.)
+(Désolé, ce fichier a été écrit en mélangeant deux langues, mais il n'est pas très important.)
+
+
+
+"WoWMoonclaw01" for phpBB was first developped around June 2005 for my former guild on EU-Sinstralis forum and for the pre-official forum server "sinstralis.net". The goal was to create something efficient and restrained at the same time, and technically staying as close as possible to phpBB's default template. (...)"
+
+
+
+
+Version 2.00 (21/01/2007) (phpBB version 2.0.22)
+------------------------------------------------
+- template re-done from subSilver for phpBB 2.0.22, following the WoWMoonclaw01 1.08 documentation
+- the styles from 'overall_header.tpl' and 'simple_header.tpl' are now using 'WoWMoonclaw01.css' (which should make your forums save bandwidth, and the template will now cover the "Topic review" when posting)
+- documentation improved (this could help me for further updates)
+- [code][/code] tag is now displayed in the same color and font as [quote][/quote] (formerly color was "006600" and font family was "Courier, 'Courier New', sans-serif")
+- some input/posting/forms elements should be less "flashy" in Internet Explorer
+- corrected the closing </a> tag that was actually written <a/> in 'overall_footer.tpl'
+- I've wanted to checked the "public" pages of the forum with HTML validator http://validator.w3.org/ , but the remaining errors come from phpBB itself and are no real problems.
+- I've hesitated to rename the template "WoWMoonclaw", but that would make the updates and adaption for forum users difficult. Maybe I'll do that when I'll make the template for phpBB 3. (waiting to see phpBB 3 new definitive template first!)
+- small changes 'created_by.jpg'
+- small changes 'cellpic1.gif'
+- 'cellpic2.gif' deleted (not in use)
+- 'cellpic2.jpg' deleted (not in use)
+- 'cellpic3.gif' deleted (not in use)
+- 'cellpic.gif' deleted (not in use)
+- '_not_used' directory deleted (not in use)
+
+
+- '_optional_mods' section added
+- quick re-reading and correcting of this file
+
+
+Version 1.08 (04/01/2007) (phpBB version 2.0.22)
+------------------------------------------------
+- 'posting_body.tpl' replaced by the phpBB 2.0.22 file
+
+
+Version 1.07 (08/06/2006) (phpBB version 2.0.21)
+------------------------------------------------
+- phpBB 2.0.21 is out. No change regarding the templates.
+
+
+Version 1.07 (29/04/2006) (phpBB version 2.0.20)
+------------------------------------------------
+- buttons 'msg_newpost.gif' , 'post.gif' , 'reply.gif' and 'reply-locked.gif' changed
+- Spanish buttons now included in the template's .zip file
+- small correction of 'icon_ip.gif'
+- update of 'created_by.jpg'
+
+
+Version 1.06 (10/04/2006) (phpBB version 2.0.20)
+------------------------------------------------
+- mise à jour pour phpBB 2.0.20
+
+
+Version 1.06 (16/02/2006) (phpBB version 2.0.19)
+------------------------------------------------
+- couleurs des liens rendues toutes identiques à la couleur des liens "normale" :
+Couleur du Lien Visité: 007799
+Couleur du Lien survolé: 007799
+
+
+Version 1.0541 (16/02/2006) (phpBB version 2.0.19)
+--------------------------------------------------
+- correction de la couleur des titres qui n'apparaissaient pas dans les pages du panneau d'administration
+
+
+Version 1.054 (17/01/2006) (phpBB version 2.0.19)
+--------------------------------------------------
+- correction des zones de transparence des fichiers 'topic_delete.gif' ,'topic_move.gif', 'topic_split.gif', 'topic_unlock.gif', 'msg_inbox.gif', 'msg_outbox.gif', 'msg_savebox.gif' et 'msg_sentbox.gif'
+
+
+Version 1.0531 (12/01/2006) (phpBB version 2.0.19)
+--------------------------------------------------
+- mise à jour de 'maevah.jpg'
+
+
+Version 1.053 (03/01/2006) (phpBB version 2.0.19)
+--------------------------------------------------
+- 1 fichier mis à jour dû au passage de phpBB à la version 2.0.199
+- Font Colour 3: modifié en "FFCC33" au lieu de "FFDD33"
+- 'Theme_WoWMoonclaw01_vx.xx-settings_part01.gif' et 'Theme_WoWMoonclaw01_vx.xx-settings_part02.gif' refait en anglais
+- petites modifications dans les crédit du template
+
+
+Version 1.0521 (12/11/2005) (phpBB version 2.0.18)
+--------------------------------------------------
+- modification de 'maevah.jpg' (ajout d'un screenshot plus actuel)
+- correction d'une faute de frappe dans les crédits
+
+
+Version 1.052 (29/10/2005) (phpBB version 2.0.18)
+-------------------------------------------------
+- adaptation de la version 1.052 de WoWMoonclaw01 à la version 2.0.18 de phpBB. (+ mise à jour de Modifications_manuelles_lors_des_mises_a_jour_de_phpBB.txt' qui en découle)
+
+
+Version 1.052 (29/10/2005) (phpBB version 2.0.17)
+-------------------------------------------------
+- Certains cadres où le texte apparaissait en blanc sur blanc dans le panneau d'administration apparaîtront désormais correctement avec un texte blanc sur fond noir. (+ mise à jour de 'Modifications_manuelles_lors_des_mises_a_jour_de_phpBB.txt' qui en découle)
+- modification des fichiers 'index.html' avec les crédits de WoWMoonclaw01-Moonclaw/Maëvah
+- remplacement des références à "subSilver" , "subBlue", "http://www.subblue.com" par "WoWMoonclaw01", "Moonclaw/Maëvah" et "http://www.wowcr.net" (+ mise à jour de 'Modifications_manuelles_lors_des_mises_a_jour_de_phpBB.txt' qui en découle)
+
+
+Version 1.051 (14/10/2005) (phpBB version 2.0.17)
+-------------------------------------------------
+- rectification de "Couleur Police 1" qui valait 444444 au lieu de 999999 (certains utilisateurs avaient du mal à lire les citations et les crédits)
+- corrections de quelques pixels trop clairs (entre autres) dans les boutons anglais, français et allemands (les autres langues devraient suivrent, mais on verra quand ...)
+
+
+Version 1.05 (11/10/2005) (phpBB version 2.0.17)
+-------------------------------------------------
+- amélioration des fichiers 'cellpicx.gif' pour que les barres de séparation atteignent le bord de la fenêtre (du moins en 1280x1024)
+- exportation des paramètres du thème dans 'theme_info.cfg' (j'espère que ça résoudra le problème de transfert des paramètres ...)
+
+
+Version 1.042 (17/09/2005) (phpBB version 2.0.17)
+-------------------------------------------------
+- amélioration de la qualité d'affichage des images de forums et de topics
+- ajout des screenshots de Moonclaw et Maëvah lorsqu'on clique sur leur nom dans la signature au bas du forum
+- création du fichier 'Modifications_manuelles_lors_des_mises_a_jour_de_phpBB.txt' dans le répertoire 'Theme_WoWMoonclaw01-Infos_utiles/' (note ce fichier ne devrait servir que lorsque j'adapte le thème à une nouvelle version de phpBB)
+- légères modifications des fichiers 'folder_sticky.gif' et 'folder_sticky_new.gif'
+
+
+Version 1.041 (17/09/2005) (phpBB version 2.0.17)
+-------------------------------------------------
+- après m'être informé sur le sujet, ajout des copyrights de Blizzard Entertainment au bas du thème
+
+
+Version 1.04 (17/09/2005) (phpBB version 2.0.17)
+------------------------------------------------
+- ajout des boutons en version allemande
+- projet: créer des packs optionnels de boutons dans d'autres langues
+- ajout du mini icône DKP: 'WoWMoonclaw/images/icon_mini_dkp.gif' que vous pourrez utilisez en modifiant le thème
+- petite modification l'icône "Yahoo! Instant Messenger"
+
+
+Version 1.03 (13/09/2005) (phpBB version 2.0.17)
+-------------------------------------------------
+- ouverture de http://www.wowcr.net et ajout du lien dans la signature
+
+
+Version 1.022 (13/09/2005) (phpBB version 2.0.17)
+-------------------------------------------------
+- modification d'un détail sans grande importance
+
+
+Version 1.021 (03/09/2005) (phpBB version 2.0.17)
+-------------------------------------------------
+- modification d'un détail sans grande importance
+
+
+Version 1.02 (11/08/2005) (phpBB version 2.0.17)
+------------------------------------------------
+- En vue d'économiser un peu de bande passante on peut très bien utiliser le même fichier pour les paramètres "Table En-tête Class 1" "2" et "3" :remplacement de 'cellpic2.gif' et 'cellpic3.gif' par 'cellpic1.gif' dans 'Theme_Moonclaw01_vx.xx-settings_part01.gif'.
+
+
+Version 1.01 (11/08/2005) (phpBB version 2.0.17)
+------------------------------------------------
+- correction de 'cellpic2.jpg' qui n'avait pas été mis à jour dans les updates précédents, mais qui est de toute façon supposé être remplacé par 'cellpic2.gif' (c'est juste une alternative pour que ça passe mieux chez les webmasters distraits ^^) 
+
+
+Version 1.0 (10/08/2005) (phpBB version 2.0.17)
+-----------------------------------------------
+- "interfactionalisation" de 'icon_mini_register.gif'
+- re-lecture (rapide) de ce fichier
+
+
+Version 0.93 (10/08/2005) (phpBB version 2.0.17)
+------------------------------------------------
+- correction de mises à jours précédentes dont les images n'avaient pas été inclues lors des précédents updates :-/
+- correction de quelques pixels dans 'folder_sticky_new.gif', 'folder_announce_new.gif' et 'icon_email.gif' (je sais, je fais dans le détail et la dentelle là, je peaufine les derniers octets ^^)
+- adaptation du fichier 'created by.gif'
+- déplacement des fichiers 'created by.gif' et 'forum-bg.jpg' dans '_not_used\images'
+- passage en revue des fichiers image pour s'assurer qu'il n'y a pas d'oubli
+- Il manque juste un screenshot Horde pour "interfactionaliser" 'icon_mini_register.gif' (si ça traîne trop ça risque de rester comme ça), et relire et corriger ce fichier-ci aussi.
+
+
+Version 0.92 (09/08/2005) (phpBB version 2.0.17)
+------------------------------------------------
+- refonte des boutons "Faq", "Rechercher", "Liste des membres", "Groupes d'utilisateur", "Profil" et "Messages" en qualité légèrement supérieure
+- adaptation des boutons "S'enregistrer" "Dé/connexion"
+- modification dans les couleurs du thèmes: "Couleur Police 1" correspond désormais à 999999
+
+
+Version 0.91 (08/08/2005) (phpBB version 2.0.17)
+------------------------------------------------
+- Tous les boutons les plus apparents ont été modifiés en s'inspirant des boutons des forums officiels de WoW. (aussi bien les boutons francophones que les boutons anglophones).
+- modification dans les couleurs du thèmes: "Couleur Police 3" correspond désormais à FFBB33
+
+
+Version 0.901 (??/08/2005) (phpBB version 2.0.17)
+--------------------------------------------------
+- Ajout du pseudo "Maëvah" dans les crédits (reroll sur le serveur Illidan qui serait devenu important si je n'arrêtais pas WoW pour retrouver mon existence "normale" d'avant WoW (sans jeux vidéos) ... j'ai simplement eu ma dose , un peu comme Forrest Gump le jour où il arrête de courrir:-)
+
+
+Version 0.9 (04/08/2005) (phpBB version 2.0.17)
+-----------------------------------------------
+- adaptation du thème à la version 2.017 de phpBB
+
+
+Version 0.9 (03/08/2005) (phpBB version 2.0.15)
+-----------------------------------------------
+- Voilà quelques mois que j'ai créé ce thème un peu au hasard pour le forum de ma guilde. Je trouve le résultat pas mal ... assez sobre et présetnable ... je l'améliore très occasionnellement car je n'y consacre que peu de temps.
+- Je crois avoir corrigé tous les boutons francophones visibles par les utilisateurs, les boutons réservés aux administrateurs ont probablement encore quelques défauts.
+- Les boutons importants en anglais ne sont pas encore adaptés, mais sont utilisables./The most important English buttons haven't been adapted yet, but they are functional.

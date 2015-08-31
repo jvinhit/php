@@ -1,0 +1,176 @@
+<!-- BEGIN forumrow -->
+ <!-- IF not forumrow.S_IS_CAT and forumrow.S_FIRST_ROW -->
+<table id="bx" width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+<table width="100%" height="44" border="0" cellpadding="0" cellspacing="0">
+
+		<td><img src="{T_THEME_PATH}/images/box_01.png" width="41" height="48" alt=""></td>
+		<td background="{T_THEME_PATH}/images/box_02.png" width="50%" height="48"></td>
+
+		<td background="{T_THEME_PATH}/images/cu.png" width="300" height="48">
+
+		<h4 align="center"><a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME} </a></h4> 
+</td>
+
+
+		<td background="{T_THEME_PATH}/images/box_02.png" width="50%" height="48" align="right">
+
+	  <!-- IF not S_IS_BOT and U_MARK_FORUMS --><h6><a class="navf" href="{U_MARK_FORUMS}">{L_MARK_FORUMS_READ}</a><!-- ENDIF -->&nbsp;</h6></td>
+
+
+
+
+		<td><img src="{T_THEME_PATH}/images/box_04.png" width="41" height="48" alt=""></td>
+</table>	
+     </tr>
+	<tr>
+<table width="100%" height="44" border="0" cellpadding="0" cellspacing="0">
+
+		<td background="{T_THEME_PATH}/images/box_08.png" width="41" height="100%"></td>
+		<td>
+<table class="tablebg" onMouseOver="this.className='tablebg2'" onMouseOut="this.className='tablebg'" cellspacing="1" width="100%">
+  <tr>
+	  <th colspan="2">&nbsp;{L_FORUM}&nbsp;</th>
+	  <th width="50">&nbsp;{L_TOPICS}&nbsp;</th>
+	  <th width="50">&nbsp;{L_POSTS}&nbsp;</th>
+	  <th>&nbsp;{L_LAST_POST}&nbsp;</th>
+  </tr>
+  <!-- ENDIF -->
+
+ <!-- IF forumrow.S_IS_CAT -->
+<!-- IF not forumrow.S_FIRST_ROW -->
+</table>
+    </td>
+		<td background="{T_THEME_PATH}/images/box_09.png" width="41" height="100%"></td>
+	</tr>
+	<tr>
+		<td><img src="{T_THEME_PATH}/images/box_10.png" width="41" height="46" alt=""></td>
+		<td background="{T_THEME_PATH}/images/box_11.png" width="100%" height="46"></td>
+		<td><img src="{T_THEME_PATH}/images/box_13.png" width="41" height="46" alt=""></td>
+	</tr>
+</table>
+  <br />
+  <br />
+<table id="bx" width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+<table width="100%" height="44" border="0" cellpadding="0" cellspacing="0">
+
+		<td><img src="{T_THEME_PATH}/images/box_01.png" width="41" height="48" alt=""></td>
+		<td background="{T_THEME_PATH}/images/box_02.png" width="50%" height="48"></td>
+
+		<td background="{T_THEME_PATH}/images/cu.png" width="300" height="48">
+
+		<h4 align="center"><a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME} </a></h4> 
+</td>
+
+
+		<td background="{T_THEME_PATH}/images/box_02.png" width="50%" height="48"></td>
+		<td><img src="{T_THEME_PATH}/images/box_04.png" width="41" height="48" alt=""></td>
+</table>
+	</tr>
+	<tr>
+<table width="100%" height="44" border="0" cellpadding="0" cellspacing="0">
+
+		<td background="{T_THEME_PATH}/images/box_08.png" width="41" height="100%"></td>
+		<td>	
+<table class="tablebg" onMouseOver="this.className='tablebg2'" onMouseOut="this.className='tablebg'" cellspacing="1" width="100%">
+ <!-- ELSE -->
+</table>
+<table id="bx" width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+<table width="100%" height="44" border="0" cellpadding="0" cellspacing="0">
+
+		<td><img src="{T_THEME_PATH}/images/box_01.png" width="41" height="48" alt=""></td>
+		<td background="{T_THEME_PATH}/images/box_02.png" width="50%" height="48"></td>
+
+		<td background="{T_THEME_PATH}/images/cu.png" width="300" height="48"><h4 align="center"><a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a></h4></td>
+		<td background="{T_THEME_PATH}/images/box_02.png" width="50%" height="48" align="right"> 
+	  <!-- IF not S_IS_BOT and U_MARK_FORUMS --><h6><a class="navf" href="{U_MARK_FORUMS}">{L_MARK_FORUMS_READ}</a><!-- ENDIF -->&nbsp;</h6></td>
+
+
+		<td><img src="{T_THEME_PATH}/images/box_04.png" width="41" height="48" alt=""></td>
+</table>
+	</tr>
+<table width="100%" height="44" border="0" cellpadding="0" cellspacing="0">
+
+	<tr>
+		<td background="{T_THEME_PATH}/images/box_08.png" width="41" height="100%"></td>
+		<td> 
+  <table class="tablebg" onMouseOver="this.className='tablebg2'" onMouseOut="this.className='tablebg'" cellspacing="1" width="100%">
+   <!-- ENDIF -->
+    <tr>
+      <th colspan="2">&nbsp;{L_FORUM}&nbsp;</th>
+      <th width="50">&nbsp;{L_TOPICS}&nbsp;</th>
+      <th width="50">&nbsp;{L_POSTS}&nbsp;</th>
+      <th>&nbsp;{L_LAST_POST}&nbsp;</th>
+    </tr>
+	<!-- ELSEIF forumrow.S_IS_LINK -->
+		<tr>
+			<td class="row1" onMouseOver="this.className='row4'" onMouseOut="this.className='row1'" width="50" align="center">{forumrow.FORUM_FOLDER_IMG}</td>
+			<td class="row1" onMouseOver="this.className='row4'" onMouseOut="this.className='row1'">
+				<!-- IF forumrow.FORUM_IMAGE -->
+					<div style="float: {S_CONTENT_FLOW_BEGIN}; margin-{S_CONTENT_FLOW_END}: 5px;">{forumrow.FORUM_IMAGE}</div><div style="float: {S_CONTENT_FLOW_BEGIN};">
+				<!-- ENDIF -->
+				<a class="forumlink" href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a>
+				<p class="forumdesc">{forumrow.FORUM_DESC}</p>
+				<!-- IF forumrow.FORUM_IMAGE --></div><!-- ENDIF -->
+			</td>
+			<!-- IF forumrow.CLICKS -->
+				<td class="row2" colspan="3" align="center"><span class="genmed">{L_REDIRECTS}: {forumrow.CLICKS}</span></td>
+			<!-- ELSE -->
+				<td class="row2" colspan="3" align="center">&nbsp;</td>
+			<!-- ENDIF -->
+		</tr>
+	<!-- ELSE -->
+		<!-- IF forumrow.S_NO_CAT -->
+			<tr>
+				<td class="cat" colspan="2"><h4>{L_FORUM}</h4></td>
+				<td class="catdiv" colspan="3">&nbsp;</td>
+			</tr>
+		<!-- ENDIF -->
+		<tr>
+			<td class="row1" onMouseOver="this.className='row4'" onMouseOut="this.className='row1'" width="50" align="center">{forumrow.FORUM_FOLDER_IMG}</td>
+			<td class="row1" onMouseOver="this.className='row4'" onMouseOut="this.className='row1'" width="100%">
+				<!-- IF forumrow.FORUM_IMAGE -->
+					<div style="float: {S_CONTENT_FLOW_BEGIN}; margin-{S_CONTENT_FLOW_END}: 5px;">{forumrow.FORUM_IMAGE}</div><div style="float: {S_CONTENT_FLOW_BEGIN};">
+				<!-- ENDIF -->
+				<a class="forumlink" href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a>
+				<p class="forumdesc">{forumrow.FORUM_DESC}</p>
+				<!-- IF forumrow.MODERATORS -->
+					<p class="forumdesc"><strong>{forumrow.L_MODERATOR_STR}:</strong> {forumrow.MODERATORS}</p>
+				<!-- ENDIF -->
+				    <!-- IF forumrow.SUBFORUMS and forumrow.S_LIST_SUBFORUMS -->
+					<p class="forumdesc"><strong>{forumrow.L_SUBFORUM_STR}</strong> {forumrow.SUBFORUMS}</p>
+				<!-- ENDIF -->
+				<!-- IF forumrow.FORUM_IMAGE --></div><!-- ENDIF -->
+			</td>
+			<td class="row2" onMouseOver="this.className='row4'" onMouseOut="this.className='row2'" align="center"><p class="topicdetails">{forumrow.TOPICS}</p></td>
+			<td class="row2" onMouseOver="this.className='row4'" onMouseOut="this.className='row2'" align="center"><p class="topicdetails">{forumrow.POSTS}</p></td>
+			<td class="row2" onMouseOver="this.className='row4'" onMouseOut="this.className='row2'" align="center" nowrap="nowrap">
+				<!-- IF forumrow.LAST_POST_TIME -->
+		              <p class="topicdetails"><a href="{forumrow.U_LAST_POST}" title="{forumrow.LAST_POST_SUBJECT}">{forumrow.LAST_POST_SHORTENED_SUBJECT}</a></p>
+					<p class="topicdetails">{forumrow.LAST_POST_TIME}</p>
+					<p class="topicdetails">{forumrow.LAST_POSTER_FULL}
+						<a href="{forumrow.U_LAST_POST}">{LAST_POST_IMG}</a>
+					</p>
+				<!-- ELSE -->
+					<p class="topicdetails">{L_NO_POSTS}</p>
+				<!-- ENDIF -->
+			</td>
+		</tr>
+	<!-- ENDIF -->
+<!-- BEGINELSE -->
+	<tr>
+		<td class="row1" colspan="5" align="center"><p class="gensmall">{L_NO_FORUMS}</p></td>
+	</tr>
+<!-- END forumrow -->
+</table>
+    </td>
+		<td background="{T_THEME_PATH}/images/box_09.png" width="41" height="100%"></td>
+	</tr>
+	<tr>
+		<td><img src="{T_THEME_PATH}/images/box_10.png" width="41" height="46" alt=""></td>
+		<td background="{T_THEME_PATH}/images/box_11.png" width="100%" height="46"></td>
+		<td><img src="{T_THEME_PATH}/images/box_13.png" width="41" height="46" alt=""></td>
+	</tr>
+</table>

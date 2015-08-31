@@ -1,0 +1,183 @@
+<!-- INCLUDE ucp_header.html -->
+
+<!-- IF ERROR_MESSAGE or NOTIFICATION_MESSAGE -->
+	<table border="0" cellspacing="0" cellpadding="0" width="100%">
+	<tr>
+		<td class="row3" align="center">
+			<!-- IF ERROR_MESSAGE --><span class="genmed" style="color:red">{ERROR_MESSAGE}</span><!-- ENDIF -->
+			<!-- IF NOTIFICATION_MESSAGE --><span class="genmed" style="color:red">{NOTIFICATION_MESSAGE}</span><!-- ENDIF -->
+		</td>
+	</tr>
+	</table>
+	<div style="padding: 2px;"></div>
+<!-- ENDIF -->
+
+<form name="ucp" method="post" action="{S_UCP_ACTION}">
+
+{$BEGIN_TCORNERS}{L_ADD_NEW_RULE}{$END_TCORNERS}
+<table class="tablebg" width="100%" cellspacing="1">
+<!-- IF S_CHECK_DEFINED -->
+	<tr>
+		<td class="row1 genmed" width="50" align="{S_CONTENT_FLOW_END}" valign="top"><strong>{L_IF}:</strong></td>
+		<td class="row1" align="center" valign="top"><!-- IF S_CHECK_SELECT --><select name="check_option">{S_CHECK_OPTIONS}</select><!-- ELSE --><strong class="gen">{CHECK_CURRENT}</strong><input type="hidden" name="check_option" value="{CHECK_OPTION}" /><!-- ENDIF --></td>
+		<td class="row1" width="50" align="{S_CONTENT_FLOW_BEGIN}" valign="top"><!-- IF S_CHECK_SELECT --><input type="submit" class="button" name="next" value="{L_NEXT_STEP} button" /><!-- ELSE -->&nbsp;<!-- ENDIF --></td>
+	</tr>
+<!-- ENDIF -->
+<!-- IF S_RULE_DEFINED -->
+	<tr>
+		<td class="row2" width="50" align="{S_CONTENT_FLOW_END}" valign="top"><!-- IF S_RULE_SELECT --><input type="submit" class="button" name="back[rule]" value="{L_PREVIOUS_STEP} button" /><!-- ELSE -->&nbsp;<!-- ENDIF --></td>
+		<td class="row2" align="center" valign="top"><!-- IF S_RULE_SELECT --><select name="rule_option">{S_RULE_OPTIONS}</select><!-- ELSE --><strong class="genmed">{RULE_CURRENT}</strong><input type="hidden" name="rule_option" value="{RULE_OPTION}" /><!-- ENDIF --></td>
+		<td class="row2" width="50" align="{S_CONTENT_FLOW_BEGIN}" valign="top"><!-- IF S_RULE_SELECT --><input type="submit" class="button" name="next" value="{L_NEXT_STEP} button" /><!-- ELSE -->&nbsp;<!-- ENDIF --></td>
+	</tr>
+<!-- ENDIF -->
+	
+<!-- IF S_COND_DEFINED -->
+	<!-- IF S_COND_SELECT or COND_CURRENT -->
+		<tr>
+			<td class="row1" width="50" align="{S_CONTENT_FLOW_END}" valign="top"><!-- IF S_COND_SELECT --><input type="submit" class="button" name="back[cond]" value="{L_PREVIOUS_STEP} button" /><!-- ELSE -->&nbsp;<!-- ENDIF --></td>
+			<td class="row1" align="center" valign="top">
+				<!-- IF S_COND_SELECT -->
+					<!-- IF S_TEXT_CONDITION -->
+						<input type="text" name="rule_string" value="{CURRENT_STRING}" size="30" maxlength="250" class="post" />
+					<!-- ELSEIF S_USER_CONDITION -->
+						<input type="text" class="post" name="rule_string" value="{CURRENT_STRING}" size="20" />&nbsp;<span class="gensmall">[ <a href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false;">{L_FIND_USERNAME}</a> ]</span>
+					<!-- ELSEIF S_GROUP_CONDITION -->
+						<input type="hidden" name="rule_string" value="{CURRENT_STRING}" /><!-- IF S_GROUP_OPTIONS --><select name="rule_group_id">{S_GROUP_OPTIONS}</select><!-- ELSE -->{L_NO_GROUPS}<!-- ENDIF -->
+					<!-- ENDIF -->
+				<!-- ELSE -->
+					<strong class="genmed">{COND_CURRENT}</strong> <input type="hidden" name="rule_string" value="{CURRENT_STRING}" /><input type="hidden" name="rule_user_id" value="{CURRENT_USER_ID}" /><input type="hidden" name="rule_group_id" value="{CURRENT_GROUP_ID}" />
+				<!-- ENDIF -->
+			</td>
+			<td class="row1" width="50" align="{S_CONTENT_FLOW_BEGIN}" valign="top"><!-- IF S_COND_SELECT --><input type="submit" class="button" name="next" value="{L_NEXT_STEP} button" /><!-- ELSE -->&nbsp;<!-- ENDIF --></td>
+		</tr>
+	<!-- ENDIF -->
+	<input type="hidden" name="cond_option" value="{COND_OPTION}" />
+<!-- ENDIF -->
+
+<!-- IF NONE_CONDITION --><input type="hidden" name="cond_option" value="none" /><!-- ENDIF -->
+
+<!-- IF S_ACTION_DEFINED -->
+	<tr>
+		<td class="row2" width="50" align="{S_CONTENT_FLOW_END}" valign="top"><!-- IF S_ACTION_SELECT --><input type="submit" class="button" name="back[action]" value="{L_PREVIOUS_STEP} button" /><!-- ELSE -->&nbsp;<!-- ENDIF --></td>
+		<td class="row2" align="center" valign="top"><!-- IF S_ACTION_SELECT --><select name="action_option">{S_ACTION_OPTIONS}</select><!-- ELSE --><strong class="genmed">{ACTION_CURRENT}</strong><input type="hidden" name="action_option" value="{ACTION_OPTION}" /><!-- ENDIF --></td>
+		<td class="row2" width="50" align="{S_CONTENT_FLOW_BEGIN}" valign="top"><!-- IF S_ACTION_SELECT --><input type="submit" class="button" name="add_rule" value="{L_ADD_RULE} button" /><!-- ELSE -->&nbsp;<!-- ENDIF --></td>
+	</tr>
+<!-- ENDIF -->
+</table>
+{$BCORNERS}
+<br />
+
+{$BEGIN_TCORNERS}{L_DEFINED_RULES}{$END_TCORNERS}
+<table class="tablebg" width="100%" cellspacing="1">
+<!-- BEGIN rule -->
+	<!-- IF rule.S_ROW_COUNT is even -->
+		<!-- DEFINE $CURRENT_ROW = 'row1' -->
+	<!-- ELSE -->
+		<!-- DEFINE $CURRENT_ROW = 'row2' -->
+	<!-- ENDIF -->
+
+	<tr>
+		<td class="{$CURRENT_ROW}" width="25" align="center"><span class="gen">#{rule.COUNT}</span></td>
+		<td class="{$CURRENT_ROW}" width="120"><span class="gen"><strong>{L_IF}</strong> {rule.CHECK}</span></td>
+		<td class="{$CURRENT_ROW}" width="120"><span class="gen">{rule.RULE}</span></td>
+		<td class="{$CURRENT_ROW}" width="120"><span class="gen"><!-- IF rule.STRING -->{rule.STRING}<!-- ENDIF --></span></td>
+		<td class="{$CURRENT_ROW}"><span class="gen">{rule.ACTION}<!-- IF rule.FOLDER --> -&gt; {rule.FOLDER}<!-- ENDIF --></span></td>
+		<td class="{$CURRENT_ROW}" width="25"><input type="submit" class="button" name="delete_rule[{rule.RULE_ID}]" value="{L_DELETE_RULE} button" /></td>
+	</tr>
+	
+	<!-- UNDEFINE $CURRENT_ROW -->
+<!-- BEGINELSE -->
+	<tr>
+		<td colspan="6" class="row1 gensmall" align="center">{L_NO_RULES_DEFINED}</td>
+	</tr>
+<!-- END rule -->
+</table>
+{$BCORNERS}
+<br />
+
+<!-- IF S_FOLDER_OPTIONS -->
+	{$BEGIN_TCORNERS}{L_RENAME_FOLDER}{$END_TCORNERS}
+	<table class="tablebg" width="100%" cellspacing="1">
+	<tr>
+		<td class="row1 genmed" width="200" align="{S_CONTENT_FLOW_END}"><strong><label for="rename_folder_id">{L_RENAME_FOLDER}:</label></strong></td>
+		<td class="row1"><select id="rename_folder_id" name="rename_folder_id">{S_FOLDER_OPTIONS}</select></td>
+	</tr>
+	<tr>
+		<td class="row1 genmed" width="200" align="{S_CONTENT_FLOW_END}"><strong><label for="new_folder_name">{L_NEW_FOLDER_NAME}:</label></strong></td>
+		<td class="row1"><input type="text post" id="new_folder_name" name="new_folder_name" size="30" maxlength="30" /></td>
+	</tr>
+	<tr>
+		<td class="cat" align="center" colspan="2"><input class="button" type="submit" name="rename_folder" value="{L_RENAME}" /></td>
+	</tr>
+	</table>
+	{$BCORNERS}
+	<br />
+<!-- ENDIF -->
+
+<!-- IF not S_MAX_FOLDER_ZERO -->
+	{$BEGIN_TCORNERS}{L_ADD_FOLDER}{$END_TCORNERS}
+	<table class="tablebg" width="100%" cellspacing="1">
+	<!-- IF S_MAX_FOLDER_REACHED -->
+		<tr>
+			<td class="row1 gensmall" colspan="2">{L_MAX_FOLDER_REACHED}</td>
+		</tr>
+	<!-- ELSE -->
+		<tr>
+			<td class="row1 genmed" align="{S_CONTENT_FLOW_END}" width="200"><strong><label for="foldername">{L_ADD_FOLDER}:</label></strong></td>
+			<td class="row1"><input type="text post" id="foldername" name="foldername" size="30" maxlength="30" /></td>
+		</tr>
+		<tr>
+			<td class="cat" align="center" colspan="2"><input class="button" type="submit" name="addfolder" value="{L_ADD}" /></td>
+		</tr>
+	<!-- ENDIF -->
+	</table>
+	{$BCORNERS}
+	<br />
+<!-- ENDIF -->
+
+<!-- IF S_FOLDER_OPTIONS -->
+	{$BEGIN_TCORNERS}{L_REMOVE_FOLDER}{$END_TCORNERS}
+	<table class="tablebg" width="100%" cellspacing="1">
+	<tr>
+		<td rowspan="3" class="row1 genmed" width="200" align="{S_CONTENT_FLOW_END}" valign="top"><strong><label for="remove_folder_id">{L_REMOVE_FOLDER}:</label></strong></td>
+		<td class="row2"><select id="remove_folder_id" name="remove_folder_id">{S_FOLDER_OPTIONS}</select></td>
+		<td class="row2 genmed"><strong>{L_AND}</strong></td>
+	</tr>
+	<tr>
+		<td class="row2" colspan="2"><label><input type="radio" name="remove_action" value="1" checked="checked" />&nbsp;<span class="genmed">{L_MOVE_DELETED_MESSAGES_TO}</label> </span>&nbsp;<select name="move_to">{S_TO_FOLDER_OPTIONS}</select></td>
+	</tr>
+	<tr>
+		<td class="row2" colspan="2"><label><input type="radio" name="remove_action" value="2" />&nbsp;<span class="genmed">{L_DELETE_MESSAGES_IN_FOLDER}</span></label></td>
+	</tr>
+	<tr>
+		<td class="cat" colspan="3" align="center"><input class="button" type="submit" name="remove_folder" value="{L_REMOVE}" /></td>
+	</tr>
+	</table>
+	{$BCORNERS}
+	<br />
+<!-- ENDIF -->
+
+{$BEGIN_TCORNERS}{L_FOLDER_OPTIONS}{$END_TCORNERS}
+<table class="tablebg" width="100%" cellspacing="1">
+<tr>
+	<td class="row1 genmed" width="200" rowspan="3" align="{S_CONTENT_FLOW_END}" valign="top"><strong>{L_IF_FOLDER_FULL}:</strong></td>
+	<td class="row2"><label><input type="radio" name="full_action" value="1"{S_DELETE_CHECKED} />&nbsp;<span class="genmed">{L_DELETE_OLDEST_MESSAGES}</span></label></td>
+</tr>
+<tr>
+	<td class="row2"><label><input type="radio" name="full_action" value="2"{S_MOVE_CHECKED} />&nbsp;<span class="genmed">{L_MOVE_TO_FOLDER}: </span></label><select name="full_move_to">{S_FULL_FOLDER_OPTIONS}</select></td>
+</tr>
+<tr>
+	<td class="row2"><label><input type="radio" name="full_action" value="3"{S_HOLD_CHECKED} />&nbsp;<span class="genmed">{L_HOLD_NEW_MESSAGES}</span></label></td>
+</tr>
+<tr>
+	<td class="row1" width="200" align="{S_CONTENT_FLOW_END}"><strong class="genmed">{L_DEFAULT_ACTION}:</strong><br /><span class="gensmall">{L_DEFAULT_ACTION_EXPLAIN}</span></td>
+	<td class="row2 genmed">{DEFAULT_ACTION}</td>
+</tr>
+<tr>
+	<td class="cat" colspan="2" align="center"><input class="button" type="submit" name="fullfolder" value="{L_CHANGE}" /></td>
+</tr>
+</table>
+{$BCORNERS}
+{S_FORM_TOKEN}
+</form>
+<!-- INCLUDE ucp_footer.html -->

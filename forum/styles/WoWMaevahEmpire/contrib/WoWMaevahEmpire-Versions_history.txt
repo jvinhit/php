@@ -1,0 +1,225 @@
+* WoWMaevahEmpire - World of Warcraft phpBB theme created by Moonclaw/Mäevah (http://www.wowcr.net/) - Versions history
+* ---------------------------------------------------------------------------------------------------------------------
+*
+
+Version 3.0.2 (09/04/2008) (phpBB version 3.0.1)
+------------------------------------------------
+- updated for phpBB 3.0.1
+
+
+Version 3.0.1 (20/12/2007) (phpBB version 3.0.0)
+------------------------------------------------
+- slight change in css style (.spacer)
+- slight posts change in signature displaying
+- slight changes in the credits
+
+
+Version 3.0.0 (13/12/2007) (phpBB version 3.0.0)
+------------------------------------------------
+- phpBB 3.0.0 is out. Nothing really needed update in the template
+- credits slightly edited
+
+
+Version 3.0.RC10 (02/12/2007) (phpBB version 3.0.RC8)
+-----------------------------------------------------
+- updated for phpBB 3.0.RC8
+
+
+Version 3.0.RC9 (19/10/2007) (phpBB version 3.0.RC7)
+----------------------------------------------------
+- template updated for phpBB 3.0.RC7
+- error in previous update corrected in overall_header.html
+- _documentation renamed into "contrib" (cf. phpBB Styles Submission Policy)
+- lang="en" added to some "static" lines of copyrights
+
+
+Version 3.0.RC8 (13/10/2007) (phpBB version 3.0.RC6)
+----------------------------------------------------
+- template updated for phpBB 3.0.RC6
+
+
+Version 3.0.RC7c (06/09/2007) (phpBB version 3.0.RC5)
+-----------------------------------------------------
+- a mistake in posting_body.html  (showing only in Internet Explorer) from the last update has been corrected
+
+
+Version 3.0.RC7b (01/09/2007) (phpBB version 3.0.RC5)
+-----------------------------------------------------
+- corrections in the menu links in overall_header.html
+
+
+Version 3.0.RC7 (29/08/2007) (phpBB version 3.0.RC5)
+-----------------------------------------------------
+- template updated for phpBB 3.0.RC5
+
+
+Version 3.0.RC6 (01/08/2007) (phpBB version 3.0.RC4)
+-----------------------------------------------------
+- template updated for phpBB 3.0.RC4
+
+
+Version 3.0.RC5 (11/07/2007) (phpBB version 3.0.RC3)
+-----------------------------------------------------
+- template updated for phpBB 3.0.RC3
+- "Mark forums read" link taken ou of the forum's main frame
+
+
+Version 3.0.RC4 (26/06/2007) (phpBB version 3.0.RC2)
+-----------------------------------------------------
+- template updated for phpBB 3.0.RC2
+
+
+Version 3.0.RC3 (16/06/2007) (phpBB version 3.0.RC1)
+-----------------------------------------------------
+- .pagination color set to #707070 instead of "black"
+
+Version 3.0.RC2 (10/06/2007) (phpBB version 3.0.RC1)
+-----------------------------------------------------
+- CSS change concerning the form/input buttons
+- CSS correction, CSS is not W3C valid
+- the favorite icon is now optional (included in '_documentation\_code_changes\_optional') in the .zip file
+- correction in overall_footer.html
+- "Reply" button in private messages corrected
+- the private message legent is now displayed again
+- A few other changes
+
+- note : Not sure it's a bug or related to the template, but the title of some private messages has a strange blue color ...
+
+
+Version 3.0.RC1 beta01 (10/06/2007) (phpBB version 3.0.RC1)
+-----------------------------------------------------------
+Release Candidate 1.
+
+
+Version 3.0 beta01 (09/06/2007) (phpBB version 3.0.RC1)
+-------------------------------------------------------
+- re-build of the template for phpBB3, based on subSilver2 (I'll see later if I find the time to make a version based on proSilver)
+
+Version 2.02 (27/05/2007) (phpBB version 2.0.22)
+------------------------------------------------
+- link update in the credits line
+
+
+Version 2.01 (28/01/2007) (phpBB version 2.0.22)
+------------------------------------------------
+
+- in the style sheets : input.post, textarea.post, select { border : ...}, color changed to #202020
+- in the style sheets : iframe { border-color: ...}, change to #252525
+- mistyping corrected <title> in the 'index.htm' files corrected
+
+
+Version 2.00 (20/01/2007) (phpBB version 2.0.22)
+------------------------------------------------
+- template re-done from subSilver for phpBB 2.0.22, following the WoWMaevahEmpire 1.09 and WoWMoonclaw01 1.08 documentation
+- the styles from 'overall_header.tpl' and 'simple_header.tpl' are now using 'WoWMoonclaw01.css' (which should make your forums save bandwidth, and the template will now cover the "Topic review" when posting)
+- documentation cleaned and improved (this could help me for further updates)
+- [code][/code] tag is now displayed in the same color and font as [quote][/quote] (formerly color was "006600" and font family was "Courier, 'Courier New', sans-serif")
+- some input/posting/forms elements should be less "flashy" in Internet Explorer
+- corrected the closing </a> tag that was actually written <a/> in 'overall_footer.tpl'
+- I've wanted to checked the "public" pages of the forum with HTML validator http://validator.w3.org/ , but the remaining errors come from phpBB itself and are no real problems.
+- small changes 'created_by.jpg'
+- 'cellpic2.gif' deleted (not in use)
+- 'cellpic2.jpg' deleted (not in use)
+- 'cellpic3.gif' deleted (not in use)
+- 'cellpic.gif' deleted (not in use)
+- '_not_used' directory deleted (not in use)
+
+
+- in the '_documentation', added the "Empire mod", so that I don't have to manage a "public version" and an "Empire version" for each update.
+- '_optional_mods' section added
+- quick re-reading and correction of this file
+
+
+Version 1.09 (04/01/2007) (phpBB version 2.0.22)
+------------------------------------------------
+- 'posting_body.tpl' replaced by the phpBB 2.0.22 file
+
+
+Version 1.082 (12/06/2006) (phpBB version 2.0.21)
+-------------------------------------------------
+- yet another very very small change
+
+
+Version 1.081 (11/06/2006) (phpBB version 2.0.21)
+-------------------------------------------------
+- very very small change
+
+
+Version 1.08 (08/06/2006) (phpBB version 2.0.21)
+-----------------------------------------------
+- phpBB 2.0.21 is out. No change regarding the templates.
+
+
+Version 1.08 (01/06/2006)(phpBB version 2.0.20)
+-----------------------------------------------
+- added spanish buttons
+- graphic corrections (remade) in 'msg_newpost.gif', 'post.gif', 'reply.gif' and 'reply-locked.gif'
+- 'created_by.jpg' changed
+
+
+Version 1.07 (26/04/2006)(phpBB version 2.0.20)
+-----------------------------------------------
+- small correction in the credit lines (only 'overall_footer.tpl' has changed)
+
+
+Version 1.06 (10/04/2006)(phpBB version 2.0.20)
+-----------------------------------------------
+- upgrade for phpBB 2.0.20
+
+
+Version 1.06 (28/02/2006)(phpBB version 2.0.19) (1st public realease)
+-----------------------------------------------
+I'm now "seperated from Empire guilde. This template is not an exclusivity for them anymore.
+
+- previous version 1.07 cancelled
+- template adapted to be distributed (Empire logo replaced by World of Warcraft logo)
+
+
+Version 1.07 (22/03/2006)(phpBB version 2.0.19) (cancelled)
+-----------------------------------------------
+- Suppression d'une source de flame : suppression des indications du nombre de postes par membres.
+
+
+Version 1.06 (28/02/2006)(phpBB version 2.0.19)
+------------------------------------------------
+- boutons bleus remplacés par des boutons plus adaptés au template
+- mise à jour de 'created_by.jpg'
+- mise à jour des fichiers 'index.html' encore intitulés "WoWMoonclaw01
+- 'Theme_WoWMaevahEmpire-Infos_utiles' renommé en 'Theme_WoWMaevahEmpire-Documentation'
+
+
+Version 1.05 (24/02/2006) (phpBB version 2.0.19)
+------------------------------------------------
+- titre principal affiché en "small caps" pour adapter l'apparence au template WoWMaevahEmpire pour EDQKP 1.3.0 v2.00
+
+
+Version 1.04 (16/02/2006) (phpBB version 2.0.19)
+-------------------------------------------------
+- édition de 'admin/page_header.tpl' pour que le thème apparaisse correctement dans le panneau d'administration et apparition de titre qui étaient en noir sur noir
+- couleurs des liens rendues toutes identiques à la couleur des liens "normales" (idée venue du fait que dans certains explorateur/écrans un point trop à gauche restait bleu)
+Couleur du Lien Visité: 007799
+Couleur du Lien survolé: 007799
+- inclusion du logo "Empire" d'Apri (version dorée, j'ai cheaté en tenant pas compte des résultats du sondage ... enfin même pas, j'ai jamais dit qu'il serait d'office déterminant :-p ). 'logo_phpbb.jpg' est utilisé au lieu de 'logo_phpbb.gif'.
+
+
+Version 1.03 (19/01/2006) (phpBB version 2.0.19)
+------------------------------------------------
+- ré-agrandissement de la taille des polices de caractères (certaines utilisateurs avaient du mal à lire)
+- adaptation du style .copyrights : taille de police fixe 10px (ne dépend plus des variables du template)
+
+
+Version 1.02 (12/01/2006) (phpBB version 2.0.19)
+------------------------------------------------
+- réduction de l'épaisseur de la bordure des tables du forum (1px au lieu de 2px)
+- correction d'un paramètre apparaissant en double dans le style .bodyline
+
+
+Version 1.01 (11/01/2006) (phpBB version 2.0.19)
+------------------------------------------------
+- correction de la couleur (trop claire) des bouttons de mises en forme et du cadre d'aide du formulaire de composition des messages
+- création de cet historique
+
+
+Version 1.0 (05/01/2006) (phpBB version 2.0.19)
+-----------------------------------------------
+- WoWMaevahEmpire was created from WoWMoonclaw01 1.053, after some "joke" in a discussion on TeamSpeak with Empire members and guild leader.

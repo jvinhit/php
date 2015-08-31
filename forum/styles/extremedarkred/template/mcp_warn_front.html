@@ -1,0 +1,78 @@
+<!-- INCLUDE mcp_header.html -->
+
+<form method="post" name="mcp" action="{U_POST_ACTION}">
+	{$BEGIN_TCORNERS}{L_SELECT_USER}{$END_TCORNERS}
+	<table class="tablebg" width="100%" cellspacing="1" border="0" align="center">
+	<tr>
+		<td class="row1" width="40%" align="{S_CONTENT_FLOW_END}"><label for="username"><strong class="genmed">{L_FIND_USERNAME}:</strong></label><br /><span class="gensmall">[ <a href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false;">{L_FIND_USERNAME}</a> ]</span></td>
+		<td class="row2"><input type="text post" id="username" name="username" size="20" /></td>
+	</tr>
+	<tr>
+		<td class="cat" colspan="2" align="center"><input type="submit" class="button" name="submituser" value="{L_SUBMIT} button" /></td>
+	</tr>
+	</table>
+	{$BCORNERS}
+	{S_FORM_TOKEN}
+</form>
+
+<br />
+
+{$BEGIN_TCORNERS}{L_MOST_WARNINGS}{$END_TCORNERS}
+<table class="tablebg" width="100%" cellspacing="1">
+<thead>
+<tr>
+	<th>&nbsp;{L_USERNAME}&nbsp;</th>
+	<th>&nbsp;{L_WARNINGS}&nbsp;</th>
+	<th>&nbsp;{L_LATEST_WARNING_TIME}&nbsp;</th>
+	<th>&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<!-- BEGIN highest -->
+	<tr>
+		<td class="row1 genmed" width="15%" valign="top">{highest.USERNAME_FULL}</td>
+		<td class="row2 genmed" width="15%" valign="top">{highest.WARNINGS}</td>
+		<td class="row1 genmed" width="15%" valign="top">{highest.WARNING_TIME}</td>
+		<td class="row2 genmed" width="15%" valign="top"><a href="{highest.U_NOTES}">{L_VIEW_NOTES}</a></td>
+	</tr>
+<!-- BEGINELSE -->
+	<tr>
+		<td class="row1 genmed" colspan="4" align="center">{L_WARNINGS_ZERO_TOTAL}</td>
+	</tr>
+<!-- END highest -->
+</tbody>
+</table>
+{$BCORNERS}
+
+<br />
+
+{$BEGIN_TCORNERS}{L_LATEST_WARNINGS}{$END_TCORNERS}
+<table class="tablebg" width="100%" cellspacing="1">
+<thead>
+<tr>
+	<th>&nbsp;{L_USERNAME}&nbsp;</th>
+	<th>&nbsp;{L_TIME}&nbsp;</th>
+	<th>&nbsp;{L_TOTAL_WARNINGS}&nbsp;</th>
+	<th>&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<!-- BEGIN latest -->
+	<tr>
+		<td class="row1 genmed" width="15%" valign="top">{latest.USERNAME_FULL}</td>
+		<td class="row2 genmed" width="15%" valign="top">{latest.WARNING_TIME}</td>
+		<td class="row1 genmed" width="15%" valign="top">{latest.WARNINGS}</td>
+		<td class="row2 genmed" width="15%" valign="top"><a href="{latest.U_NOTES}">{L_VIEW_NOTES}</a></td>
+	</tr>
+<!-- BEGINELSE -->
+	<tr>
+		<td class="row1 genmed" colspan="4" align="center">{L_WARNINGS_ZERO_TOTAL}</td>
+	</tr>
+<!-- END latest -->
+</tbody>
+</table>
+{$BCORNERS}
+
+<br />
+
+<!-- INCLUDE mcp_footer.html -->

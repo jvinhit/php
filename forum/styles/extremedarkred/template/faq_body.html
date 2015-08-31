@@ -1,0 +1,49 @@
+<!-- INCLUDE overall_header.html -->
+
+<a name="faqtop"></a>
+
+<div id="pagecontent">
+
+	{$BEGIN_TCORNERS}{L_FAQ_TITLE}{$END_TCORNERS}
+	<div class="tablebg">
+	    <div class="row1">
+	        <ul>
+				<!-- BEGIN faq_block -->
+				<li><strong class="gen">{faq_block.BLOCK_TITLE}</strong>
+					<ul>
+					<!-- BEGIN faq_row -->
+						<li class="gen"><a href="#f{faq_block.S_ROW_COUNT}{faq_block.faq_row.S_ROW_COUNT}">{faq_block.faq_row.FAQ_QUESTION}</a></li>
+					<!-- END faq_row -->
+					</ul>
+				</li>
+				<!-- END faq_block -->
+			</ul>
+		</div>
+	</div>
+	{$BCORNERS}
+
+	<br />
+
+	<!-- BEGIN faq_block -->
+	{$BEGIN_TCORNERS}{faq_block.BLOCK_TITLE}{$END_TCORNERS}
+	<div class="tablebg">
+		<!-- BEGIN faq_row -->
+		<div class="<!-- IF faq_block.faq_row.S_ROW_COUNT is even -->row1<!-- ELSE -->row2<!-- ENDIF --> postbody">
+			<p><a name="f{faq_block.S_ROW_COUNT}{faq_block.faq_row.S_ROW_COUNT}"></a><strong>&raquo; {faq_block.faq_row.FAQ_QUESTION}</strong></p>
+			{faq_block.faq_row.FAQ_ANSWER}
+			<p class="gensmall"><a href="#faqtop">&raquo; {L_BACK_TO_TOP}</a></p>
+		</div>
+		<div class="spacer"><img src="./images/spacer.gif" width="1" height="1" alt="" /></div>
+		<!-- END faq_row -->
+	</div>
+	{$BCORNERS}
+	<br />
+	<!-- END faq_block -->
+
+</div>
+
+<br />
+
+<div align="{S_CONTENT_FLOW_END}"><!-- INCLUDE jumpbox.html --></div>
+
+<!-- INCLUDE overall_footer.html -->

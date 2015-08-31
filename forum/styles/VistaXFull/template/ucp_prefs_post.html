@@ -1,0 +1,49 @@
+<!-- INCLUDE ucp_header.html -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="7" height="7"><img src="{T_THEME_PATH}/images/tl.gif" width="7" height="7" /></td>
+    <td height="7" background="{T_THEME_PATH}/images/tm.gif"></td>
+    <td width="7" height="7"><img src="{T_THEME_PATH}/images/tr.gif" width="7" height="7" /></td>
+  </tr>
+  <tr>
+    <td width="7" background="{T_THEME_PATH}/images/ml.gif"></td>
+    <td>
+<table class="tablebg" width="100%" cellspacing="1">
+<tr>
+	<th colspan="2" valign="middle">{L_TITLE}</th>
+</tr>
+<!-- IF ERROR -->
+	<tr>
+		<td class="row3" colspan="2" align="center"><span class="gensmall error">{ERROR}</span></td>
+	</tr>
+<!-- ENDIF -->
+<tr>
+	<td class="row1" width="50%"><b class="genmed">{L_DEFAULT_BBCODE}:</b></td>
+	<td class="row2"><input type="radio" class="radio" name="bbcode" value="1"<!-- IF S_BBCODE --> checked="checked"<!-- ENDIF --> /><span class="gen">{L_YES}</span>&nbsp; &nbsp;<input type="radio" class="radio" name="bbcode" value="0"<!-- IF not S_BBCODE --> checked="checked"<!-- ENDIF --> /><span class="gen">{L_NO}</span></td>
+</tr>
+<tr>
+	<td class="row1" width="50%"><b class="genmed">{L_DEFAULT_SMILIES}:</b></td>
+	<td class="row2"><input type="radio" class="radio" name="smilies" value="1"<!-- IF S_SMILIES --> checked="checked"<!-- ENDIF --> /><span class="gen">{L_YES}</span>&nbsp; &nbsp;<input type="radio" class="radio" name="smilies" value="0"<!-- IF not S_SMILIES --> checked="checked"<!-- ENDIF --> /><span class="gen">{L_NO}</span></td>
+</tr>
+<tr>
+	<td class="row1" width="50%"><b class="genmed">{L_DEFAULT_ADD_SIG}:</b></td>
+	<td class="row2"><input type="radio" class="radio" name="sig" value="1"<!-- IF S_SIG --> checked="checked"<!-- ENDIF --> /><span class="gen">{L_YES}</span>&nbsp; &nbsp;<input type="radio" class="radio" name="sig" value="0"<!-- IF not S_SIG --> checked="checked"<!-- ENDIF --> /><span class="gen">{L_NO}</span></td>
+</tr>
+<tr>
+	<td class="row1" width="50%"><b class="genmed">{L_DEFAULT_NOTIFY}:</b></td>
+	<td class="row2"><input type="radio" class="radio" name="notify" value="1"<!-- IF S_NOTIFY --> checked="checked"<!-- ENDIF --> /><span class="gen">{L_YES}</span>&nbsp; &nbsp;<input type="radio" class="radio" name="notify" value="0"<!-- IF not S_NOTIFY --> checked="checked"<!-- ENDIF --> /><span class="gen">{L_NO}</span></td>
+</tr>
+<tr>
+	<td class="catb" colspan="2" align="center">{S_HIDDEN_FIELDS}<input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;<input class="btnlite" type="reset" value="{L_RESET}" name="reset" /></td>
+</tr>
+</table>
+</td>
+    <td width="7" background="{T_THEME_PATH}/images/mr.gif"></td>
+  </tr>
+  <tr>
+    <td width="7" height="6" align="right"><img src="{T_THEME_PATH}/images/bl.gif" width="7" height="6" /></td>
+    <td height="6" background="{T_THEME_PATH}/images/bm.gif"></td>
+    <td width="7" height="6"><img src="{T_THEME_PATH}/images/br.gif" width="7" height="6" /></td>
+  </tr>
+</table>
+<!-- INCLUDE ucp_footer.html -->

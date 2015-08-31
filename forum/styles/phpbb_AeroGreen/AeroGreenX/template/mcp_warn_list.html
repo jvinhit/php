@@ -1,0 +1,61 @@
+<!-- INCLUDE mcp_header.html -->
+
+<form method="post" name="mcp" action="{U_POST_ACTION}">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="18" height="18"><img src="{T_THEME_PATH}/images/tl.png" width="18" height="18" alt="" /></td>
+    <td height="18" style="background:url('{T_THEME_PATH}/images/tm.png');"></td>
+    <td width="18" height="18"><img src="{T_THEME_PATH}/images/tr.png" width="18" height="18" alt="" /></td>
+  </tr>
+  <tr>
+    <td width="18" style="background:url('{T_THEME_PATH}/images/ml.png');"></td>
+    <td>
+<table class="tablebg" width="100%" cellspacing="0">
+<tr>
+	<th colspan="4" align="center">{L_WARNED_USERS}</th>
+</tr>
+<tr>
+	<td class="row3h" align="center">&nbsp;{L_USERNAME}&nbsp;</td>
+	<td class="row3h" align="center">&nbsp;{L_WARNINGS}&nbsp;</td>
+	<td class="row3h" align="center">&nbsp;{L_LATEST_WARNING_TIME}&nbsp;</td>
+	<td class="row3h">&nbsp;</td>
+</tr>
+<!-- BEGIN user -->
+	<tr>
+		<td class="row1" width="15%" valign="top"><span class="gen">{user.USERNAME_FULL}</span></td>
+		<td class="row2" width="15%" valign="top"><span class="gen">{user.WARNINGS}</span></td>
+		<td class="row1" width="15%" valign="top"><span class="gen">{user.WARNING_TIME}</span></td>
+		<td class="row2" width="15%" valign="top"><span class="gen"><a href="{user.U_NOTES}">{L_VIEW_NOTES}</a></span></td>
+	</tr>
+<!-- BEGINELSE -->
+	<tr>
+		<td class="row1" colspan="4" align="center"><span class="gen">{L_WARNINGS_ZERO_TOTAL}</span></td>
+	</tr>
+<!-- END user -->
+<tr align="center">
+	<td class="catb" colspan="4"><span class="gensmall">{L_DISPLAY_POSTS}:</span> {S_SELECT_SORT_DAYS}&nbsp;<span class="gensmall">{L_SORT_BY}</span> {S_SELECT_SORT_KEY} {S_SELECT_SORT_DIR}&nbsp;<input class="btnlite" type="submit" value="{L_GO}" name="sort" /></td>
+</tr>
+</table>
+</td>
+    <td width="18" style="background:url('{T_THEME_PATH}/images/mr.png');"></td>
+  </tr>
+  <tr>
+    <td width="18" height="18" align="right"><img src="{T_THEME_PATH}/images/bl.png" width="18" height="18" alt="" /></td>
+    <td height="18" style="background:url('{T_THEME_PATH}/images/bm.png');"></td>
+    <td width="18" height="18"><img src="{T_THEME_PATH}/images/br.png" width="18" height="18" alt="" /></td>
+  </tr>
+</table>
+<div class="tbspace">
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr>
+	<td class="pagination">{PAGE_NUMBER} [ {TOTAL_USERS} ]</td>
+	<td align="{S_CONTENT_FLOW_END}"><span class="pagination"><!-- INCLUDE pagination.html --></span></td>
+</tr>
+</table>
+</div>
+{S_FORM_TOKEN}
+</form>
+
+<br />
+
+<!-- INCLUDE mcp_footer.html -->

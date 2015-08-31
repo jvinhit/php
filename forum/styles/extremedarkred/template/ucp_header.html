@@ -1,0 +1,150 @@
+<!-- INCLUDE overall_header.html -->
+
+<!-- IF S_SHOW_PM_BOX and S_POST_ACTION -->
+<form action="{S_POST_ACTION}" method="post" name="postform"{S_FORM_ENCTYPE}>
+<!-- ENDIF -->
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+	<td width="20%" valign="top">
+
+<!-- IF S_SHOW_PM_BOX and S_POST_ACTION -->
+	<div class="tablebg">
+		<div class="cat" style="text-align:center">{L_PM_TO}</div>
+		<!-- IF not S_ALLOW_MASS_PM -->
+		<div class="row1 genmed">
+			<strong>{L_USERNAME}:</strong><br /><div class="gensmall" align="{S_CONTENT_FLOW_END}">[ <a href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false;">{L_FIND_USERNAME}</a> ]</div>
+		</div>
+		<div class="row2">
+			<input class="post" type="text" name="username_list" size="20" value="" />&nbsp;<input class="button" type="submit" name="add_to" value="{L_ADD}" />
+		</div>
+		<!-- ELSE -->
+		<div class="row1 genmed">
+			<strong>{L_USERNAMES}:</strong>
+		</div>
+		<div class="row2">
+		    <textarea name="username_list" rows="5" cols="22"></textarea><br />
+		    <div class="gensmall" align="{S_CONTENT_FLOW_END}" style="margin-top:4px">[ <a href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false;">{L_FIND_USERNAME}</a> ]</div>
+		</div>
+		<!-- ENDIF -->
+		<!-- IF S_GROUP_OPTIONS -->
+		<div class="row1 genmed">
+			<strong>{L_USERGROUPS}:</strong>
+		</div>
+		<div class="row2">
+			<select name="group_list[]" multiple="true" size="5" style="width:150px">{S_GROUP_OPTIONS}</select>
+		</div>
+		<!-- ENDIF -->
+		<!-- IF S_ALLOW_MASS_PM -->
+		<div class="row1" align="center">
+			<input class="button" type="submit" name="add_bcc" value="{L_ADD_BCC}" />
+			<input class="button" type="submit" name="add_to" value="{L_ADD_TO}" />
+		</div>
+		<!-- ENDIF -->
+	</div>
+	<div style="padding:2px"></div>
+	<!-- ENDIF -->
+
+
+<table class="tablebg" width="100%" cellspacing="1">
+<tr>
+	<th>{L_OPTIONS}</th>
+</tr>
+
+<!-- BEGIN l_block1 -->
+	<tr>
+		<!-- IF l_block1.S_SELECTED -->
+			<td class="row1"><strong class="nav">{l_block1.L_TITLE}</strong>
+
+			<!-- IF S_PRIVMSGS -->
+				<!-- BEGIN !folder -->
+					<!-- IF folder.S_FIRST_ROW -->
+						<ul class="nav" style="margin: 0; padding: 0; list-style-type: none; line-height: 175%;">
+					<!-- ENDIF -->
+
+					<!-- IF folder.S_CUR_FOLDER -->
+						<li style="color:#98AAB1;padding:1px 0">&raquo; <a href="{folder.U_FOLDER}" style="color:#98AAB1">{folder.FOLDER_NAME}<!-- IF folder.S_UNREAD_MESSAGES --> ({folder.UNREAD_MESSAGES})<!-- ENDIF --></a></li>
+					<!-- ELSE -->
+						<li>&raquo; <a href="{folder.U_FOLDER}">{folder.FOLDER_NAME}<!-- IF folder.S_UNREAD_MESSAGES --> ({folder.UNREAD_MESSAGES})<!-- ENDIF --></a></li>
+					<!-- ENDIF -->
+
+					<!-- IF folder.S_LAST_ROW -->
+						</ul>
+						<hr class="inverted" />
+					<!-- ENDIF -->
+				<!-- END !folder -->
+
+			<!-- ENDIF -->
+
+			<ul class="nav" style="margin: 0; padding: 0; list-style-type: none; line-height: 175%;">
+			<!-- BEGIN l_block2 -->
+				<li>&#187; <!-- IF l_block1.l_block2.S_SELECTED --><strong>{l_block1.l_block2.L_TITLE}</strong><!-- ELSE --><a href="{l_block1.l_block2.U_TITLE}" style="color:#C00">{l_block1.l_block2.L_TITLE}</a><!-- ENDIF --></li>
+			<!-- END l_block2 -->
+			</ul>
+		<!-- ELSE -->
+			<td class="row1" nowrap="nowrap" onmouseover="this.className = 'row3'; this.style.cursor = 'pointer';" onmouseout="this.className = 'row1';" onclick="document.location.href = this.firstChild.href;"><a class="nav" style="color:#C00" href="{l_block1.U_TITLE}">{l_block1.L_TITLE}</a>
+		<!-- ENDIF -->
+		</td>
+	</tr>
+<!-- END l_block1 -->
+</table>
+
+<br />
+
+<!-- IF S_SHOW_COLOUR_LEGEND -->
+	<table class="tablebg" width="100%" cellspacing="1" cellpadding="0">
+	<tr>
+		<th colspan="2">{L_MESSAGE_COLOURS}</th>
+	</tr>
+	<!-- BEGIN pm_colour_info -->
+		<tr>
+			<!-- IF not pm_colour_info.IMG -->
+				<td class="{pm_colour_info.CLASS}" width="5">&nbsp;</td>
+			<!-- ELSE -->
+				<td class="row1" width="25" align="center">{pm_colour_info.IMG}</td>
+			<!-- ENDIF -->
+			<td class="row1 gensmall">{pm_colour_info.LANG}</td>
+		</tr>
+	<!-- END pm_colour_info -->
+	</table>
+
+	<br />
+<!-- ENDIF -->
+
+<!-- IF S_ZEBRA_ENABLED and S_ZEBRA_FRIENDS_ENABLED -->
+	<div class="tablebg">
+		<div class="cat" align="center">{L_FRIENDS}</div>
+		<div class="row1" align="center">
+			<p class="genmed" style="color:#008000"><strong>{L_FRIENDS_ONLINE}</strong></p>
+			<ul class="friends-foes">
+			<!-- BEGIN friends_online -->
+				<li>{friends_online.USERNAME_FULL}
+				<!-- IF S_SHOW_PM_BOX -->
+					&nbsp;[ <input class="button" style="font-size:90%" type="submit" name="add_to[{friends_online.USER_ID}]" value="{L_ADD}" /> ]
+				<!-- ENDIF -->
+				</li>
+			<!-- BEGINELSE -->
+				<li>{L_NO_FRIENDS_ONLINE}</li>
+			<!-- END friends_online -->
+			</ul>
+			
+			<hr />
+
+			<p class="genmed" style="color:#F00"><strong>{L_FRIENDS_OFFLINE}</strong></p>
+			<ul class="friends-foes">
+			<!-- BEGIN friends_offline -->
+				<li>{friends_offline.USERNAME_FULL}
+				<!-- IF S_SHOW_PM_BOX -->
+					&nbsp;[ <input class="button" style="font-size:90%" type="submit" name="add_to[{friends_offline.USER_ID}]" value="{L_ADD}" /> ]
+				<!-- ENDIF -->
+				</li>
+			<!-- BEGINELSE -->
+				<li>{L_NO_FRIENDS_OFFLINE}</li>
+			<!-- END friends_offline -->
+			</ul>
+		</div>
+	</div>
+<!-- ENDIF -->
+
+</td>
+<td><img src="images/spacer.gif" width="4" alt="" /></td>
+<td width="80%" valign="top"><!-- IF not S_PRIVMSGS or S_SHOW_DRAFTS --><form name="ucp" id="ucp" method="post" action="{S_UCP_ACTION}"{S_FORM_ENCTYPE}><!-- ENDIF -->

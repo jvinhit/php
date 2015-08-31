@@ -1,0 +1,96 @@
+@charset "utf-8";
+/* CSS Document */
+
+#khung
+{
+width:960px;
+margin:auto;	
+}
+#head
+{
+height:140px;
+background-image:url(../image/baner.jpg)
+}
+#ngaythang
+{
+width:300px;
+height:60px;
+margin-top:6px;
+color:#F00;
+font-weight:bold;
+float:right;		
+}
+#menu
+{
+	height:30px;
+	background-color:#FF0;
+	margin-bottom:5px;
+	margin-top:5px;
+	
+}
+#main
+{
+	min-height:500px;
+	
+}
+#left_main
+{
+	width:200px;
+	float:left;
+	min-height:500px;
+	
+}
+#left_main a,#sankhau a
+{
+	text-decoration:none;
+	color:#0000CC;
+	
+}
+#right_main a
+{
+	text-decoration:none;
+	color:#0000CC;
+	
+}
+#left_main a:hover,#sankhau a:hover
+{
+	text-decoration:underline;
+	color:#FF0000;
+	
+}
+#right_main a:hover
+{
+	text-decoration:underline;
+	color:#FF0000;
+	
+}
+#right_main
+{
+	width:200px;
+	float:right;
+	min-height:500px;
+}
+#center_main
+{
+	margin-left:205px;
+	margin-right:205px;
+	min-height:500px;
+}
+#liveshow
+{
+	height:235px;
+}
+#sankhau
+{
+	margin-top:5px;
+	min-height:255px;
+	
+}
+#footer
+{
+	height:120px;
+	background-color:#639;
+	clear:both;
+	margin-top:5px;
+	
+}

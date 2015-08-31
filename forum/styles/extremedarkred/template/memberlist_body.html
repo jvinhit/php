@@ -1,0 +1,112 @@
+<!-- IF S_IN_SEARCH_POPUP -->
+	<!-- INCLUDE simple_header.html -->
+<!-- ELSE -->
+	<!-- INCLUDE overall_header.html -->
+<!-- ENDIF -->
+
+<!-- IF S_SEARCH_USER -->	
+	<!-- INCLUDE memberlist_search.html -->	
+<!-- ENDIF -->
+
+<!-- IF S_SHOW_GROUP --><!-- INCLUDE memberlist_group.html --><!-- ENDIF -->
+
+<!-- IF not S_SHOW_GROUP -->
+	<form method="post" name="charsearch" action="{S_MODE_ACTION}">
+	    <div class="begin"><span class="genmed"><label for="first_char">{L_USERNAME_BEGINS_WITH}:&nbsp;</label></span><select id="first_char" name="first_char" onchange="this.form.submit();">{S_CHAR_OPTIONS}</select>&nbsp;<input type="submit" class="button" name="char" value="{L_DISPLAY} button" /></div>
+		<!-- IF U_FIND_MEMBER and not S_SEARCH_USER -->
+			<div class="end" align="{S_CONTENT_FLOW_END} genmed"><a href="{U_FIND_MEMBER}"><strong>{L_FIND_USERNAME}</strong></a></div>
+		<!-- ELSEIF S_SEARCH_USER and U_HIDE_FIND_MEMBER and not S_IN_SEARCH_POPUP -->
+			<div class="end" align="{S_CONTENT_FLOW_END} genmed"><a href="{U_HIDE_FIND_MEMBER}"><strong>{L_HIDE_MEMBER_SEARCH}</strong></a></div>
+		<!-- ENDIF -->
+		<div class="clear"></div>
+		
+		{S_FORM_TOKEN}
+	</form>
+<!-- ENDIF -->
+
+<form method="post" action="{S_MODE_ACTION}" <!-- IF S_IN_SEARCH_POPUP -->name="results" onsubmit="insert_marked(this.user);return false"<!-- ENDIF -->>
+	{$BEGIN_TCORNERS}{L_MEMBERLIST}{$END_TCORNERS}
+	<table class="tablebg" width="100%" cellspacing="1">
+	<thead>
+	<tr>
+		<th nowrap="nowrap">&nbsp;#&nbsp;</th>
+		<th nowrap="nowrap" width="25%" align="{S_CONTENT_FLOW_BEGIN}"><a href="{U_SORT_USERNAME}">{L_USERNAME}</a></th>
+		<th nowrap="nowrap" width="15%"><a href="{U_SORT_JOINED}">{L_JOINED}</a></th>
+		<th nowrap="nowrap" width="10%"><a href="{U_SORT_POSTS}">{L_POSTS}</a></th>
+		<th nrowap="nowrap" width="15%"><a href="{U_SORT_RANK}">{L_RANK}</a></th>
+		<th nowrap="nowrap" width="11%">{L_SEND_MESSAGE}</th>
+		<th nowrap="nowrap" width="11%"><a href="{U_SORT_EMAIL}">{L_EMAIL}</a></th>
+		<th nowrap="nowrap" width="11%"><a href="{U_SORT_WEBSITE}">{L_WEBSITE}</a></th>
+		<!-- IF S_IN_SEARCH_POPUP and not S_SELECT_SINGLE --><th width="2%" nowrap="nowrap">{L_MARK}</th><!-- ENDIF -->
+	</tr>
+	</thead>
+	<tfoot>
+	<tr>
+		<td class="cat" colspan="<!-- IF S_IN_SEARCH_POPUP -->9<!-- ELSE -->8<!-- ENDIF -->" align="center"><!-- IF S_IN_SEARCH_POPUP and not S_SELECT_SINGLE --><input class="button" type="submit" value="{L_SELECT_MARKED}" /><!-- ELSE --><label><span class="gensmall">{L_SELECT_SORT_METHOD}:</span>&nbsp;<select name="sk">{S_MODE_SELECT}</select></label>&nbsp; <label><span class="gensmall">{L_ORDER}:</span>&nbsp;<select name="sd">{S_ORDER_SELECT}</select></label>&nbsp; <input type="submit" class="button" name="submit" value="{L_SUBMIT} button" /><!-- ENDIF --></td>
+	</tr>
+	</tfoot>
+	<tbody>
+	<!-- BEGIN memberrow -->
+
+		<!-- IF S_SHOW_GROUP -->
+			<!-- IF memberrow.S_FIRST_ROW and memberrow.S_GROUP_LEADER -->
+				<tr>
+					<td class="row3 gensmall" colspan="8"><strong>{L_GROUP_LEADER}</strong></td>
+				</tr>
+			<!-- ELSEIF not memberrow.S_GROUP_LEADER and not $S_MEMBER_HEADER -->
+				<tr>
+					<td class="row3 gensmall" colspan="8"><strong>{L_GROUP_MEMBERS}</strong></td>
+				</tr>
+				<!-- DEFINE $S_MEMBER_HEADER = 1 -->
+			<!-- ENDIF -->
+		<!-- ENDIF -->
+
+		<!-- IF memberrow.S_ROW_COUNT is even -->
+			<!-- DEFINE $CURRENT_ROW = 'row2' -->
+		<!-- ELSE -->
+			<!-- DEFINE $CURRENT_ROW = 'row1' -->
+		<!-- ENDIF -->
+		
+		<tr>
+			<td class="{$CURRENT_ROW} gen" align="center">&nbsp;{memberrow.ROW_NUMBER}&nbsp;</td>
+			<td class="{$CURRENT_ROW} genmed" align="{S_CONTENT_FLOW_BEGIN}">{memberrow.USERNAME_FULL}<!-- IF S_SELECT_SINGLE --> [&nbsp;<a href="#" onclick="insert_single('{memberrow.A_USERNAME}'); return false;">{L_SELECT}</a>&nbsp;]<!-- ENDIF --></td>
+			<td class="{$CURRENT_ROW} genmed" align="center" nowrap="nowrap">&nbsp;{memberrow.JOINED}&nbsp;</td>
+			<td class="{$CURRENT_ROW} gen" align="center">{memberrow.POSTS}</td>
+			<td class="{$CURRENT_ROW} gen" align="center"><!-- IF memberrow.RANK_IMG -->{memberrow.RANK_IMG}<!-- ELSE -->{memberrow.RANK_TITLE}<!-- ENDIF --></td>
+			<td class="{$CURRENT_ROW} gen" align="center">&nbsp;<!-- IF memberrow.U_PM --><a href="{memberrow.U_PM}">{PM_IMG}</a><!-- ENDIF -->&nbsp;</td>
+			<td class="{$CURRENT_ROW} gen" align="center">&nbsp;<!-- IF memberrow.U_EMAIL --><a href="{memberrow.U_EMAIL}">{EMAIL_IMG}</a><!-- ENDIF -->&nbsp;</td>
+			<td class="{$CURRENT_ROW} gen" align="center">&nbsp;<!-- IF memberrow.U_WWW --><a href="{memberrow.U_WWW}">{WWW_IMG}</a><!-- ENDIF -->&nbsp;</td>
+			<!-- IF memberrow.S_PROFILE_FIELD1 -->
+				<!-- Use a construct like this to include admin defined profile fields. Replace FIELD1 with the name of your field. -->
+				<td class="{$CURRENT_ROW} gen" align="center">&nbsp;{memberrow.PROFILE_FIELD1_VALUE}</td>
+			<!-- ENDIF -->
+			<!-- IF S_IN_SEARCH_POPUP and not S_SELECT_SINGLE --><td align="center"><input type="checkbox" class="radio" name="user" value="{memberrow.USERNAME}" /></td><!-- ENDIF -->
+		</tr>
+		
+		<!-- UNDEFINE $CURRENT_ROW -->
+
+	<!-- BEGINELSE -->
+	<tr>
+		<td class="row1 gen" colspan="<!-- IF S_IN_SEARCH_POPUP -->9<!-- ELSE -->8<!-- ENDIF -->" align="center"><!-- IF S_SHOW_GROUP -->{L_NO_GROUP_MEMBERS}<!-- ELSE -->{L_NO_MEMBERS}<!-- ENDIF --></span></td>
+	</tr>
+	<!-- END memberrow -->
+	</tbody>
+	</table>
+	{$BCORNERS}
+	{S_FORM_TOKEN}
+</form>
+
+<div style="padding:4px">
+	<div class="begin"><strong>{PAGE_NUMBER} [ {TOTAL_USERS} ]</strong></div>
+	<div class="end"><!-- IF S_IN_SEARCH_POPUP and not S_SELECT_SINGLE --><strong class="nav"><a href="#" onclick="marklist('results', 'user', true); return false;">{L_MARK_ALL}</a> :: <a href="#" onclick="marklist('results', 'user', false); return false;">{L_UNMARK_ALL}</a></strong><br /><!-- ENDIF --><strong><!-- INCLUDE pagination.html --></strong></div>
+	<div class="clear"></div>
+</div>
+
+<!-- IF S_IN_SEARCH_POPUP -->
+	<!-- INCLUDE simple_footer.html -->	
+<!-- ELSE -->
+	<br />
+	<div align="{S_CONTENT_FLOW_END}"><!-- INCLUDE jumpbox.html --></div>	
+
+	<!-- INCLUDE overall_footer.html -->
+<!-- ENDIF -->

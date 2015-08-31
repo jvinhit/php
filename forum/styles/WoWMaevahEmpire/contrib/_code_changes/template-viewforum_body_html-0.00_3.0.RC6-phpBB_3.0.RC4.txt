@@ -1,0 +1,10 @@
+>> ~line 6, in "			<h3>{L_FORUM_RULES}</h3><br />"
+
+REMOVE :
+<br />
+
+
+>> ~line 9, in "			<h3>{L_FORUM_RULES}</h3><br />"
+
+REMOVE :
+<br />

@@ -1,0 +1,91 @@
+{$BEGIN_TCORNERS}{L_POST_REVIEW}{$END_TCORNERS}
+<table class="tablebg" width="100%" cellspacing="1">
+<tr>
+	<td class="row1 gen" align="center">{L_POST_REVIEW_EXPLAIN}</td>
+</tr>
+<tr>
+	<td class="spacer"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+</tr>
+<tr>
+	<td class="row1">
+		<table class="tablebg" width="100%" cellspacing="1">
+		<tr>
+			<th width="22%">{L_AUTHOR}</th>
+			<th>{L_MESSAGE}</th>
+		</tr>
+		<!-- BEGIN post_review_row -->
+			<!-- IF post_review_row.S_ROW_COUNT is even -->
+				<!-- DEFINE $CURRENT_ROW = 'row1' -->
+			<!-- ELSE -->
+				<!-- DEFINE $CURRENT_ROW = 'row2' -->
+			<!-- ENDIF -->
+
+			<tr>
+				<td class="{$CURRENT_ROW}" rowspan="2" align="{S_CONTENT_FLOW_BEGIN}" valign="top"><a id="pr{post_review_row.POST_ID}"></a><strong>{post_review_row.POST_AUTHOR_FULL}</strong></td>
+				<td class="{$CURRENT_ROW}" width="100%">
+					<table width="100%" cellspacing="0" cellpadding="0" border="0">
+					<tr>
+						<td>&nbsp;</td>
+						<td class="gensmall" valign="middle" nowrap="nowrap"><strong>{L_POST_SUBJECT}:</strong>&nbsp;</td>
+						<td class="gensmall" width="100%" valign="middle">{post_review_row.POST_SUBJECT}</td>
+						<td>&nbsp;</td>
+					</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td class="{$CURRENT_ROW}" valign="top">
+					<table width="100%" cellspacing="0">
+					<tr>
+						<td valign="top">
+							<table width="100%" cellspacing="0" cellpadding="2">
+							<tr>
+								<td><div class="postbody">{post_review_row.MESSAGE}</div>
+
+								<!-- IF post_review_row.S_HAS_ATTACHMENTS -->
+									<br /><br />
+
+									<table class="tablebg" width="100%" cellspacing="1">
+									<tr>
+										<td class="row3"><strong class="genmed">{L_ATTACHMENTS}: </strong></td>
+									</tr>
+									<!-- BEGIN attachment -->
+										<tr>
+											<!-- IF post_review_row.attachment.S_ROW_COUNT is even --><td class="row2"><!-- ELSE --><td class="row1"><!-- ENDIF -->{post_review_row.attachment.DISPLAY_ATTACHMENT}</td>
+										</tr>
+									<!-- END attachment -->
+									</table>
+								<!-- ENDIF -->
+
+								</td>
+							</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td class="{$CURRENT_ROW}">
+							<table width="100%" cellspacing="0" cellpadding="0" border="0">
+							<tr valign="middle">
+								<td width="100%">&nbsp;</td>
+								<td width="10" nowrap="nowrap"><!-- IF S_IS_BOT -->{post_review_row.MINI_POST_IMG}<!-- ELSE --><a href="{post_review_row.U_MINI_POST}">{post_review_row.MINI_POST_IMG}</a><!-- ENDIF --></td>
+								<td class="gensmall" nowrap="nowrap"><strong>{L_POSTED}:</strong> {post_review_row.POST_DATE}</td>
+							</tr>
+							</table>
+						</td>
+					</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+			</tr>
+
+			<!-- UNDEFINE $CURRENT_ROW -->
+		<!-- END post_review_row -->
+		</table>
+	</td>
+</tr>
+</table>
+{$BCORNERS}
+
+<br />

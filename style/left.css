@@ -1,0 +1,19 @@
+#trai {
+	background-image: url(../image/conner_left_title_hong.gif);
+	height: 33px;
+	width: 30px;
+}
+#phai {
+	background-image: url(../image/conner_right_title_hong.gif);
+	height: 33px;
+	width: 12px;
+}
+#giua {
+	background-image: url(../image/bg_title_hong.gif);
+	font-weight: bold;
+	color: #FFF;
+}
+.bangduoi {
+	border: 1px solid #FB70B4;
+	margin-bottom: 8px;
+}

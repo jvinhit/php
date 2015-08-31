@@ -1,0 +1,84 @@
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="7" height="7"><img src="{T_THEME_PATH}/images/tl.gif" width="7" height="7" /></td>
+    <td height="7" background="{T_THEME_PATH}/images/tm.gif"></td>
+    <td width="7" height="7"><img src="{T_THEME_PATH}/images/tr.gif" width="7" height="7" /></td>
+  </tr>
+  <tr>
+    <td width="7" background="{T_THEME_PATH}/images/ml.gif"></td>
+    <td>
+<table class="tablebg" width="100%" cellspacing="1">
+<tr>
+	<th align="center">{L_MESSAGE_HISTORY}</th>
+</tr>
+<tr>
+	<td class="row1"><div style="overflow: auto; width: 100%; height: 300px;">
+
+		<table class="tablebg" width="100%" cellspacing="1">
+		<tr>
+			<th width="22%">{L_AUTHOR}</th>
+			<th>{L_MESSAGE}</th>
+		</tr>
+	<!-- BEGIN history_row -->
+			<!-- IF history_row.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+			<td rowspan="2" align="{S_CONTENT_FLOW_BEGIN}" valign="top"><a name="{history_row.MSG_ID}"></a>
+				<table width="150" cellspacing="0">
+				<tr>
+					<td align="center" colspan="2"><span class="postauthor">{history_row.MESSAGE_AUTHOR_FULL}</span></td>
+				</tr>
+				</table>
+			</td>
+			<td width="100%"<!-- IF history_row.S_CURRENT_MSG --> class="row3"<!-- ENDIF -->>
+				<div class="gensmall" style="float: {S_CONTENT_FLOW_BEGIN};"><b>{L_PM_SUBJECT}:</b>&nbsp;{history_row.SUBJECT}</div><div class="gensmall" style="float: {S_CONTENT_FLOW_END};"><b>{L_FOLDER}:</b>&nbsp;{history_row.FOLDER}</div>
+			</td>
+		</tr>
+
+		<!-- IF history_row.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+			<td valign="top">
+				<table width="100%" cellspacing="0">
+				<tr>
+					<td valign="top">
+						<table width="100%" cellspacing="0" cellpadding="2">
+						<tr>
+							<td><div id="message_{history_row.MSG_ID}"><div class="postbody">{history_row.MESSAGE}</div></div></td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<table width="100%" cellspacing="0">
+						<tr valign="middle">
+							<td width="100%">&nbsp;</td>
+							<td width="10" nowrap="nowrap">{history_row.MINI_POST_IMG}</td>
+							<td>&nbsp;</td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+
+		<!-- IF history_row.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+			<td align="center" class="gensmall"><a href="{history_row.U_VIEW_MESSAGE}">{L_VIEW_PM}</a></td>
+			<td><div class="gensmall" style="float: {S_CONTENT_FLOW_END};"><b>{L_SENT_AT}:</b> {history_row.SENT_DATE}</div></td>
+		</tr>
+		<tr>
+			<td class="spacer" colspan="2"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+		</tr>
+	<!-- END history_row -->
+		</table>
+	</div></td>
+</tr>
+</table>
+</td>
+    <td width="7" background="{T_THEME_PATH}/images/mr.gif"></td>
+  </tr>
+  <tr>
+    <td width="7" height="6" align="right"><img src="{T_THEME_PATH}/images/bl.gif" width="7" height="6" /></td>
+    <td height="6" background="{T_THEME_PATH}/images/bm.gif"></td>
+    <td width="7" height="6"><img src="{T_THEME_PATH}/images/br.gif" width="7" height="6" /></td>
+  </tr>
+</table>
+<br clear="all" />

@@ -1,0 +1,96 @@
+<!-- INCLUDE ucp_header.html -->
+
+<!-- IF ERROR -->
+	{$BEGIN_TCORNERS}<span style="color:#F00">{L_INFORMATION}</span>{$END_TCORNERS}
+	<div class="tablebg">
+		<div class="row1 gensmall">{ERROR}</div>
+	</div>
+	{$BCORNERS}
+	<br />
+<!-- ENDIF -->
+
+{$BEGIN_TCORNERS}{L_UCP}{$END_TCORNERS}
+<div class="tablebg">
+<table class="tablebg" width="100%" cellspacing="1">
+<tr>
+	<td class="row3 gensmall" align="center" colspan="<!-- IF .draftrow -->4<!-- ELSEIF S_EDIT_DRAFT -->2<!-- ENDIF -->">{L_DRAFTS_EXPLAIN}</td>
+</tr>
+<!-- IF not S_EDIT_DRAFT -->
+	<!-- IF S_DRAFT_ROWS -->
+		<tr>
+			<th>{L_SAVE_DATE}</th>
+			<th>{L_DRAFT_TITLE}</th>
+			<th>{L_OPTIONS}</th>
+			<th>{L_DELETE}</th>
+		</tr>
+	<!-- ENDIF -->
+	<!-- BEGIN draftrow -->
+		<!-- IF draftrow.S_ROW_COUNT is even -->
+			<!-- DEFINE $CURRENT_ROW = 'row1' -->
+		<!-- ELSE -->
+			<!-- DEFINE $CURRENT_ROW = 'row2' -->
+		<!-- ENDIF -->
+
+		<tr>
+			<td class="{$CURRENT_ROW} gensmall" nowrap="nowrap">{draftrow.DATE}</td>
+			<td class="{$CURRENT_ROW}" valign="top" width="100%">
+				<p><strong>{draftrow.DRAFT_SUBJECT}</strong></p>
+				<!-- IF draftrow.S_LINK_TOPIC --><span class="gensmall">{L_TOPIC}: <a href="{draftrow.U_VIEW}">{draftrow.TITLE}</a></span>
+				<!-- ELSEIF draftrow.S_LINK_FORUM --><span class="gensmall">{L_FORUM}: <a href="{draftrow.U_VIEW}">{draftrow.TITLE}</a></span>
+				<!-- ELSEIF draftrow.S_LINK_PM --><span class="gensmall">{L_PRIVATE_MESSAGE}</span>
+				<!-- ELSE --><span class="gensmall">{L_NO_TOPIC_FORUM}</span><!-- ENDIF -->
+			</td>
+			<td class="{$CURRENT_ROW} gensmall" nowrap="nowrap"><!-- IF draftrow.U_INSERT -->&raquo; <a href="{draftrow.U_INSERT}">{L_LOAD_DRAFT}</a><br /><!-- ENDIF -->&raquo; <a href="{draftrow.U_VIEW_EDIT}">{L_VIEW_EDIT}</a></td>
+			<td class="{$CURRENT_ROW}" align="center"><input type="radio" class="checkbox" name="d[{draftrow.DRAFT_ID}]" /></td>
+	</tr>
+	<!-- BEGINELSE -->
+		<tr>
+			<td class="row1" colspan="4" align="center"><strong class="genmed">{L_NO_SAVED_DRAFTS}</strong></td>
+		</tr>
+	<!-- END draftrow -->
+	<!-- IF S_DRAFT_ROWS -->
+		<tr>
+			<td class="cat" colspan="4" align="{S_CONTENT_FLOW_END}"><input class="button" type="submit" name="delete" value="{L_DELETE_MARKED}" />&nbsp;</td>
+		</tr>
+	<!-- ENDIF -->
+
+<!-- ELSEIF S_EDIT_DRAFT -->
+	<tr>
+		<td class="row1" width="22%" align="right"><strong class="genmed"><label for="subject">{L_SUBJECT}:</label></strong></td>
+		<td class="row2"><input class="post" style="width:450px" type="text" id="subject" name="subject" size="45" maxlength="64" tabindex="2" value="{DRAFT_SUBJECT}" /></td>
+	</tr>
+	<tr> 
+		<td class="row1" width="22%" align="right"><strong class="genmed"><label for="message">{L_MESSAGE}:</label></strong><br /><span class="gensmall">{L_EDIT_DRAFT_EXPLAIN}</span></td>
+		<td class="row2">
+			<script type="text/javascript">
+			// <![CDATA[
+				var form_name = 'ucp';
+				var text_name = 'message';
+			// ]]>
+			</script>
+			<table cellspacing="0" cellpadding="2" border="0">
+			<!-- INCLUDE posting_buttons.html -->
+			<tr>
+				<td colspan="9">
+					<script type="text/javascript">
+					// <![CDATA[
+						colorPalette('h', 13, 3);
+					// ]]>
+					</script>
+					<textarea style="margin-top:2px" class="post" id="message" name="message" rows="10" cols="70" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);">{DRAFT_MESSAGE}</textarea>
+				</td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td class="row1" colspan="9" align="{S_CONTENT_FLOW_BEGIN}"><a href="{S_UCP_ACTION}">&laquo; {L_BACK_TO_DRAFTS}</a></td>
+	</tr>
+	<tr>
+		<td class="cat" colspan="2" align="center">{S_HIDDEN_FIELDS}<input class="button" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;<input class="button" type="reset" value="{L_RESET}" name="reset" /></td>
+	</tr>
+<!-- ENDIF -->
+</table>
+{$BCORNERS}
+
+<!-- INCLUDE ucp_footer.html -->

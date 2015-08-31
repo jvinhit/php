@@ -1,0 +1,28 @@
+>> ~line 17, just before "<!-- IF U_ACP -->"
+
+INSERT :
+<br />
+
+
+>> ~line 17, between "<span class="copyright">" and "Powered by"
+
+INSERT :
+World of Warcraft phpBB template "WoWMaevahEmpire" created by <a href="{T_THEME_PATH}/images/maevah.jpg" target="_blank" class="copyright">MA&Euml;VAH</a> (EU-Illidan) - ex-<a href="{T_THEME_PATH}/images/moonclaw.jpg" target="_blank" class="copyright">MOONCLAW</a> (EU-Sinstralis) for <a href="http://empire-guilde.wowcr.net/" target="_blank" class="copyright">EMPIRE guild</a> (v3.0.beta01 UNDER CONSTRUCTION) - <a href="http://www.wowcr.net/" target="_blank">http://www.wowcr.net</a> , <a href="http://www.wowcr.net/styles/" target="_blank">World of Warcraft styles</a><br />
+	<a href="http://www.blizzard.com/legalfaq.shtml" target="_blank" class="copyright">&copy;</a> World of Warcraft and Blizzard <a href="{T_THEME_PATH}/images/entertainment.jpg" target="_blank" class="copyright">Entertainment</a> are trademarks or registered trademarks of Blizzard Entertainment, Inc. in the U.S. and/or other countries. wowcr.net is in no way associated with Blizzard Entertainment.<br />
+
+
+>> ~line 17, in "<span class="copyright">" add "lang="en""
+
+>> ~line 19, just after "Group"
+INSERT :
+</span>
+	<span class="copyright">
+
+
+>> ~line 22, just before "</div>"
+
+INSERT :
+<br />
+
+
+NOTE : Pay attention that x.x.xx should be replaced by the correct version number.

@@ -1,0 +1,54 @@
+<table width="80%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_poll.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" align="left" width="98%">{L_ADD_POLL}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" width="98%">
+			<table width="100%" cellspacing="5">
+				<tr>
+					<td colspan="2" align="left" class="gensmall">{L_ADD_POLL_EXPLAIN}</td>
+				</tr>
+				<tr>
+					<td align="left" width="22%" class="gensmall"><b>{L_POLL_QUESTION}:</b></td>
+					<td align="left" width="78%"><input style="width: 99%;" class="post" type="text" name="poll_title" value="{POLL_TITLE}" size="50" maxlength="255" /></td>
+				</tr>
+				<tr>
+					<td align="left" class="gensmall"><b>{L_POLL_OPTIONS}:</b><br />
+						<span class="submerged">{L_POLL_OPTIONS_EXPLAIN}</span></td>
+					<td align="left"><textarea style="width: 99%;" name="poll_option_text" rows="5" cols="35">{POLL_OPTIONS}</textarea></td>
+				</tr>
+				<tr>
+					<td align="left" class="gensmall"><b>{L_POLL_MAX_OPTIONS}:</b><br />
+						<span class="submerged">{L_POLL_MAX_OPTIONS_EXPLAIN}</span></td>
+					<td align="left"><input class="post" type="text" name="poll_max_options" value="{POLL_MAX_OPTIONS}" size="3" maxlength="3" /></td>
+				</tr>
+				<tr>
+					<td align="left" class="gensmall"><b>{L_POLL_FOR}</b></td>
+					<td align="left" class="gensmall"><input class="post" type="text" name="poll_length" value="{POLL_LENGTH}" size="3" maxlength="3" /> <b>{L_DAYS}</b> <span class="submerged">{L_POLL_FOR_EXPLAIN}</span></td>
+				</tr>
+				<!-- IF S_POLL_VOTE_CHANGE -->
+				<tr>
+					<td align="left" class="gensmall"><b>{L_POLL_VOTE_CHANGE}:</b><br />
+						<span class="submerged">{L_POLL_VOTE_CHANGE_EXPLAIN}</span></td>
+					<td align="left"><input class="radio" type="checkbox" name="poll_vote_change"{VOTE_CHANGE_CHECKED}/></td>
+				</tr>
+				<!-- ENDIF --><!-- IF S_POLL_DELETE -->
+				<tr>
+					<td align="left" class="gensmall"><b>{L_POLL_DELETE}</b></td>
+					<td align="left"><input class="radio" type="checkbox" name="poll_delete" /></td>
+				</tr>
+				<!-- ENDIF -->
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" align="center">
+		<input class="btnlite" type="submit" name="preview" value="{L_PREVIEW}" tabindex="5" />   <input class="btnmain" type="submit" name="post" value="{L_SUBMIT}" tabindex="6" accesskey="s" /> <!-- IF not S_SHOW_ATTACH_BOX and not S_SHOW_POLL_BOX --><!-- IF S_SAVE_ALLOWED -->  <input class="btnlite" type="submit" name="save" value="{L_SAVE}" tabindex="8" accesskey="k" /><!-- ENDIF --> <!-- IF S_HAS_DRAFTS -->  <input class="btnlite" type="submit" name="load" value="{L_LOAD}" tabindex="9" accesskey="d" /><!-- ENDIF --> <!-- ENDIF -->  <input class="btnlite" type="submit" name="cancel" value="{L_CANCEL}" tabindex="7" accesskey="c" />
+		</td>
+		<td width="1%"></td>
+	</tr>
+</table>

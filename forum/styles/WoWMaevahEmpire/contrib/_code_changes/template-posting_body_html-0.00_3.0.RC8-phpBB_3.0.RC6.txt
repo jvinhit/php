@@ -1,0 +1,23 @@
+>> ~line 10, in "			<h3>{L_FORUM_RULES}</h3><br />"
+
+REMOVE :
+<br />
+
+
+>> ~line 13, in "			<h3>{L_FORUM_RULES}</h3><br />"
+
+REMOVE :
+<br />
+
+
+
+>> ~line 216
+
+juste before :
+				<script type="text/javascript">
+				// <![CDATA[
+					colorPalette('v', 7, 6)
+REPLACE :
+			<td width="80" align="center" valign="top">
+BY :
+			<td id="colorpalette" width="80" align="center" valign="top">

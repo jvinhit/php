@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="{S_CONTENT_DIRECTION}" lang="{S_USER_LANG}" xml:lang="{S_USER_LANG}">
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset={S_CONTENT_ENCODING}" />
+<meta http-equiv="content-language" content="{S_USER_LANG}" />
+<meta http-equiv="content-style-type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="resource-type" content="document" />
+<meta name="distribution" content="global" />
+<meta name="copyright" content="2002-2006 phpBB Group" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+{META}
+<title>{SITENAME} &bull; <!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_UCP} &bull; <!-- ENDIF -->{PAGE_TITLE}</title>
+
+<link rel="stylesheet" href="{T_STYLESHEET_LINK}" type="text/css" />
+<script type="text/javascript">
+// <![CDATA[
+<!-- IF S_USER_PM_POPUP -->
+	if ({S_NEW_PM})
+	{
+		popup('{UA_POPUP_PM}', 400, 225, '_phpbbprivmsg');
+	}
+<!-- ENDIF -->
+
+function popup(url, width, height, name)
+{
+	if (!name)
+	{
+		name = '_popup';
+	}
+
+	window.open(url.replace(/&amp;/g, '&'), name, 'height=' + height + ',resizable=yes,scrollbars=yes,width=' + width);
+	return false;
+}
+
+function jumpto()
+{
+	var page = prompt('{LA_JUMP_PAGE}:', '{ON_PAGE}');
+	var perpage = '{PER_PAGE}';
+	var base_url = '{A_BASE_URL}';
+
+	if (page !== null && !isNaN(page) && page > 0)
+	{
+		document.location.href = base_url.replace(/&amp;/g, '&') + '&start=' + ((page - 1) * perpage);
+	}
+}
+
+/**
+* Find a member
+*/
+function find_username(url)
+{
+	popup(url, 760, 570, '_usersearch');
+	return false;
+}
+
+/**
+* Mark/unmark checklist
+* id = ID of parent container, name = name prefix, state = state [true/false]
+*/
+function marklist(id, name, state)
+{
+	var parent = document.getElementById(id);
+	if (!parent)
+	{
+		eval('parent = document.' + id);
+	}
+
+	if (!parent)
+	{
+		return;
+	}
+
+	var rb = parent.getElementsByTagName('input');
+	
+	for (var r = 0; r < rb.length; r++)
+	{
+		if (rb[r].name.substr(0, name.length) == name)
+		{
+			rb[r].checked = state;
+		}
+	}
+}
+
+<!-- IF ._file -->
+
+	/**
+	* Play quicktime file by determining it's width/height
+	* from the displayed rectangle area
+	*
+	* Only defined if there is a file block present.
+	*/
+	function play_qt_file(obj)
+	{
+		var rectangle = obj.GetRectangle();
+
+		if (rectangle)
+		{
+			rectangle = rectangle.split(',')
+			var x1 = parseInt(rectangle[0]);
+			var x2 = parseInt(rectangle[2]);
+			var y1 = parseInt(rectangle[1]);
+			var y2 = parseInt(rectangle[3]);
+
+			var width = (x1 < 0) ? (x1 * -1) + x2 : x2 - x1;
+			var height = (y1 < 0) ? (y1 * -1) + y2 : y2 - y1;
+		}
+		else
+		{
+			var width = 200;
+			var height = 0;
+		}
+
+		obj.width = width;
+		obj.height = height + 16;
+
+		obj.SetControllerVisible(true);
+
+		obj.Play();
+	}
+<!-- ENDIF -->
+
+// ]]>
+</script>
+<link href="{T_THEME_PATH}/web/style.css" rel="stylesheet" type="text/css" media="screen, projection" />
+</head>
+<body class="{S_CONTENT_DIRECTION}">
+<div class="outside">
+<div class="top-left"></div><div class="top-center"></div><div class="top-right"></div>
+<div class="inside">
+<div class="notopgap">
+<a name="top"></a>
+
+<div id="wrapheader">
+<div id="logodesc">
+	<div id="logo">
+			<a class="logo" href="{U_INDEX}"><h1><font color="#FFFFFF">{SITENAME}</font></h1><span class="gen"><font color="#FFFFFF">{SITE_DESCRIPTION}</font></span></a>
+	</div>
+</div>
+<br />
+	<table class="tablebg" cellspacing="1" width="100%">
+<tr>
+<td class="row1" height="60px" width="73%">
+			<p class="breadcrumbs"><a href="{U_INDEX}"><strong><img src="{T_IMAGESET_PATH}/folder.gif"></img>{L_INDEX}</strong></a>
+<!-- BEGIN navlinks --> &#187; <strong><strong></strong>&nbsp;<a href="{navlinks.U_VIEW_FORUM}">{navlinks.FORUM_NAME}</a><!-- END navlinks -->
+<br /><!-- IF TOPIC_TITLE --><!-- IF U_VIEW_TOPIC --><img src="{T_IMAGESET_PATH}/folder2.gif"></img><a class="topictitle" href="{U_VIEW_TOPIC}">{TOPIC_TITLE}</a><!-- ENDIF --><!-- ENDIF --></p>
+<div align="center"> <p><!-- IF U_RESTORE_PERMISSIONS --> &nbsp;<a href="{U_RESTORE_PERMISSIONS}">{L_RESTORE_PERMISSIONS}</a><!-- ENDIF -->
+				<!-- IF S_BOARD_DISABLED and S_USER_LOGGED_IN --> &nbsp;<span style="color: red;">{L_BOARD_DISABLED}</span><!-- ENDIF --></p></div>
+			</td>
+<td class="row2" height="60px" width="27%"><!-- IF not S_USER_LOGGED_IN --><!-- IF SCRIPT_NAME == 'index' -->
+<form method="post" action="{S_LOGIN_ACTION}">	
+<table width="100%" cellspacing="0">
+<tr>
+<td width="50%"><span class="genmed">{L_USERNAME}:</span><br /><span class="genmed">{L_PASSWORD}:</span></td>
+	<td width="50%"><input class="post" type="text" name="username" size="10" /><br /><input class="post" type="password" name="password" size="10" /></td>
+		
+		
+		<td width="50%"  nowrap="nowrap"> <!-- IF S_AUTOLOGIN_ENABLED --><span class="genmed">Beni Hatýrla</span> <input type="checkbox" checked="true" class="radio" name="autologin" /><!-- ENDIF --><br /><input type="submit" class="btnmain" name="login" value="{L_LOGIN}" />
+ </td></tr>
+</table>
+	{S_FORM_TOKEN}
+	</form>
+<!-- ELSE -->
+<table width="100%" cellspacing="0">
+<tr>
+&nbsp;
+</tr>
+</table>
+<!-- ENDIF -->
+<!-- ENDIF -->
+<table width="100%" cellspacing="0">
+<tr>
+<td class="genmed">
+<!-- IF not S_IS_BOT -->
+<!-- IF S_USER_LOGGED_IN -->
+<strong>Merhaba,&nbsp;{S_USERNAME}</strong><br />
+{LAST_VISIT_DATE}<br />
+<!-- IF S_DISPLAY_PM --><a href="{U_PRIVATEMSGS}">{L_PRIVATE_MESSAGES}:</a>&nbsp;{PRIVATE_MESSAGE_INFO}<!-- ENDIF -->
+<!-- IF PRIVATE_MESSAGE_INFO_UNREAD -->&nbsp;{PRIVATE_MESSAGE_INFO_UNREAD}<!-- ENDIF --><!-- ENDIF --><!-- ENDIF --></td></tr></table>
+</td></tr>
+</table>
+	<div id="menubar" colspan="2">
+		<table width="100%" cellspacing="0">
+		<tr>
+			<td align="center">
+				<!-- IF U_RESTORE_PERMISSIONS --><a href="{U_RESTORE_PERMISSIONS}" class="menubar">{L_RESTORE_PERMISSIONS}</a> &nbsp;<!-- ENDIF -->
+                <!-- IF not S_USER_LOGGED_IN -->		
+		    <!-- IF not S_IS_BOT -->   <a href="{U_REGISTER}" class="menubar"><strong>{L_REGISTER}</strong></a><!-- ENDIF -->
+<!-- IF S_DISPLAY_SEARCH --><a href="{U_SEARCH}" class="menubar"><strong>{L_SEARCH}</strong></a><!-- ENDIF -->
+<!-- IF not S_IS_BOT --><td class="row5" align="right"><a align="" href="{U_LOGIN_LOGOUT}" class="menubar"><strong>{L_LOGIN}</strong></td><!-- ENDIF -->
+<!-- ENDIF -->
+
+<!-- IF S_USER_LOGGED_IN -->  
+	 <a href="{U_PROFILE}" class="menubar"><strong>{L_PROFILE}</strong></a>
+     <a href="{U_SEARCH}" class="menubar"><strong>{L_SEARCH}</strong></a>
+	 <a href="{U_FAQ}" class="menubar"><strong>{L_FAQ}</strong></a>
+	 <a href="{U_SEARCH_NEW}" class="menubar"><strong>{L_SEARCH_NEW}</strong></a>
+	 <a href="{U_SEARCH_SELF}" class="menubar"><strong>{L_SEARCH_SELF}</strong></a>
+	 <a href="{U_SEARCH_UNANSWERED}" class="menubar"><strong>{L_SEARCH_UNANSWERED}</strong></a>
+	 <a href="{U_SEARCH_ACTIVE_TOPICS}" class="menubar"><strong>{L_SEARCH_ACTIVE_TOPICS}</strong></a>
+  <!-- IF not S_IS_BOT -->
+  <td class="row5" align="right"><a align="" href="{U_LOGIN_LOGOUT}" class="menubar"><strong>{L_LOGOUT}</strong></td>
+  <!-- ENDIF -->
+<!-- ENDIF -->
+
+            </td>
+		</tr>
+		</table>
+	</div>
+</div>
+<div id="wrapcentre">
+		<br style="clear: both;" />

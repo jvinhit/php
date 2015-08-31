@@ -1,0 +1,33 @@
+<!-- INCLUDE mcp_header.html -->
+
+{$BEGIN_TCORNERS}{L_POST}{$END_TCORNERS}
+<div class="tablebg">
+	<div class="row1" align="center">
+		<p class="genmed"><strong <!-- IF USER_COLOR -->style="color:#{USER_COLOR}"<!-- ENDIF -->>{USERNAME}</strong></p>
+		<!-- IF RANK_TITLE --><p class="gensmall">{RANK_TITLE}</p><!-- ENDIF -->
+		<!-- IF RANK_IMG --><p class="gensmall">{RANK_IMG}</p><!-- ENDIF -->
+		<div align="center"><!-- IF AVATAR_IMG -->{AVATAR_IMG}<!-- ELSE --><img src="{T_THEME_PATH}/images/no_avatar.gif" alt="" /><!-- ENDIF --></div>
+	</div>
+	<div class="row1 genmed">{POST}</div>
+</div>
+
+<br /><br />
+
+<form method="post" name="mcp" action="{U_POST_ACTION}">
+
+{$BEGIN_TCORNERS}{L_ADD_WARNING}{$END_TCORNERS}
+<div class="tablebg">
+	<div class="row3 gensmall" align="center">{L_ADD_WARNING_EXPLAIN}</div>
+	<div class="row1" align="center"><textarea name="warning" rows="10" cols="76">{L_WARNING_POST_DEFAULT}</textarea></div>
+	<div class="row1 genmed" align="center"><label><input type="radio" class="checkbox" name="notify_user" checked="checked" /> {L_NOTIFY_USER_WARN}</label></div>
+	<div class="cat" align="center"><input class="button" type="submit" name="action[add_warning]" value="{L_SUBMIT}" />&nbsp;&nbsp;<input class="button" type="reset" value="{L_RESET}" /></div>
+</div>
+{$BCORNERS}
+
+{S_FORM_TOKEN}
+
+</form>
+
+<br /><br />
+
+<!-- INCLUDE mcp_footer.html -->

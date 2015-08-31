@@ -1,0 +1,27 @@
+Installing
+---------------------------
+
+- Upload the "X-Treme" folder to your styles directory.
+
+- Visit your ACP > Styles section and install the style
+
+
+
+Editing
+---------------------------
+
+- Check the "Extras" folder for Photoshop .psd files that you may edit to your liking.
+
+
+
+Extras
+---------------------------
+
+- Styles may include an "Extras" folder with matching avatars, ranks, or various graphics.
+
+- If these aren't present you may visit www.black-fusion.com/forum/ and post a request in the appropriate forum and one of my staff or myself might be able to get them for you.
+
+
+Visit 
+
+phpBB-fox.info      for more support

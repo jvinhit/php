@@ -1,0 +1,82 @@
+<!-- INCLUDE overall_header.html -->
+
+<form method="post" action="{S_MODE_ACTION}">
+
+	{$BEGIN_TCORNERS}{L_THE_TEAM}{$END_TCORNERS}
+	<table class="tablebg" width="100%" cellspacing="1">
+	<tr>
+		<th nowrap="nowrap" width="20%">{L_USERNAME}</th>
+		<th nowrap="nowrap" width="25%">{L_FORUMS}</th>
+		<th nowrap="nowrap" width="20%">{L_PRIMARY_GROUP}</th>
+		<th nowrap="nowrap" width="15%">{L_RANK}</th>
+		<th nowrap="nowrap" width="11%">{L_SEND_MESSAGE}</th>
+	</tr>
+	<tr>
+		<td class="row3 gensmall" colspan="5"><strong>{L_ADMINISTRATORS}</strong></td>
+	</tr>
+	<!-- BEGIN admin -->
+		<!-- IF admin.S_ROW_COUNT is even -->
+			<!-- DEFINE $CURRENT_ROW = 'row1' -->
+		<!-- ELSE -->
+			<!-- DEFINE $CURRENT_ROW = 'row2' -->
+		<!-- ENDIF -->
+	
+		<tr>
+			<td class="{$CURRENT_ROW} gensmall" align="center"><strong>{admin.USERNAME_FULL}</strong></td>
+			<td class="{$CURRENT_ROW} gensmall" align="center">&nbsp;</td>
+			<td class="{$CURRENT_ROW} gensmall" align="center" nowrap="nowrap">&nbsp;
+				<!-- IF admin.U_GROUP -->
+				<a<!-- IF admin.GROUP_COLOR --> style="color:#{admin.GROUP_COLOR}"<!-- ENDIF --> href="{admin.U_GROUP}"><strong>{admin.GROUP_NAME}</strong></a>
+				<!-- ELSE -->
+				{admin.GROUP_NAME}
+				<!-- ENDIF -->
+			&nbsp;</td>
+			<td class="{$CURRENT_ROW} gensmall" align="center"><!-- IF admin.RANK_IMG -->{admin.RANK_IMG}<!-- ELSE -->{admin.RANK_TITLE}<!-- ENDIF --></td>
+			<td class="{$CURRENT_ROW} gensmall" align="center">&nbsp;<!-- IF admin.U_PM --><a href="{admin.U_PM}">{PM_IMG}</a><!-- ENDIF -->&nbsp;</td>
+		</tr>
+		
+		<!-- UNDEFINE $CURRENT_ROW -->
+	<!-- BEGINELSE -->
+		<tr>
+			<td class="row1 gen" colspan="5" align="center">{L_NO_ADMINISTRATORS}</td>
+		</tr>
+	<!-- END admin -->
+		<tr>
+			<td class="row3 gensmall" colspan="5"><strong>{L_MODERATORS}</strong></td>
+		</tr>
+<!-- BEGIN mod -->
+	<!-- IF mod.S_ROW_COUNT is even -->
+		<!-- DEFINE $CURRENT_ROW = 'row1' -->
+	<!-- ELSE -->
+		<!-- DEFINE $CURRENT_ROW = 'row2' -->
+	<!-- ENDIF -->
+
+	<tr>
+		<td class="{$CURRENT_ROW} gensmall" align="center"><strong>{mod.USERNAME_FULL}</strong></td>
+		<td align="center" class="{$CURRENT_ROW}"><!-- IF not mod.FORUMS --><span class="gen">{L_ALL_FORUMS}</span><!-- ELSE --><select style="width:200px">{mod.FORUMS}</select><!-- ENDIF -->&nbsp;</td>
+		<td class="{$CURRENT_ROW} gensmall" align="center" nowrap="nowrap">&nbsp;
+			<!-- IF mod.U_GROUP -->
+				<a<!-- IF mod.GROUP_COLOR --> style="font-weight: bold; color:#{mod.GROUP_COLOR}"<!-- ENDIF --> href="{mod.U_GROUP}">{mod.GROUP_NAME}</a>
+			<!-- ELSE -->
+				{mod.GROUP_NAME}
+			<!-- ENDIF -->
+		&nbsp;</td>
+		<td class="{$CURRENT_ROW} gensmall" align="center"><!-- IF mod.RANK_IMG -->{mod.RANK_IMG}<!-- ELSE -->{mod.RANK_TITLE}<!-- ENDIF --></td>
+		<td class="{$CURRENT_ROW} gensmall" align="center">&nbsp;<!-- IF mod.U_PM --><a href="{mod.U_PM}">{PM_IMG}</a><!-- ENDIF -->&nbsp;</td>
+	</tr>
+	<!-- BEGINELSE -->
+	<tr>
+		<td class="row1 gen" colspan="5" align="center">{L_NO_MODERATORS}</td>
+	</tr>
+	<!-- END mod -->
+	</table>
+	{$BCORNERS}
+
+</form>
+
+<br />
+
+<div class="end"><!-- INCLUDE jumpbox.html --></div>
+<div class="clear"></div>
+
+<!-- INCLUDE overall_footer.html -->

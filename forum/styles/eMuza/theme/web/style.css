@@ -1,0 +1,43 @@
+/* replace background color */
+html, body {
+	background-color: #111111;
+}
+
+.top-left, .top-right, .bottom-left, .bottom-right {
+	background-image: url("./images/rounded.gif");
+	height: 20px;       /* CHANGE: replace by the height of one of your corners (= 1/2 height of the image) */
+	font-size: 2px;    /* DNC: correction IE for height of the <div>'s */
+}
+.top-left, .bottom-left {
+	margin-right: 20px; /* CHANGE: replace by the width of one of your corners */
+}
+.top-right, .bottom-right {
+	margin-left: 20px;  /* CHANGE: replace by the width of one of your corners */
+	margin-top: -20px;  /* CHANGE: replace by the height of one of your corners */
+}
+.top-right {
+	background-position: 100% 0;    /* DNC: position right corner at right side, no vertical changes */
+}
+.bottom-left  {
+	background-position: 0 -20px;    /* CHANGE: replace second number by negative height of one of your corners */
+}
+.bottom-right {
+	background-position: 100% -20px; /* CHANGE: replace second number by negative height of one of your corners */
+}
+.inside {
+	border-left: 1px solid #161616; /* YCC: color & properties of the left-borderline */
+	border-right: 1px solid #161616;/* YCC: color & properties of the right-borderline */
+	background: #1a1a1a;            /* YCC: background-color of the inside */
+	color: #c2c2c2;                 /* YCC: default text-color of the inside */
+	padding-left: 0px;             /* YCC: all texts at some distance of the left border */
+	padding-right: 0px;
+	padding-top: 2px;             /* YCC: all texts at some distance of the right border */
+}
+.notopgap    { margin-top: 0; }    /* DNC: to avoid splitting of the box */
+.nobottomgap { margin-bottom: 0; } /* DNC: to avoid splitting of the box */
+
+.outside {
+	margin: 0 auto;
+	width : 940px;
+	padding: 10px;
+}

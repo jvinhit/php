@@ -1,0 +1,31 @@
+<!-- INCLUDE ucp_header.html -->
+
+<!-- IF ERROR -->
+	{$BEGIN_TCORNERS}<span style="color:#F00">{L_INFORMATION}</span>{$END_TCORNERS}
+	<div class="tablebg">
+		<div class="row1 gensmall">{ERROR}</div>
+	</div>
+	{$BCORNERS}
+	<br />
+<!-- ENDIF -->
+
+{$BEGIN_TCORNERS}{L_TITLE}{$END_TCORNERS}
+<table class="tablebg" width="100%" cellspacing="1">
+<tr>
+	<td class="row3 gensmall" colspan="2">{L_FRIENDS_EXPLAIN}</td>
+</tr>
+<tr>
+	<td class="row1" width="40%" align="{S_CONTENT_FLOW_END}"><strong class="genmed">{L_YOUR_FRIENDS}:</strong><br /><span class="gensmall">{L_YOUR_FRIENDS_EXPLAIN}</span></td>
+	<td class="row2" align="center"><!-- IF S_USERNAME_OPTIONS --><select name="usernames[]" multiple="multiple" size="5">{S_USERNAME_OPTIONS}</select><!-- ELSE --><strong class="genmed">{L_NO_FRIENDS}</strong><!-- ENDIF --></td>
+</tr>
+<tr>
+	<td class="row1" align="{S_CONTENT_FLOW_END}" valign="top"><strong class="genmed">{L_ADD_FRIENDS}:</strong><br /><span class="gensmall">{L_ADD_FRIENDS_EXPLAIN} [ <a href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false">{L_FIND_USERNAME}</a> ]</span></td>
+	<td class="row2" align="center"><textarea name="add" rows="5" cols="30">{USERNAMES}</textarea><br /></td>
+</tr>
+<tr>
+	<td class="cat" colspan="2" align="center">{S_HIDDEN_FIELDS}<input class="button" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;<input class="button" type="reset" value="{L_RESET}" name="reset" /></td>
+</tr>
+</table>
+{$BCORNERS}
+
+<!-- INCLUDE ucp_footer.html -->

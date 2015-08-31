@@ -1,0 +1,31 @@
+<tr>
+	<td class="row3 gensmall" colspan="2" align="center">{L_ADD_POLL_EXPLAIN}</td>
+</tr>
+<tr>
+	<td class="row1 genmed" width="22%" align="{S_CONTENT_FLOW_END}"><label for="poll_title"><strong>{L_POLL_QUESTION}:</strong></label></td>
+	<td class="row2" width="78%"><input class="post" type="text" id="poll_title" name="poll_title" size="50" maxlength="255" value="{POLL_TITLE}" /></td>
+</tr>
+<tr>
+	<td class="row1" align="{S_CONTENT_FLOW_END}" valign="top"><label for="poll_option_text"><strong class="genmed">{L_POLL_OPTIONS}:</strong></label><br /><span class="gensmall">{L_POLL_OPTIONS_EXPLAIN}</span></td>
+	<td class="row2"><textarea id="poll_option_text" name="poll_option_text" rows="5" cols="35">{POLL_OPTIONS}</textarea></td>
+</tr>
+<tr>
+	<td class="row1" align="{S_CONTENT_FLOW_END}"><label for="poll_max_options"><strong class="genmed">{L_POLL_MAX_OPTIONS}:</strong></label><br /><span class="gensmall">{L_POLL_MAX_OPTIONS_EXPLAIN}</span></td>
+	<td class="row2"><input class="post" type="text" id="poll_max_options" name="poll_max_options" size="3" maxlength="3" value="{POLL_MAX_OPTIONS}" /></td>
+</tr>
+<tr>
+	<td class="row1 genmed" align="{S_CONTENT_FLOW_END}"><label for="poll_length"><strong>{L_POLL_FOR}:</strong></label></td>
+	<td class="row2"><input class="post" type="text" id="poll_length" name="poll_length" size="3" maxlength="3" value="{POLL_LENGTH}" />&nbsp;<strong class="genmed">{L_DAYS}</strong> <span class="gensmall">{L_POLL_FOR_EXPLAIN}</span></td>
+</tr>
+<!-- IF S_POLL_VOTE_CHANGE -->
+	<tr>
+		<td class="row1" align="{S_CONTENT_FLOW_END}"><label for="poll_vote_change"><strong class="genmed">{L_POLL_VOTE_CHANGE}:</strong></label><br /><span class="gensmall">{L_POLL_VOTE_CHANGE_EXPLAIN}</span></td>
+		<td class="row2"><input type="radio" class="checkbox" id="poll_vote_change" name="poll_vote_change"{VOTE_CHANGE_CHECKED} /></td>
+	</tr>
+<!-- ENDIF -->
+<!-- IF S_POLL_DELETE -->
+	<tr>
+		<td class="row1 genmed" align="{S_CONTENT_FLOW_END}"><label for="poll_delete"><strong>{L_POLL_DELETE}:</strong></label></td>
+		<td class="row2"><input type="radio" class="checkbox" id="poll_delete" name="poll_delete"<!-- IF S_POLL_DELETE_CHECKED --> checked="checked"<!-- ENDIF --> /></td>
+	</tr>
+<!-- ENDIF -->

@@ -1,0 +1,72 @@
+<!-- INCLUDE overall_header.html -->
+<!-- INCLUDE forumlist_body.html -->
+
+<div class="tablebg">
+	<div class="row1 gensmall" align="center">
+		<!-- IF not S_IS_BOT --><a href="{U_DELETE_COOKIES}">{L_DELETE_COOKIES}</a> &bull;&nbsp;<!-- ENDIF -->
+		<a href="{U_TEAM}">{L_THE_TEAM}</a>
+		<!-- IF not S_IS_BOT and U_MARK_FORUMS -->&nbsp;&bull;&nbsp;<a href="{U_MARK_FORUMS}">{L_MARK_FORUMS_READ}</a><!-- ENDIF -->
+		<!-- IF U_MCP -->&nbsp;&bull;&nbsp;<a href="{U_MCP}">{L_MCP}</a><!-- ENDIF -->
+	</div>
+</div>
+
+<br />
+	
+<!-- IF S_DISPLAY_ONLINE_LIST -->
+	<br />
+	{$BEGIN_TCORNERS}<!-- IF U_VIEWONLINE --><a href="{U_VIEWONLINE}"><!-- ENDIF -->{L_WHO_IS_ONLINE}<!-- IF U_VIEWONLINE --></a><!-- ENDIF -->{$END_TCORNERS}
+	<div class="tablebg">
+		<div class="row1 gensmall">
+			<p>{TOTAL_USERS_ONLINE} ({L_ONLINE_EXPLAIN})</p>
+			<p>{RECORD_USERS}</p>
+			<p>{LOGGED_IN_USER_LIST}</p>
+		</div>
+		<div class="row1 gensmall">{L_LEGEND}: <strong>{LEGEND}</strong></div>
+	</div>
+	{$BCORNERS}
+	<br />
+<!-- ENDIF -->
+
+{$BEGIN_TCORNERS}{L_STATISTICS}{$END_TCORNERS}
+<div class="tablebg">
+	<div class="row1 gensmall">
+		<ul class="no-listitem-style" style="margin-left:0">
+			<li>{TOTAL_POSTS}</li>
+			<li>{TOTAL_TOPICS}</li>
+			<li>{TOTAL_USERS}</li>
+			<li>{NEWEST_USER}</li>
+		</ul>
+	</div>
+</div>
+{$BCORNERS}
+	
+<!-- IF S_DISPLAY_BIRTHDAY_LIST -->
+	<br />
+	{$BEGIN_TCORNERS}{L_BIRTHDAYS}{$END_TCORNERS}
+	<div class="tablebg">
+		<div class="row1 gensmall">
+			<p><!-- IF BIRTHDAY_LIST -->{L_CONGRATULATIONS}: <strong>{BIRTHDAY_LIST}</strong><!-- ELSE -->{L_NO_BIRTHDAYS}<!-- ENDIF --></p>
+		</div>
+	</div>
+	{$BCORNERS}
+<!-- ENDIF -->
+  
+<!-- IF not S_USER_LOGGED_IN -->
+	<br />
+	{$BEGIN_TCORNERS}<a href="{U_LOGIN_LOGOUT}">{L_LOGIN_LOGOUT}</a>{$END_TCORNERS}
+	<div class="tablebg">
+		<div class="row1" align="center">
+			<form method="post" action="{S_LOGIN_ACTION}">
+				<p><label>{L_USERNAME}: <input class="post" type="text" name="username" size="10" /></label>&nbsp; <label>{L_PASSWORD}: <input class="post" type="password" name="password" size="10" /></label><!-- IF S_AUTOLOGIN_ENABLED -->&nbsp; <label>{L_LOG_ME_IN} <input type="radio" class="checkbox" name="autologin" /></label><!-- ENDIF -->&nbsp; <input type="submit" class="button" name="login" value="{L_LOGIN}" /></td>
+				{S_FORM_TOKEN}
+			</form>
+		</div>
+	</div>
+	{$BCORNERS}
+<!-- ENDIF -->
+
+<br />
+
+<p class="gensmall" align="center">{FORUM_NEW_IMG} {L_NEW_POSTS} | {FORUM_IMG} {L_NO_NEW_POSTS} | {FORUM_LOCKED_IMG} {L_FORUM_LOCKED}</p>
+
+<!-- INCLUDE overall_footer.html -->

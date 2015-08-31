@@ -1,0 +1,89 @@
+* "Empire mod" pour WoWMaevahEmpire (basé sur WoWMaevahEmpire 3.0.beta02 pour phpBB 3.0.RC1)
+* ------------------------------------------------------------------------------------------
+*
+
+*
+* This modification should only be used on Empire guild's (EU-Illidan) website. If anyone else installs it, well no problem, but it just won't make any sense ;-)
+*
+
+
+> copier 'icon_mini_004.gif', 'empire_logo.jpg' et 'apri.gif' dans 'WoWMaevahEmpire/imageset/'
+
+> copier 'apri.gif' dans /WoWMaevahEmpire/theme/images/
+
+> dans le panneau d'administration > Styles > Imagsets > WoWMaevahEmpire > Edit :
+
+Remplacer li'mage utilisée par "Main logo" par 'empire_logo.jpg' (sans dimensions spécifiques)
+
+
+
+> ouvrir 'viewtopic_body.tpl'
+
+> ~ligne 188, SUPPRIMER :
+
+<!-- IF postrow.POSTER_POSTS != '' --><br /><b>{L_POSTS}:</b> {postrow.POSTER_POSTS}<!-- ENDIF -->
+
+
+
+> ouvrir 'memberlist_body.html'
+
+> ~ligne 64
+
+REMPLACER :
+{memberrow.POSTS}
+PAR :
+/
+
+
+
+> ouvrir 'memberlist_view.html'
+
+> ~ligne 76
+
+DANS :
+				<td class="gen" align="{S_CONTENT_FLOW_END}" valign="top" nowrap="nowrap">{L_TOTAL_POSTS}: </td>
+				<td><b class="gen">{POSTS}</b><span class="genmed"><!-- IF POSTS_PCT --><br />[{POSTS_PCT} / {POSTS_DAY}]<!-- ENDIF --><br /><a href="{U_SEARCH_USER}">{L_SEARCH_USER_POSTS}</a></span></td>
+
+REMPLACER :
+{L_TOTAL_POSTS}
+
+PAR :
+{L_POSTS}
+
+SUPPRIMER :
+<b class="gen">{POSTS}</b><span class="genmed"><!-- IF POSTS_PCT --><br />[{POSTS_PCT} / {POSTS_DAY}]<!-- ENDIF --><br />
+
+
+> ~ligne 80 :
+
+SUPPRIMER :
+				<tr>
+					<td class="gen" align="{S_CONTENT_FLOW_END}" valign="top" nowrap="nowrap">{L_ACTIVE_IN_FORUM}: </td>
+					<td><!-- IF ACTIVE_FORUM_PCT neq 0 --><b><a class="gen" href="{U_ACTIVE_FORUM}">{ACTIVE_FORUM}</a></b><br /><span class="genmed">[ {ACTIVE_FORUM_POSTS} / {ACTIVE_FORUM_PCT} ]</span><!-- ELSE --><span class="gen">-</span><!-- ENDIF --></td>
+				</tr>
+
+> ~ligne 84 :
+
+SUPPRIMER :
+				<tr>
+					<td class="gen" align="{S_CONTENT_FLOW_END}" valign="top" nowrap="nowrap">{L_ACTIVE_IN_TOPIC}: </td>
+					<td><!-- IF ACTIVE_TOPIC_PCT neq 0 --><b><a class="gen" href="{U_ACTIVE_TOPIC}">{ACTIVE_TOPIC}</a></b><br /><span class="genmed">[ {ACTIVE_TOPIC_POSTS} / {ACTIVE_TOPIC_PCT} ]</span><!-- ELSE --><span class="gen">-</span><!-- ENDIF --></td>
+				</tr>
+
+
+> ouvrir 'overall_footer.html'
+
+> ~ligne 17 entre "<span class="copyright">" et "World of Warcraft phpBB template "WoWMaevahEmpire""
+
+INSERER :
+&quot;EMPIRE&quot; logo by <a href="{T_THEME_PATH}/images/apri.gif" target="_blank" class="copyright">APRI</a> (EU-Illidan) - ex-APRICANE<br/ >
+
+
+
+> ouvrir 'overall_header.html'
+
+> ~ligne 162 :
+Entre "<td class="genmed" align="{S_CONTENT_FLOW_END}">" et "<a class="link02" href="{U_FAQ}">"
+
+INSERER :
+			<a class="link02" href="/"><img src="{T_IMAGESET_PATH}/icon_mini_004.gif" width="12" height="13" alt="Home/Accueil" /> </a><a href="/">Home/Accueil</a>&nbsp;

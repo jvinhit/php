@@ -1,0 +1,41 @@
+/**
+* File Name:   rtl.css
+* Theme:       ExtremeDark Red
+* Author:      Guilherme Henrique Sehn - GHS < http://www.ghsehn.cjb.net/ >
+*/
+
+/* Lists */
+.rtl ol, .rtl ul {
+	margin: 0 1.5em 0 0;
+}
+
+/* Form elements */
+.rtl option {
+	padding: 0 0 0 1em;
+}
+
+/* Top rounded corners */
+div.rounded_corners_top div.left {
+	float: right;
+	text-align: right;
+	background: #000 url('./images/rctl_rtl.gif') no-repeat;
+	padding: 8px 40px 10px 0;
+}
+div.rounded_corners_top div.right {
+	float: left;
+	background: #000 url('./images/rctr_rtl.gif') no-repeat;
+}
+
+/* Viewforum folder legends */
+.rtl div#viewforum_legends {
+	float: right;
+	text-align: right;
+}
+.rtl div#viewforum_permissions {
+	float: left;
+	text-align: left;
+}
+
+/* Misc */
+.end   {float: left}
+.begin {float: right}

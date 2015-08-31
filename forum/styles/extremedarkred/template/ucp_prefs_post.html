@@ -1,0 +1,36 @@
+<!-- INCLUDE ucp_header.html -->
+
+<!-- IF ERROR -->
+	{$BEGIN_TCORNERS}<span style="color:#F00">{L_INFORMATION}</span>{$END_TCORNERS}
+	<div class="tablebg">
+		<div class="row1 gensmall">{ERROR}</div>
+	</div>
+	{$BCORNERS}
+	<br />
+<!-- ENDIF -->
+
+{$BEGIN_TCORNERS}{L_TITLE}{$END_TCORNERS}
+<table class="tablebg" width="100%" cellspacing="1">
+<tr>
+	<td class="row1" width="50%" align="right"><strong class="genmed"><label for="bbcode">{L_DEFAULT_BBCODE}:</label></strong></td>
+	<td class="row2"><label><input type="radio" id="bbcode" name="bbcode" value="1"<!-- IF S_BBCODE --> checked="checked"<!-- ENDIF --> /> <span class="gen">{L_YES}</span></label>&nbsp; &nbsp;<label><input type="radio" name="bbcode" value="0"<!-- IF not S_BBCODE --> checked="checked"<!-- ENDIF --> /> <span class="gen">{L_NO}</span></label></td>
+</tr>
+<tr>
+	<td class="row1" align="{S_CONTENT_FLOW_END}"><strong class="genmed"><label for="smilies">{L_DEFAULT_SMILIES}:</label></strong></td>
+	<td class="row2"><label><input type="radio" id="smilies" name="smilies" value="1"<!-- IF S_SMILIES --> checked="checked"<!-- ENDIF --> /> <span class="gen">{L_YES}</span></label>&nbsp; &nbsp;<label><input type="radio" name="smilies" value="0"<!-- IF not S_SMILIES --> checked="checked"<!-- ENDIF --> /> <span class="gen">{L_NO}</span></label></td>
+</tr>
+<tr>
+	<td class="row1" align="{S_CONTENT_FLOW_END}"><strong class="genmed"><label for="sig">{L_DEFAULT_ADD_SIG}:</label></strong></td>
+	<td class="row2"><label><input type="radio" id="sig" name="sig" value="1"<!-- IF S_SIG --> checked="checked"<!-- ENDIF --> /> <span class="gen">{L_YES}</span></label>&nbsp; &nbsp;<label><input type="radio" name="sig" value="0"<!-- IF not S_SIG --> checked="checked"<!-- ENDIF --> /> <span class="gen">{L_NO}</span></label></td>
+</tr>
+<tr>
+	<td class="row1" align="{S_CONTENT_FLOW_END}"><strong class="genmed"><label for="notify">{L_DEFAULT_NOTIFY}:</label></strong></td>
+	<td class="row2"><label><input type="radio" id="notify" name="notify" value="1"<!-- IF S_NOTIFY --> checked="checked"<!-- ENDIF --> /> <span class="gen">{L_YES}</span></label>&nbsp; &nbsp;<label><input type="radio" name="notify" value="0"<!-- IF not S_NOTIFY --> checked="checked"<!-- ENDIF --> /> <span class="gen">{L_NO}</span></label></td>
+</tr>
+<tr>
+	<td class="cat" colspan="2" align="center">{S_HIDDEN_FIELDS}<input class="button" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;<input class="button" type="reset" value="{L_RESET}" name="reset" /></td>
+</tr>
+</table>
+{$BCORNERS}
+
+<!-- INCLUDE ucp_footer.html -->

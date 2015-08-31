@@ -1,0 +1,15 @@
+<!-- INCLUDE overall_header.html -->
+
+<form name="confirm" action="{S_CONFIRM_ACTION}" method="post">
+	{$BEGIN_TCORNERS}{MESSAGE_TITLE}{$END_TCORNERS}
+	<div class="tablebg">
+		<div class="row1" align="center"><p class="genmed">{MESSAGE_TEXT}<br /><br /></p>{S_HIDDEN_FIELDS} <input type="submit" class="button" name="confirm" [value="{YES_VALUE}" />&nbsp;&nbsp;<input type="submit" class="button" name="cancel" value="{L_NO}" class="button" /></div>
+	</div>
+	{$BCORNERS}
+</form>
+
+<br />
+
+<div align="{S_CONTENT_FLOW_END}"><!-- INCLUDE jumpbox.html --></div>
+
+<!-- INCLUDE overall_footer.html -->

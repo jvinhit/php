@@ -1,0 +1,121 @@
+<!-- INCLUDE ucp_header.html -->
+
+{$BEGIN_TCORNERS}{L_USERGROUPS}{$END_TCORNERS}
+<table class="tablebg" width="100%" cellspacing="1">
+<tr>
+	<td class="row1 gensmall" colspan="3">{L_GROUPS_EXPLAIN}</td>
+</tr>
+<tr>
+	<th colspan="2">{L_GROUP_DETAILS}</th>
+	<th>{L_SELECT}</th>
+</tr>
+<!-- BEGIN leader -->
+	<!-- IF leader.S_FIRST_ROW -->
+		<tr>
+			<td class="row3 gensmall" colspan="3"><strong>{L_GROUP_LEADER}</strong></td>
+		</tr>
+	<!-- ENDIF -->
+
+	<!-- IF leader.S_ROW_COUNT is even -->
+		<!-- DEFINE $CURRENT_ROW = 'row1' -->
+	<!-- ELSE -->
+		<!-- DEFINE $CURRENT_ROW = 'row2' -->
+	<!-- ENDIF -->
+	
+	<tr>
+		<td class="{$CURRENT_ROW}" width="6%" align="center" nowrap="nowrap"><!-- IF S_CHANGE_DEFAULT --><input type="radio" name="default"<!-- IF leader.S_GROUP_DEFAULT --> checked="checked"<!-- ENDIF --> value="{leader.GROUP_ID}" /><!-- ENDIF --></td>
+		<td class="{$CURRENT_ROW}">
+			<p class="genmed"><strong><a href="{leader.U_VIEW_GROUP}"<!-- IF leader.GROUP_COLOUR --> style="color:#{leader.GROUP_COLOUR}"<!-- ENDIF -->>{leader.GROUP_NAME}</a></strong></p>
+			<!-- IF leader.GROUP_DESC --><p class="genmed">{leader.GROUP_DESC}</p><!-- ENDIF -->
+			<!-- IF not leader.GROUP_SPECIAL --><p class="gensmall"><em>{leader.GROUP_STATUS}</em></p><!-- ENDIF -->
+		</td>
+		<td class="{$CURRENT_ROW}" width="6%" align="center" nowrap="nowrap"><!-- IF not leader.GROUP_SPECIAL --><input type="checkbox" class="radio" name="selected" value="{leader.GROUP_ID}" /><!-- ENDIF --></td>
+	</tr>
+	
+	<!-- UNDEFINE $CURRENT_ROW -->
+<!-- END leader -->
+
+<!-- BEGIN member -->
+	<!-- IF member.S_FIRST_ROW -->
+		<tr>
+			<td class="row3 gensmall" colspan="3"><strong>{L_GROUP_MEMBER}</strong></td>
+		</tr>
+	<!-- ENDIF -->
+
+	<!-- IF member.S_ROW_COUNT is even -->
+		<!-- DEFINE $CURRENT_ROW = 'row1' -->
+	<!-- ELSE -->
+		<!-- DEFINE $CURRENT_ROW = 'row2' -->
+	<!-- ENDIF -->
+
+	<tr>
+		<td class="{$CURRENT_ROW}" width="6%" align="center" nowrap="nowrap"><!-- IF S_CHANGE_DEFAULT --><input type="radio" name="default"<!-- IF member.S_GROUP_DEFAULT --> checked="checked"<!-- ENDIF --> value="{member.GROUP_ID}" /><!-- ENDIF --></td>
+		<td class="{$CURRENT_ROW}">
+			<p class="genmed"><strong><a href="{member.U_VIEW_GROUP}"<!-- IF member.GROUP_COLOUR --> style="color:#{member.GROUP_COLOUR}"<!-- ENDIF -->>{member.GROUP_NAME}</a></strong></p>
+			<!-- IF member.GROUP_DESC --><p class="genmed">{member.GROUP_DESC}</p><!-- ENDIF -->
+			<!-- IF not member.GROUP_SPECIAL --><p class="gensmall"><em>{member.GROUP_STATUS}</em></p><!-- ENDIF -->
+		</td>
+		<td class="{$CURRENT_ROW}" width="6%" align="center" nowrap="nowrap"><!-- IF not member.GROUP_SPECIAL --><input type="radio" name="selected" value="{member.GROUP_ID}" /><!-- ENDIF --></td>
+	</tr>
+	
+	<!-- UNDEFINE $CURRENT_ROW -->
+<!-- END member -->
+
+<!-- BEGIN pending -->
+	<!-- IF pending.S_FIRST_ROW -->
+		<tr>
+			<td class="row3 gensmall" colspan="3"><strong>{L_GROUP_PENDING}</strong></td>
+		</tr>
+	<!-- ENDIF -->
+	
+	<!-- IF pending.S_ROW_COUNT is even -->
+		<!-- DEFINE $CURRENT_ROW = 'row1' -->
+	<!-- ELSE -->
+		<!-- DEFINE $CURRENT_ROW = 'row2' -->
+	<!-- ENDIF -->
+
+	<tr>
+		<td class="{$CURRENT_ROW}" width="6%" align="center" nowrap="nowrap">&nbsp;</td>
+		<td class="{$CURRENT_ROW}">
+			<p class="genmed"><strong><a href="{pending.U_VIEW_GROUP}"<!-- IF pending.GROUP_COLOUR --> style="color:#{pending.GROUP_COLOUR}"<!-- ENDIF -->>{pending.GROUP_NAME}</a></strong></p>
+			<!-- IF pending.GROUP_DESC --><p class="genmed">{pending.GROUP_DESC}</p><!-- ENDIF -->
+			<!-- IF not pending.GROUP_SPECIAL --><p class="gensmall"><em>{pending.GROUP_STATUS}</em></p><!-- ENDIF -->
+		</td>
+		<td class="{$CURRENT_ROW}" width="6%" align="center" nowrap="nowrap"><!-- IF not pending.GROUP_SPECIAL --><input type="radio" name="selected" value="{pending.GROUP_ID}" /><!-- ENDIF --></td>
+	</tr>
+	
+	<!-- UNDEFINE $CURRENT_ROW -->
+<!-- END pending -->
+
+<!-- BEGIN nonmember -->
+	<!-- IF nonmember.S_FIRST_ROW -->
+		<tr>
+			<td class="row3 gensmall" colspan="3"><strong>{L_GROUP_NONMEMBER}</strong></td>
+		</tr>
+	<!-- ENDIF -->
+	
+	<!-- IF nonmember.S_ROW_COUNT is even -->
+		<!-- DEFINE $CURRENT_ROW = 'row1' -->
+	<!-- ELSE -->
+		<!-- DEFINE $CURRENT_ROW = 'row2' -->
+	<!-- ENDIF -->
+
+	<tr>
+		<td class="{$CURRENT_ROW}" width="6%" align="center" nowrap="nowrap">&nbsp;</td>
+		<td class="{$CURRENT_ROW}">
+			<p class="genmed"><strong><a href="{nonmember.U_VIEW_GROUP}"<!-- IF nonmember.GROUP_COLOUR --> style="color:#{nonmember.GROUP_COLOUR}"<!-- ENDIF -->>{nonmember.GROUP_NAME}</a></strong></p>
+			<!-- IF nonmember.GROUP_DESC --><p class="genmed">{nonmember.GROUP_DESC}</p><!-- ENDIF -->
+			<!-- IF not nonmember.GROUP_SPECIAL --><p class="gensmall"><em>{nonmember.GROUP_STATUS}</em></p><!-- ENDIF -->
+		</td>
+		<td class="{$CURRENT_ROW}" width="6%" align="center" nowrap="nowrap"><!-- IF nonmember.S_CAN_JOIN --><input type="radio" name="selected" value="{nonmember.GROUP_ID}" /><!-- ENDIF --></td>
+	</tr>
+	
+	<!-- UNDEFINE $CURRENT_ROW -->
+<!-- END nonmember -->
+<tr>
+	<td class="cat" colspan="3"><!-- IF S_CHANGE_DEFAULT --><div class="begin"><input class="button" type="submit" name="change_default" value="{L_CHANGE_DEFAULT_GROUP}" /></div><!-- ENDIF --><div class="end"><span class="genmed">{L_SELECT}: </span><select name="action"><option value="join">{L_JOIN_SELECTED}</option><option value="resign">{L_RESIGN_SELECTED}</option><option value="demote">{L_DEMOTE_SELECTED}</option></select>&nbsp;<input class="button" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;</div></td>
+</tr>
+</table>
+{$BCORNERS}
+
+<!-- INCLUDE ucp_footer.html -->

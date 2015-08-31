@@ -1,0 +1,72 @@
+<!-- INCLUDE overall_header.html -->
+<table width="900" cellspacing="0" cellpadding="0" align="center"><tr><td class="west">
+
+<!-- INCLUDE forumlist_body.html -->
+
+</td><td class="east">
+
+	<div class="darkhead">
+	<a href="" class="dt"></a></div>
+
+	<div class="tabhead">
+	<span class="dt"><a href="/portal.htm" class="dt">Panel Usera</a>
+	</span></div>
+	<div class="tabcell">
+	<span class="dn">
+<center><!-- IF S_USER_LOGGED_IN -->{USER_AVATAR}<!-- ELSE --><img src="{T_THEME_PATH}/images/default_avatar.gif"/><!-- ENDIF --></center>
+
+<!-- IF not S_USER_LOGGED_IN and not S_IS_BOT -->
+
+	<form method="post" action="{S_LOGIN_ACTION}" class="headerspace">
+	<h3><a href="{U_LOGIN_LOGOUT}">{L_LOGIN_LOGOUT}</a>&nbsp; &bull; &nbsp;<a href="{U_REGISTER}">{L_REGISTER}</a></h3>
+		<fieldset class="quick-login">
+			<label for="username">Login:</label>&nbsp;<input type="text" name="username" id="username" title="{L_USERNAME}" size="25" class="inputbox autowidth"/>  <br />
+			<label for="password">{L_PASSWORD}:</label>&nbsp;<input type="password" name="password" id="password" title="{L_PASSWORD}" size="25" class="inputbox autowidth" /> <br />
+			<!-- IF S_AUTOLOGIN_ENABLED -->
+			<label for="autologin">Autologowanie <input type="checkbox" name="autologin" id="autologin" /></label> <br />
+			<!-- ENDIF -->
+			<input type="submit" name="login" value="{L_LOGIN}" class="button2" />
+		</fieldset>
+	</form>
+<!-- IF S_USER_LOGGED_IN --><br />{LAST_VISIT_DATE}<!-- ELSE --><br />{CURRENT_TIME}<!-- ENDIF -->
+<!-- ENDIF -->
+<!-- IF S_DISPLAY_SEARCH or (S_USER_LOGGED_IN and not S_IS_BOT) -->
+<ul class="linklist">
+	<!-- IF S_DISPLAY_SEARCH -->
+		<a href="{U_SEARCH_UNANSWERED}">{L_SEARCH_UNANSWERED}</a><!-- IF S_USER_LOGGED_IN --> <br /> <a href="{U_SEARCH_NEW}">{L_SEARCH_NEW}</a><!-- ENDIF --> <br /> <a href="{U_SEARCH_ACTIVE_TOPICS}">{L_SEARCH_ACTIVE_TOPICS}</a>
+	<!-- ENDIF -->
+	<!-- IF not S_IS_BOT and U_MARK_FORUMS --><br /><a href="{U_MARK_FORUMS}" accesskey="m">{L_MARK_FORUMS_READ}</a><!-- ENDIF -->
+</ul>
+<!-- ENDIF -->
+<!-- IF U_MCP -->{CURRENT_TIME} <br />[&nbsp;<a href="{U_MCP}">{L_MCP}</a>&nbsp;]</p><!-- ELSEIF S_USER_LOGGED_IN --><p>{CURRENT_TIME}<!-- ENDIF -->
+	</span></div>
+
+
+	<div class="tabhead">
+	<span class="dt"><a href="/statistics.htm" class="dt">Statystyki</a></span></div>
+	<div class="tabcell">
+	<span class="dn">{TOTAL_POSTS}<br />{TOTAL_TOPICS}<br />{TOTAL_USERS}<br />{NEWEST_USER}<br />
+	<!-- IF S_DISPLAY_BIRTHDAY_LIST and BIRTHDAY_LIST -->
+	<h3>{L_BIRTHDAYS}</h3>
+	<p><!-- IF BIRTHDAY_LIST -->{L_CONGRATULATIONS}: <strong>{BIRTHDAY_LIST}</strong><!-- ELSE -->{L_NO_BIRTHDAYS}<!-- ENDIF --></p>
+	<!-- ENDIF -->
+	</span></div>
+
+
+	<div class="tabhead">
+	<span class="dt"><a href="{U_VIEWONLINE}" class="dt">Forumowicze</a></span></div>
+	<div class="tabcell">
+	<span class="dn">
+<!-- IF S_DISPLAY_ONLINE_LIST -->
+	{TOTAL_USERS_ONLINE}<br /> 
+	({L_ONLINE_EXPLAIN})<br />
+	{RECORD_USERS}<br />
+	{LOGGED_IN_USER_LIST}<br />
+	<!-- IF LEGEND -->{L_LEGEND}: <b>{LEGEND}</b><!-- ENDIF -->
+<!-- ENDIF -->
+
+	</span></div>
+
+</td></tr></table>
+
+<!-- INCLUDE overall_footer.html -->

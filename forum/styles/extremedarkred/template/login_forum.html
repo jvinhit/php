@@ -1,0 +1,36 @@
+<!-- INCLUDE overall_header.html -->
+
+<form name="login_forum" method="post" action="{S_LOGIN_ACTION}">
+	<!-- IF LOGIN_ERROR -->
+		{$BEGIN_TCORNERS}<span style="color:#F00">{L_INFORMATION}</span>{$END_TCORNERS}
+		<div class="tablebg">
+			<div class="row1">{LOGIN_ERROR}</div>
+		</div>
+		{$BCORNERS}
+		<br />
+	<!-- ENDIF -->
+	
+	{$BEGIN_TCORNERS}{L_LOGIN}{$END_TCORNERS}
+	<div class="tablebg">
+		<div class="row3 gensmall" align="center">{L_LOGIN_FORUM}</div>
+		<div class="row1" style="padding:10px 4px">
+			<div align="center">
+				<label>
+					<strong class="genmed">{L_PASSWORD}:</strong>
+					<input class="post" type="password" name="password" size="25" />
+				</label>
+				<br />
+			</div>
+		</div>
+		<div class="cat" align="center">{S_HIDDEN_FIELDS}<input type="submit" class="button" name="login button" value="{L_LOGIN}" /></div>
+	</div>
+	{$BCORNERS}
+	
+	{S_FORM_TOKEN}
+</form>
+
+<br />
+
+<div align="{S_CONTENT_FLOW_END}"><!-- INCLUDE jumpbox.html --></div>
+
+<!-- INCLUDE overall_footer.html -->

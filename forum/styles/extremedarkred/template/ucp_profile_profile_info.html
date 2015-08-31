@@ -1,0 +1,75 @@
+<!-- INCLUDE ucp_header.html -->
+
+<!-- IF ERROR -->
+	{$BEGIN_TCORNERS}<span style="color:#F00">{L_INFORMATION}</span>{$END_TCORNERS}
+	<div class="tablebg">
+		<div class="row1 gensmall">{ERROR}</div>
+	</div>
+	{$BCORNERS}
+	<br />
+<!-- ENDIF -->
+
+{$BEGIN_TCORNERS}{L_TITLE}{$END_TCORNERS}
+<table class="tablebg" width="100%" cellspacing="1">
+<tr> 
+	<td class="row3" colspan="2"><span class="gensmall">{L_PROFILE_INFO_NOTICE}</span></td>
+</tr>
+<tr> 
+	<td class="row1" width="35%" align="right"><strong class="genmed"><label for="icq">{L_UCP_ICQ}:</label></strong></td>
+	<td class="row2"><input class="post" type="text" id="icq" name="icq" size="30" maxlength="15" value="{ICQ}" /></td>
+</tr>
+<tr> 
+	<td class="row1" align="{S_CONTENT_FLOW_END}" valign="top"><strong class="genmed"><label for="aim">{L_UCP_AIM}:</label></strong></td>
+	<td class="row2"><input class="post" type="text" id="aim" name="aim" size="30" maxlength="255" value="{AIM}" /></td>
+</tr>
+<tr> 
+	<td class="row1" align="{S_CONTENT_FLOW_END}" valign="top"><strong class="genmed"><label for="msn">{L_UCP_MSNM}:</label></strong></td>
+	<td class="row2"><input class="post" type="text" id="msn" name="msn" size="30" maxlength="255" value="{MSN}" /></td>
+</tr>
+<tr> 
+	<td class="row1" align="{S_CONTENT_FLOW_END}" valign="top"><strong class="genmed"><label for="yim">{L_UCP_YIM}:</label></strong></td>
+	<td class="row2"><input class="post" type="text" id="yim" name="yim" size="30" maxlength="255" value="{YIM}" /></td>
+</tr>
+<tr> 
+	<td class="row1" align="{S_CONTENT_FLOW_END}" valign="top"><strong class="genmed"><label for="jabber">{L_UCP_JABBER}:</label></strong></td>
+	<td class="row2"><input class="post" type="text" id="jabber" name="jabber" size="30" maxlength="255" value="{JABBER}" /></td>
+</tr>
+<tr> 
+	<td class="row1" align="{S_CONTENT_FLOW_END}" valign="top"><strong class="genmed"><label for="website">{L_WEBSITE}:</label></strong></td>
+	<td class="row2"><input class="post" type="text" id="website" name="website" size="30" maxlength="255" value="{WEBSITE}" /></td>
+</tr>
+<tr> 
+	<td class="row1" align="{S_CONTENT_FLOW_END}" valign="top"><strong class="genmed"><label for="location">{L_LOCATION}:</label></strong></td>
+	<td class="row2"><input class="post" type="text" id="location" name="location" size="30" maxlength="100" value="{LOCATION}" /></td>
+</tr>
+<tr> 
+	<td class="row1" align="{S_CONTENT_FLOW_END}" valign="top"><strong class="genmed"><label for="occupation">{L_OCCUPATION}:</label></strong></td>
+	<td class="row2"><textarea class="post" id="occupation" name="occupation" rows="3" cols="30">{OCCUPATION}</textarea></td>
+</tr>
+<tr> 
+	<td class="row1" align="{S_CONTENT_FLOW_END}" valign="top"><strong class="genmed"><label for="interests">{L_INTERESTS}:</label></strong></td>
+	<td class="row2"><textarea class="post" id="interests" name="interests" rows="3" cols="30">{INTERESTS}</textarea></td>
+</tr>
+<!-- IF S_BIRTHDAYS_ENABLED -->
+	<tr>
+		<td class="row1" align="{S_CONTENT_FLOW_END}" valign="top"><strong class="genmed">{L_BIRTHDAY}: </strong><br /><span class="gensmall">{L_BIRTHDAY_EXPLAIN}</span></td>
+		<td class="row2"><span class="genmed">{L_DAY}:</span> <select name="bday_day">{S_BIRTHDAY_DAY_OPTIONS}</select> <span class="genmed">{L_MONTH}:</span> <select name="bday_month">{S_BIRTHDAY_MONTH_OPTIONS}</select> <span class="genmed">{L_YEAR}:</span> <select name="bday_year">{S_BIRTHDAY_YEAR_OPTIONS}</select></td>
+	</tr>
+<!-- ENDIF -->
+<!-- BEGIN profile_fields -->
+	<tr> 
+		<td class="row1" width="35%">
+			<strong class="genmed">{profile_fields.LANG_NAME}: </strong>
+			<!-- IF profile_fields.S_REQUIRED --><strong>*</strong><!-- ENDIF -->
+			<!-- IF profile_fields.LANG_EXPLAIN --><br /><span class="gensmall">{profile_fields.LANG_EXPLAIN}</span><!-- ENDIF -->
+		</td>
+		<td class="row2">{profile_fields.FIELD}<!-- IF profile_fields.ERROR --><br /><span class="gensmall" style="color:red">{profile_fields.ERROR}</span><!-- ENDIF --></td>
+	</tr>
+<!-- END profile_fields -->
+<tr>
+	<td class="cat" colspan="2" align="center">{S_HIDDEN_FIELDS}<input class="button" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;<input class="button" type="reset" value="{L_RESET}" name="reset" /></td>
+</tr>
+</table>
+{$BCORNERS}
+
+<!-- INCLUDE ucp_footer.html -->

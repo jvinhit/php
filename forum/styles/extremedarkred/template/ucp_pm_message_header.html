@@ -1,0 +1,23 @@
+<div class="tablebg">
+	<div class="row1">
+		<div class="begin">
+			<!-- IF TOTAL_MESSAGES -->
+				<div class="begin nav">&nbsp;{PAGE_NUMBER}</div>
+				<!-- IF FOLDER_MAX_MESSAGES neq 0 -->
+					<div class="begin gensmall">&nbsp;[ <strong>{FOLDER_CUR_MESSAGES}</strong>/{FOLDER_MAX_MESSAGES} {L_MESSAGES} ({FOLDER_PERCENT}%) ]&nbsp;</div>
+				<!-- ELSE -->
+					<div class="begin gensmall">&nbsp;[ <strong>{FOLDER_CUR_MESSAGES}</strong> {L_MESSAGES} ]&nbsp;</div>
+				<!-- ENDIF -->
+			<!-- ENDIF -->
+			<!-- IF S_VIEW_MESSAGE -->
+				<div class="begin gensmall">
+					<!-- IF S_DISPLAY_HISTORY --><!-- IF U_VIEW_PREVIOUS_HISTORY --><a href="{U_VIEW_PREVIOUS_HISTORY}">{L_VIEW_PREVIOUS_HISTORY}</a> | <!-- ENDIF --><!-- IF U_VIEW_NEXT_HISTORY --><a href="{U_VIEW_NEXT_HISTORY}">{L_VIEW_NEXT_HISTORY}</a> |<!-- ENDIF --><!-- ENDIF -->
+					<a href="{U_PREVIOUS_PM}">{L_VIEW_PREVIOUS_PM}</a> | <a href="{U_NEXT_PM}">{L_VIEW_NEXT_PM}</a>
+				</div>
+			<!-- ENDIF -->
+			<div class="clear"></div>
+		</div>
+		<div class="end"><!-- INCLUDE pagination.html --></div>
+		<div class="clear"></div>
+	</div>
+</div>

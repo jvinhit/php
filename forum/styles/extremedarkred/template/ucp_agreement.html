@@ -1,0 +1,68 @@
+<!-- INCLUDE overall_header.html -->
+
+<script type="text/javascript" defer="defer" >
+// <![CDATA[
+
+	var old_func = window.onload;
+
+	function disable(disabl)
+	{
+		document.getElementById("agreed").disabled = disabl;
+	}
+
+	function disable_and_handle()
+	{
+		if (old_func)
+		{
+			old_func();
+		}
+		disable(true);
+	}
+
+	<!-- IF S_TIME -->
+		window.onload = disable_and_handle;
+		setInterval("disable(false)", {S_TIME});
+	<!-- ENDIF -->
+// ]]>
+</script>
+
+<!-- IF S_SHOW_COPPA or S_REGISTRATION -->
+	
+	<form method="post" action="{S_UCP_ACTION}">
+		{$BEGIN_TCORNERS}{SITENAME} - {L_REGISTRATION}{$END_TCORNERS}
+		<div class="tablebg">
+	    	<div class="row1" align="center">
+				<div width="90%">
+					<!-- IF S_SHOW_COPPA -->
+					<p class="gen" align="center">{L_COPPA_BIRTHDAY}<br /><br /><a href="{U_COPPA_NO}">{L_COPPA_NO}</a> :: <a href="{U_COPPA_YES}">{L_COPPA_YES}</a><br /><br /></p>
+					<!-- ELSE -->
+					<span class="genmed">{L_TERMS_OF_USE}<br /><br /></span>
+					<div align="center">
+						<input class="button" type="submit" id="agreed" name="agreed" value="{L_AGREE}" /> <input class="button" type="submit" name="not_agreed" value="{L_NOT_AGREE}" />
+					</div>
+					<!-- ENDIF -->
+				</div>
+			</div>
+		</div>
+		{$BCORNERS}
+		{S_HIDDEN_FIELDS}
+		{S_FORM_TOKEN}
+	</form>
+	
+<!-- ELSEIF S_AGREEMENT -->
+
+		{$BEGIN_TCORNERS}{SITENAME} - {AGREEMENT_TITLE}{$END_TCORNERS}
+		<div class="tablebg">
+		    <div class="row1" align="left">
+				<p class="gensmall"><a href="{U_BACK}"><strong>&laquo; {L_BACK}</strong></a><br /><br /></p>
+		        <div class="genmed" width="90%" align="center">
+		        	{AGREEMENT_TEXT}
+				</div>
+				<p class="gensmall"><br /><br /><a href="{U_BACK}"><strong>&laquo; {L_BACK}</strong></a></p>
+			</div>
+		</div>
+		{$BCORNERS}
+
+<!-- ENDIF -->
+
+<!-- INCLUDE overall_footer.html -->

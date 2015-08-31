@@ -1,0 +1,73 @@
+<!-- INCLUDE overall_header.html -->
+
+<form action="{S_LOGIN_ACTION}" method="post">
+
+	{$BEGIN_TCORNERS}{L_LOGIN}{$END_TCORNERS}
+	<div class="tablebg">
+		<!-- IF LOGIN_EXPLAIN && not S_ADMIN_AUTH --><div class="row3 gensmall" align="center">{LOGIN_EXPLAIN}</div><!-- ENDIF -->
+		<div class="row1 gensmall">
+			<p align="center"><br />{LOGIN_ERROR}<br /><br /></p>
+
+			<div align="center">
+			    <table border="0" class="formlayout">
+				<tr>
+					<td align="{S_CONTENT_FLOW_END}"><label for="username"><strong>{L_USERNAME}:</strong></label></td>
+					<td align="{S_CONTENT_FLOW_BEGIN}"><input class="post" type="text" id="username" name="{USERNAME_CREDENTIAL}" size="25" value="{USERNAME}" tabindex="1" /></td>
+				</tr>
+				<tr>
+				    <td align="{S_CONTENT_FLOW_END}"><label for="password"><strong>{L_PASSWORD}:</strong></label></td>
+				    <td align="{S_CONTENT_FLOW_BEGIN}"><input class="post" type="password" id="password" name="{PASSWORD_CREDENTIAL}" size="25" tabindex="2" /></td>
+				</tr>
+				<!-- IF S_CONFIRM_CODE -->
+					<tr>
+						<td align="{S_CONTENT_FLOW_END}"><label for="confirm_code">{L_CONFIRM_CODE}:</label></td>
+						<td align="{S_CONTENT_FLOW_BEGIN}"><input type="hidden" name="confirm_id" value="{CONFIRM_ID}" />{CONFIRM_IMAGE}<br /><input type="text" class="post" name="confirm_code" id="confirm_code" size="8" maxlength="8" tabindex="3" title="{L_CONFIRM_CODE}" /></td>
+					</tr>
+					<!-- ENDIF -->
+					<!-- IF S_DISPLAY_FULL_LOGIN -->
+						<!-- IF S_AUTOLOGIN_ENABLED -->
+							<tr>
+								<td align="{S_CONTENT_FLOW_END}"><label for="autologin">{L_LOG_ME_IN}:</label></td>
+								<td align="{S_CONTENT_FLOW_BEGIN}"><input type="checkbox" name="autologin" id="autologin" tabindex="4" class="checkbox" /></td>
+							</tr>
+						<!-- ENDIF -->
+						<tr>
+							<td align="{S_CONTENT_FLOW_END}"><label for="viewonline">{L_HIDE_ME}:</label></td>
+							<td align="{S_CONTENT_FLOW_BEGIN}"><input type="checkbox" name="viewonline" id="viewonline" tabindex="5" class="checkbox" /></td>
+						</tr>
+					<!-- ENDIF -->
+					<tr>
+						<td colspan="2" align="center">{S_HIDDEN_FIELDS}<input type="submit" class="button" name="login" tabindex="6" value="{L_LOGIN}" /></dt>
+					</tr>
+				</table>
+			</div>
+
+			<p align="center">
+				<!-- IF U_SEND_PASSWORD --><br /><strong><a href="{U_SEND_PASSWORD}">{L_FORGOT_PASS}</a><!-- IF S_ADMIN_AUTH --></strong><!-- ENDIF --><!-- ENDIF -->
+				<!-- IF not S_ADMIN_AUTH -->
+				<!-- IF not U_SEND_PASSWORD --><strong><!-- ELSE --> | <!-- ENDIF --><a href="{U_REGISTER}">{L_REGISTER}</a> <!-- IF U_RESEND_ACTIVATION --> | <a href="{U_RESEND_ACTIVATION}">{L_RESEND_ACTIVATION}</a><!-- ENDIF --></strong>
+				<!-- ENDIF -->
+			</p>
+		</div>
+	</div>
+	{$BCORNERS}
+
+    {S_FORM_TOKEN}
+
+</form>
+
+<!-- IF not S_ADMIN_AUTH -->
+	<br />
+	{$BEGIN_TCORNERS}{L_REGISTER}{$END_TCORNERS}
+	<div class="tablebg">
+		<div class="row1 gensmall">
+			<p>{L_LOGIN_INFO}<br /><br /></p>
+			<p align="center"><strong><a href="{U_TERMS_USE}">{L_TERMS_USE}</a> | <a href="{U_PRIVACY}">{L_PRIVACY}</a> | <a href="{U_REGISTER}">{L_REGISTER}</a></strong></p>
+		</div>
+	</div>
+	{$BCORNERS}
+<!-- ENDIF -->
+
+<div align="{S_CONTENT_FLOW_END}"><!-- INCLUDE jumpbox.html --></div>
+
+<!-- INCLUDE overall_footer.html -->

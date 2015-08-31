@@ -1,0 +1,24 @@
+<!-- IF not S_USER_LOGGED_IN -->
+
+<form method="post" action="{S_LOGIN_ACTION}">	
+<table width="100%" cellspacing="0">
+<tr>
+<!-- IF SCRIPT_NAME == 'index' -->		
+<td><span class="genmed">{L_USERNAME}:</span><br /><span class="genmed">{L_PASSWORD}:</span></td>
+	<td><input class="post" type="text" name="username" size="10" /><br /><input class="post" type="password" name="password" size="10" /></td>
+		<td nowrap="nowrap"> <!-- IF S_AUTOLOGIN_ENABLED --><span class="genmed">Hatırlasın mı?</span> <input type="checkbox" checked="true" class="radio" name="autologin" /><!-- ENDIF --><br /><input type="submit" class="btnmain" name="login" value="{L_LOGIN}" /> </td>
+<!-- ELSE --><span class="genmed"><a href="{U_LOGIN_LOGOUT}"><strong>{L_LOGIN_LOGOUT}</strong></a>&nbsp;|&nbsp;<!-- IF not S_IS_BOT -->  <a href="{U_REGISTER}"><strong>{L_REGISTER}</strong></a><!-- ENDIF --></span><!-- ENDIF -->
+  </tr>
+</table>
+	{S_FORM_TOKEN}
+	</form>
+<!-- ENDIF -->
+
+<table width="100%" cellspacing="0">
+<tr>
+<td class="genmed">
+<!-- IF not S_IS_BOT -->
+<!-- IF S_USER_LOGGED_IN -->
+{LAST_VISIT_DATE}<br />	
+						<!-- IF S_DISPLAY_PM --> &nbsp;<a href="{U_PRIVATEMSGS}"><img src="{T_THEME_PATH}/images/icon_mini_message.gif" width="12" height="13" alt="*" />&nbsp;{PRIVATE_MESSAGE_INFO}<!-- IF PRIVATE_MESSAGE_INFO_UNREAD -->, {PRIVATE_MESSAGE_INFO_UNREAD}<!-- ENDIF --></a><!-- ENDIF --><!-- ENDIF -->
+<!-- ENDIF --></td></tr></table>
